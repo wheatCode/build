@@ -1,0 +1,108 @@
+* {
+    font-family: 微軟正黑體;
+}
+
+@media (max-width: 575.98px) {
+
+    .maxWidth {
+        min-width: 33.33vw;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    .maxWidth {
+        min-width: 33.33vw;
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    .maxWidth {
+        min-width: 30vw;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .maxWidth {
+        min-width: 30vw;
+    }
+}
+
+
+.minHeight {
+    min-Height: calc(100vh - ( 65px + 48px));
+}
+
+.bgdark {
+    background-color: #212529;
+}
+
+.fontsm {
+    font-size: 15px;
+}
+
+.block {
+    display: block!important;
+}
+
+select option {
+    width: 80%!important;
+}
+
+/**/
+
+.bd-l {
+    border-left: none;
+}
+
+.text-white {
+    color: white!important;
+}
+
+/*input {
+    */
+
+/*    max-width: 50%;*/
+
+/*}*/
+
+/*#min-h {*/
+
+/*    min-height: calc( 100vh - ( 46px + 100px));*/
+
+/*}*/
+
+/*label {*/
+
+/*    width: 100px;*/
+
+/*}*/
+
+/*.row {*/
+
+/*    margin-top: 50px;*/
+
+/*}*/
+
+/*.bg {*/
+
+/*    border: 1px solid;*/
+
+/*    border-radius: 10px;*/
+
+/*    padding: 30px;*/
+
+/*    margin: 20px 0;*/
+
+/*}*/
+
+/*.Btn {*/
+
+/*    width: 50px;*/
+
+/*    height: 50px;*/
+
+/*    background: white;*/
+
+/*}*/

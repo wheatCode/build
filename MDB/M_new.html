@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>list</title>
+    <!-- Font Awesome -->
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark flex w-100 z-index999">
+            <a class="navbar-brand" href="E_manage.html"><img src="http://www.huayulien.com/wp-content/uploads/2015/04/H-logo-e1429491876768.png" class="img-fluid flex-center"></a>
+
+            <ul class="navbar-nav nav-flex-icons mr-auto">
+
+                <li class="nav-item">
+                    <a href="All_manage.html" class="nav-link">
+                        <p class="white-text">使用者管理</p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a href="C_manage.html" class="nav-link">
+                        <p class="white-text">案件管理</p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a href="RC_manage.html" class="nav-link">
+                        <p class="white-text">廠商管理</p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a href="Com_manage.html" class="nav-link">
+                        <p class="white-text">建案管理</p>
+                    </a>
+                </li>
+            </ul>
+
+
+            <ul class="navbar-nav nav-flex-icons ml-auto">
+                <li class="dropdown ">
+                    <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-bell white-text fa-10x mt-1" aria-hidden="true"></i> 
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="case.html">編號:B123456----案件已逾期</a>
+                        <a class="dropdown-item" href="case.html">編號:C983147----案件已逾期</a>
+                        <a class="dropdown-item" href="case.html">編號:F373991----案件已逾期</a>
+                    </div>
+                </li>
+
+
+
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user-circle fa-2x white-text" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">登出</a>
+                    </div>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <div class="container" style="padding-top:75px">
+        <div class="row">
+            
+
+            <div class="col-lg-10 col-md-7">
+                <div class="w-100 p-2  borderB">
+                    <h1 class="bold">編輯副理資料</h1>
+                </div>
+
+                <!-- Default input 名字 -->
+                <div class="md-form mt-3 mb-0">
+                    <i class="fa fa-user prefix grey-text text-center"></i>
+                    <input type="text" id="materialFormSubscriptionNameEx" class="form-control mb-0 pb-1" readonly="readonly" value="童仲彥">
+                    <label for="materialFormSubscriptionNameEx">主任名字</label>
+                </div>
+                <br>
+
+                <!-- Default 所屬建案 -->
+                <div class="md-form my-0">
+                    <i class="fa fa-institution prefix grey-text text-center"></i>
+                    <input type="text" id="materialFormSubscriptionbuildEx" class="form-control mb-0 pb-1" value="晶華七期" readonly="readonly">
+                    <label for="materialFormSubscriptionbuildEx">負責建案</label>
+                </div>
+                <br>
+
+                <!-- Default 住址 -->
+                <div class="md-form my-0">
+                    <i class="fa fa-home prefix grey-text text-center"></i>
+                    <input type="text" id="materialFormSubscriptionhomeEx" class="form-control mb-0 pb-1" value="台中市南區仁和路20-2" readonly="readonly">
+                    <label for="materialFormSubscriptionhomeEx">住址</label>
+                </div>
+                <br>
+
+                <!-- Default input 電話 -->
+                <div class="md-form my-0">
+                    <i class="fa fa-phone prefix grey-text text-center"></i>
+                    <input type="text" id="materialFormSubscriptionPhoneEx" class="form-control mb-0 pb-1" length="10" value="0912345678">
+                    <label for="materialFormSubscriptionPhoneEx">電話</label>
+                </div>
+                <br>
+
+                <!-- Default E-MAIL -->
+                <div class="md-form my-0">
+                    <i class="fa fa-envelope prefix grey-text text-center"></i>
+                    <input type="email" id="materialFormContactEmailEx" class="form-control mb-0 pb-1" value="hello1234@gmail.com">
+                    <label for="materialFormContactEmailEx">信箱</label>
+                </div>
+                <br>
+
+                <div class="text-center mt-2">
+                    <button class="btn btn-blue darken-4 waves-effect" type="submit">新增<i class="fa fa-paper-plane-o ml-2"></i></button>
+
+                    <button class="btn btn-danger waves-effect" type="submit">取消<i class="fa fa-paper-plane-o ml-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script>
+        // SideNav Button Initialization
+        $(".button-collapse").sideNav();
+        // SideNav Scrollbar Initialization
+        var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+        Ps.initialize(sideNavScrollbar);
+        // SideNav Options
+    </script>
+</body>
+
+</html>

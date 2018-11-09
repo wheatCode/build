@@ -1,0 +1,132 @@
+<!-------(切時間)-------!>
+var t1;
+var da = new Date();
+var ye = da.getFullYear();
+t1 = st(ds[i]['start_datetime']);
+function st(tt1){
+                    var tt3;    
+                    if (tt1.split("-", 1) == ye) { tt3 = tt1.split(" ")[0].split("-")[1] + "-" + tt1.split(" ")[0].split("-")[2] + " " + tt1.split(" ")[1].split(":")[0] + ":" + tt1.split(" ")[1].split(":")[1]; }
+                    else {tt3 = tt1;}
+                    return tt3;
+                };
+<!-------(切時間) -------!>
+
+-->
+
+
+<?php
+
+<!--$secret="test";-->
+
+
+    
+<!--    $header="123";-->
+<!--    $payload="456";-->
+    
+
+<!--    $token=(HMACSHA256(base64UrlEncode($header) + "." + base64UrlEncode($payload)+ "." +$secret));-->
+<!--    echo $token;-->
+
+    $payload = json_encode(['user_id' => 123]);
+
+// Encode Header to Base64Url String
+$base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
+
+// Encode Payload to Base64Url String
+$base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
+
+// Create Signature Hash
+$signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, 'abC123!', true);
+
+// Encode Signature to Base64Url String
+$base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
+
+// Create JWT
+$jwt = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
+
+echo $jwt;
+?>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+
+    </head>
+
+    <body>
+        <?php echo $token;  ?>
+
+    </body>
+
+    </html>
+
+
+
+
+
+    <div class="container">
+        <div class="row " id="min-h">
+            <div class="col-12 px-0">
+                <table class="table table-striped text-center mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="py-1 font-weight-bold h6">維修日期 </th>
+                            <th scope="col" class="py-1 font-weight-bold h6">維修事項</th>
+                            <th scope="col" class="py-1 font-weight-bold h6" style="width:120px">維修狀況</th>
+                        </tr>
+                    </thead>
+                    <tshow_area>
+                        <tr>
+                            <th class="py-1 fontsm"><a onclick="(new case_do_select_action('case','do_select_action','body')).run()">2018/02/11 </a></th>
+                            <td class="py-1 fontsm"><a onclick="(new case_do_select_action('case','do_select_action','body')).run()">壁癌處理 </a></td>
+                            <td class="py-1 fontsm"><a onclick="(new case_do_select_action('case','do_select_action','body')).run()">
+                                        <i class = "fa fa-check light-blue-text" aria-hidden="true"></a></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="py-1 fontsm"><a onclick="(new case_do_select_action('case','do_select_action','body')).run()">2018/02/02</a></th>
+                            <td class="py-1 fontsm"><a onclick="(new case_do_select_action('case','do_select_action','body')).run()">油漆工程</a></td>
+                            <td class="py-1 fontsm"><a onclick="(new case_do_select_action('case','do_select_action','body')).run()">
+                                        <i class="fa fa-check light-blue-text" aria-hidden="true"></a></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="py-1 fontsm">2018/01/03</th>
+                            <td class="py-1 fontsm">水電處理</td>
+                            <td class="py-1 fontsm">
+                                <i class="fa fa-check light-blue-text" aria-hidden="true"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="py-1 fontsm">2017/12/04</th>
+                            <td class="py-1 fontsm">電器處理</td>
+                            <td class="py-1 fontsm">
+                                <i class="fa fa-check light-blue-text" aria-hidden="true"></i>
+                            </td>
+                        </tr>
+                        <tr=>
+                            <th class="py-1 fontsm">2017/11/05</th>
+                            <td class="py-1 fontsm">家具維修</td>
+                            <td class="py-1 fontsm">
+                                <i class="fa fa-check light-blue-text" aria-hidden="true"></i>
+                            </td>
+                            </tr>
+                            <tr=>
+                                <th class="py-1 fontsm">2017/11/01</th>
+                                <td class="py-1 fontsm">其他維修</td>
+                                <td class="py-1 fontsm">
+                                    <i class="fa fa-check light-blue-text" aria-hidden="true"></i>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <th class="py-1 fontsm">2017/10/17</th>
+                                    <td class="py-1 fontsm">其他維修</td>
+                                    <td class="py-1 fontsm">
+                                        <i class="fa fa-check light-blue-text" aria-hidden="true"></i>
+                                    </td>
+                                </tr>
+                    </tshow_area>
+                </table>
+            </div>
+        </div>
+    </div>

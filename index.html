@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="include/lib/MDB/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="include/lib/MDB/css/mdb.min.css" rel="stylesheet">
+    <link href="include/lib/MDB/css/style.css" rel="stylesheet">
+    <link href="include/lib/MDB/css/service.css" rel="stylesheet">
+    <link href="include/lib/MDB/css/star.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <script src="include/js/ActionHandler.js"></script>
+    <script src="modules/login/js_action/login_show_login_page.js" id="login_show_login_page"></script>
+    <script src="modules/login/js_action/login_do_login_action.js" id="login_do_login_action"></script>
+    <script src="modules/home/js_action/home_show_home_page_P.js" id="home_show_home_page_P"></script>
+    <!--<script src="modules/repair_company/js_action/repair_company_show_select_page_P.js" id="repair_company_show_select_page_P"></script>-->
+    <script src="modules/building/js_action/building_show_management_page.js" id="building_show_management_page"></script>
+
+</head>
+
+<body id='meanbody' onload="loadhome()" class="fixed-sn black-skin">
+    <div class="container-fluid px-0 py-0 mx-0 my-0" id='body'></div>
+
+
+
+
+    <script>
+        function loadhome() {
+            (new home_show_home_page_P('home', 'show_home_page_P', 'body')).run();
+        }
+
+    </script>
+
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="include/lib/MDB/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="include/lib/MDB/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="include/lib/MDB/js/mdb.min.js"></script>
+
+    <script>
+        // $('.mdb-select').material_select();
+
+        // var input = $('#manual-operations-input').pickatime({
+        //     autoclose: true,
+        //     'default': 'now'
+        // });
+        // // Manually toggle to the minutes view
+        // $('#check-minutes').click(function(e) {
+        //     e.stopPropagation();
+        //     input.pickatime('show').pickatime('toggleView', 'minutes');
+        // });
+
+        // //時間
+        // $('#input_starttime1-1').pickatime({});
+        // $('#input_starttime1-2').pickatime({});
+        // $('#input_starttime2-1').pickatime({});
+        // $('#input_starttime2-2').pickatime({});
+        // $('#input_starttime3-1').pickatime({});
+        // $('#input_starttime3-2').pickatime({});
+        // //});
+
+        // //set the default value
+        // var txtId = 1;
+        // //add input block in showBlock
+        // $("#btn").click(function() {
+        //     $("#showBlock").append('<div id="div' + txtId + '"><div class="col-4" "><input type="date" class="form-control" name="test[]" id="month1" placeholder="Enter month" /></div><div class="col-4"><input type="text" class="form-control timepicker" name="test[]" id="input_starttime1-1" placeholder="起始時間"/></div><div class="col-4"><input type="text" class="form-control timepicker" name="test[]" id="input_starttime1-2" placeholder="結束時間"/></div><input type="button" value="del" onclick="deltxt(' + txtId + ')"></div>');
+        //     txtId++;
+        // });
+        // //remove div
+        // function deltxt(id) {
+        //     $("#div" + id).remove();
+        // }
+    </script>
+</body>
+
+</html>

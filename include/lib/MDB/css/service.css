@@ -1,0 +1,31 @@
+body {
+    font-family: 微軟正黑體;
+}
+
+.bd-l {
+    border-left: none;
+}
+
+input {
+    max-width: 50%;
+}
+
+#min-h {
+    min-height: calc( 100vh - ( 56px + 72px));
+}
+
+label {
+    width: 100px;
+}
+
+.row {
+    margin-top: 50px;
+}
+
+.checkbox-primary [type="checkbox"]:checked+label:before {
+    border-color: transparent #4bb7fb #4bb7fb transparent;
+}
+
+textarea {
+    resize: none;
+}

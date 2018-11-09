@@ -1,0 +1,528 @@
+<!-----------客戶-------------!>
+1 維修單 緊密一點 維修類型水電同一列 狀況移動下去 時間同一列+時間 全天拿掉 “您的狀況”刪 狀況一行 說明一行23
+2評價加維修內容 
+3通知建案名稱 
+4.不同顏色 通知順序 案名 類別 戶號 說明 日期
+5
+
+<!-----------主任-------------!>
+工務主任APP
+
+1維修單改回舊樣式
+2 通知的格式
+3廠商加每一類 
+選時間畫面 案件詳細放下面 字太小 日期加時間 通知顧客哪個廠商過去 加入輸入時間
+
+<!-----------副理-------------!>
+副理APP
+1.
+
+
+<!-----------後台-------------!>
+1.社區改建案
+2.建案加地址項目
+3.“後臺管理系統”刪掉 基本資料 報修案件 報表 右上加登出和通知“案件超過多久”
+4.工務主任和住戶都是使用者管理
+5.廠商管理 負責人
+6.案件管理 詳細資料 可編輯聯絡狀況 報表管理刪掉
+
+
+
+<!-----------this week-------------!>
+
+1人改所有維修單樣式 41 
+1人後台BAR 通知  05
+1人app通知格式  02 
+1人座除了app通知之外之APP修正 23
+1座除了後台Bar之外之後台修正 37
+
+
+
+<!-----------this week(5/5)-------------!>
+
+E case 項目分類OK 完成日期OK 描述排版 select字小 首頁下面那條調整ok 完成日期刪掉OK
+PC 新增使用者下拉式OK
+app 上方下拉式分類通知OK
+E case、casefinal、e_progress維修項目、原因修改OK
+E case、casefinal、e_progress維修單新增分類OK
+建案刪除紐  ok
+
+
+<!-----------this week(5/10)-------------!>
+
+(meeting完後待討論事項)
+E APP case 時間表單整合  ok
+建案管理table加負責人(工務主任)  ok
+
+後臺工具列改row-col式
+
+設定多種廠商類型  ok
+後台新增維修單 ok
+顧客端app只顯示一個禮拜內的維修紀錄 ok
+客戶報修時可以上傳照片或錄影 ok
+維修專線轉接(聯絡我們)
+廠商端APP待確認
+
+<!-----------this week(5/15)-------------!>
+
+e_progress add time
+
+
+
+資料庫設計
+使用者 ( User )
+    使用者編號 User_ID (主鍵)     VARCHAR
+    使用者帳號 User_account  VARCHAR
+    使用者密碼 User_password VARCHAR
+    使用者名稱 User_Name     VARCHAR
+    使用者型態 User_type     VARCHAR
+    使用者電話 User_phone    INT
+    使用者戶號 User_num      VARCHAR
+    保固期限   User_warrenty DATE
+    建案編號   User_Building_ID(連Building_ID) VARCHAR
+    
+通知Notice
+    通知編號   Notice_ID (主鍵)    VARCHAR
+    通知類型編號 Notice_type_ID VARCHAR
+    案件編號   Case_ID VARCHAR
+    通知名稱 Notice_name VARCHAR
+    使用者編號 User_ID     VARCHAR
+    
+通知類型Notice_Type
+    通知類型編號 Notice_Type_ID (主鍵) VARCHAR
+    通知類型名稱 Notice_Type_Name(useless) VARCHAR
+  
+案件Case
+    案件編號     Case_ID(主鍵)     VARCHAR
+    案件狀態     Case_status       INT
+    使用者編號   User_ID(外鍵)     VARCHAR
+    案件名稱     Case_Name         VARCHAR
+    案件受理日期時間 Case_In_datetime       DATETIME
+    案件完成日期時間 Case_Finish_datetime   DATETIME
+    維修類型     Case_Type(連RCT_ID) INT
+    案件維修原因 Case_Reason       VARCHAR
+    案件詳細資料 Case_Detail       TEXT
+    案件維修照片 Case_Images       VARCHAR(檔名及路徑)
+    案件維修影片 Case_Videos       VARCHAR(檔名及路徑)
+    用戶簽名     Case_Signature    BLOB
+    
+    
+    //////案件維修廠商 Case_Repair_Compony_ID(json型態 多個 連repair_compony_id)  JSON
+    
+    
+    聯絡情況     Case_Contact_text(json型態)  JSON
+    顧客評價     Case_User_Rank  INT
+    顧客評價訊息 Case_User_Message VARCHAR
+
+維修歷程 Repair_History
+    
+    維修歷程編號 Repair_History_ID (主鍵) VARCHAR
+    案件編號     Case_ID (外鍵)           VARCHAR
+    施工日期     Repair_Date              DATE
+    施工時間     Repair_Time             Time
+    施工廠商     Repair_Company_ID (外鍵) VARCHAR
+    工時         Repair_time    VARCHAR
+    維修內容     Repair_Content VARCHAR
+    備註         Repair_History_Note VARCHAR
+
+預約時間 ReserveDate
+    維修歷程編號 Repair_History_ID  VARCHAR                     (預設為空值新增維修歷程在update)
+    預約時間編號 Reserve_Date_ID VARCHAR
+    起始時間     Start_Time time
+    結束時間     End_Time time
+    
+    
+    
+
+建案Building
+     建案編號     Building_ID (主鍵) VARCHAR
+     建案負責人   Building_admin     VARCHAR
+     建案連絡電話 Building_phone     VARCHAR
+     建案戶數     Building_number    INT
+     建案名稱     Building_Name      VARCHAR
+     建案地址     Building_address   VARCHAR
+     工務主任     Engineer_ID(連user_ID) INT
+     
+維修廠商Repair_company
+    維修廠商編號 Repair_company_ID (主鍵) VARCHAR
+    維修廠商名稱 Repair_company_Name      VARCHAR
+    維修廠商負責人 Repair_company_admin   VARCHAR
+    維修廠商地址 Repair_company_Address   VARCHAR
+    維修廠商電話  Repair_company_Phone    INT
+    維修廠商類別  Repair_company_Type(連RCT_ID json格式) 
+    維修廠商項目 Repair_company_Text      VARCHAR
+    
+維修廠商種類 Repair_Company_Type
+    維修廠商種類編號 RCT_ID (主鍵)  VARCHAR
+    維修廠商種類名稱 RCTT_name      VARCHAR
+    
+訊息News
+    訊息編號 News_ID(主鍵)  VARCHAR
+    訊息標題 News_Topic  VARCHAR
+    訊息內容 News_Content VARCHAR
+    訊息網址 News_Url   VARCHAR
+    訊息圖片 News_Image VARCHAR(檔名及路徑)
+    
+    
+    
+    
+    圖檔名稱
+    基本資料表  XXXprofile
+    關聯資料表
+    一對多都分開
+    
+    
+    
+<!-----------this week(7/2)-------------!>
+<!-----報告-----!>
+
+流程圖
+
+<!-----系統-----!>
+
+1.議價流程
+    (1)廠商看照片報價，顧客收到報價通知 決定維修與否
+    (2)先到現場看，再進行報價
+2.廠商端APP
+    (1)能接收報修通知
+    (2)如果1.議價流程是(1)要能發出報價通知
+    
+3.主任退回
+    
+4.主任回報
+
+5.預約時間 時段
+
+
+<!-----模組-----!>
+
+
+
+    include
+        js
+            ActionHandler.js
+        php
+            event_message.php
+            action_listener.php
+            PDO_mysql.php
+            Module.php
+        modules
+            login
+                js_action
+                    login_show_login_page.js
+                    login_do_login_action.js
+                php_action
+                    do_login_action.js
+                action_dispatcher.php
+            home
+                js_action
+                    home_show_home_page.js
+                    home_show_announcement_list.js
+                    home_show_announcement_page.js
+                php_action
+                    show_home_page.php
+                    show_announcement_list_action.php
+                    show_announcement_page.php
+                action_dispatcher.php
+            notice
+                js_action
+                    notice_show_notice_list.js
+                    notice_show_notice_page.js
+                php_action
+                    show_notice_list.php
+                    show_notice_page.php
+                action_dispatcher.php
+            repair
+                js_action
+                    repair_show_apply_date.js
+                    repair_do_insert_apply_date.js
+                    repair_show_repair_history.js
+                    repair_do_insert_repair_history.js
+                php_action
+                    do_insert_apply_date.php
+                    show_repair_history.php
+                    do_insert_repair_history.php
+                    
+                action_dispatcher.php
+            case
+                js_action
+                    
+                    case_show_repair_order.js
+                    case_do_reapir_order.js
+                    case_show_repair_history.js
+                    case
+                php_action
+                    show_repair_hsitory.php
+                    do_reapir_action.php
+                action_dispatcher.php
+            construction_project
+                js_action
+                    construction_project_show_update_page.js
+                    construction_project_show_insert_page.js
+                    construction_project_show_delete_page.js
+                    construction_project_do_insert_page.js
+                    construction_project_do_update_page.js
+                    construction_project_do_delete_page.js
+                    construction_project_do_select_action.js
+                php_action
+                    show_repair_page_action.php
+                    show_update_page_action.php
+                    do_update_action.php
+                    do_insert_action.php
+                    do_delete_action.php
+                    do_select_action.php
+                action_dispatcher.php
+            repair_compony
+                js_action
+                    repair_company_show_update_page.js
+                    repair_compony_show_insert_page.js
+                    repair_compony_show_delete_page.js
+                    repair_compony_do_insert_page.js
+                    repair_compony_do_update_page.js
+                    repair_compony_do_delete_page.js
+                    repair_compony_do_select_action.js
+                    
+                php_action
+                    show_repair_page_action.php
+                    show_update_page_action.php
+                    do_update_action.php
+                    do_insert_action.php
+                    do_delete_action.php
+                    do_select_action.php
+                    
+                repair_company_type
+            
+            user
+                js_action
+                    user_show_update_page.js
+                    user_show_insert_page.js
+                    user_do_insert_page.js
+                    user_do_update_page.js
+                    user_do_select_action.js
+                    user_show_user_list.js
+                    user_setting_page.js
+                    user_do_setting_action.js
+                    
+                php_action
+                    do_setting_action.php
+                    show_user_list.php
+                repair_company_type
+                
+///要分三個 
+<-----------客戶APP------------->
+1. 登入模組(household_profile)
+    login_page
+    do_login
+    logout
+2.通知模組(notice)
+    show_notice_list
+    show_repair_completed_page
+    show_repair_completed_page
+3.維修模組(repair_history_profile,applydate,contact_history)
+    repair_show_repair_page  do_select_action
+    repair_do_repair_action  do_insert_action
+    
+    
+4.案件(case_profile,household_user,repair_type)
+    
+5.建案(household_profile,construction_project,public_facilities)
+    
+6.廠商(repair_company_profile,repair_company_type)
+    
+7.公告模組(announcement,announcement_image)
+    
+    
+<-----------主任APP------------->
+
+2.案件
+    case_profile
+    household_user
+    repair_type
+3.通知
+    notice
+4.廠商
+    repair_company_profile
+    repair_company_type
+5.建案
+    household_profile
+    construction_project
+    public_facilities
+6.維修
+    repair_history_profile
+    applydate
+    contact_history
+
+
+<-----------後台------------->
+1. 登入模組
+    household_profile
+2. 案件
+    case_profile
+    household_user
+    repair_type
+3. 通知
+    notice
+4. 廠商
+    repair_company_profile
+    repair_company_type
+5. 建案
+    household_profile
+    construction_project
+    public_facilities
+6. 公告
+    announcement
+    announcement_image
+7. 維修
+    repair_history_profile
+    applydate
+    contact_history
+
+
+
+
+
+研究jwt
+資料用JWT傳
+
+2.主頁
+    announcement//公告模組
+    announcement_image
+3.通知模組
+    notice
+4.維修模組
+    repair_history_profile
+    applydate 
+    contact_history
+5.案件
+    case_profile
+    household_user
+    repair_type
+6.建案
+    household_profile
+    construction_project
+    public_facilities
+7.廠商
+    repair_company_profile
+    repair_company_type
+8. 使用者
+    user_profile
+
+
+    
+    
+    
+<!-----------this week(7/6)-------------!>
+
+後臺工具列改row-col式 grid_system 
+
+///改客戶///主任退回流程(各case多一個退回案件紐 客戶收到通知退回案件 通知顏色要不一樣)
+
+E/case.html維修單預約時間時段(已有日期 加工務主任手動輸入時間) 
+所有維修單的歷程記錄加一欄時間
+
+<!-----------問題-------------!>
+1.議價流程
+    (1)先到現場看，再進行報價(主任APP(廠商APP)輸入報價，資料庫紀錄)
+2.資料庫 先放系上空間，自己輸
+
+
+
+
+<!-----------this week(7/11)-------------!>
+客戶APP
+
+login module
+1.modules/login/js_action/login_show_login_page.js
+2.modules/login/js_action/login_do_login_action.js
+3.modules/login/js_action/login_do_logout_action.js
+4.modules/login/php_action/do_login_action.php
+5.modules/login/php_action/do_logout_action.php
+6.modules/login/php_action/login_model.php
+
+home
+4.modules/home/js_action/home_show_home_page.js
+5.modules/home/php_action/show_home_page.php
+
+
+<!-----------this week(7/14)-------------!>
+重新設計模組切割
+module cover table
+
+"db_user":"s1104137237",
+"db_password":"a699754332"
+
+
+
+<!-----------this week(7/22)-------------!>
+後臺的公告管理
+
+
+
+
+
+<!-----------問題-----------------!>
+
+jquery引用失敗
+
+
+
+<!-----------this week(8/6)-------------!>
+模組
+動作
+
+
+<!-----------this week(8/27~)-------------!>
+
+
+
+客戶回報問題應該要放在後台的個別案件的詳細畫面裡:(pc-case_show_case_page)
+沒地方看回報問題
+資料庫裡沒有放簽名的地方(大概會是一個pdf檔)
+工務副理可以看到每月的報表(還沒)(後台畫面的篩選功能?)
+JWT
+一般user的畫面不會有公設按鈕
+
+note 有用sess userprofile do_upaate，show_update_page //case_do_reapir_action.php
+
+<!-----------this week(9/10)-------------!>
+通知
+02
+05
+23
+37
+41
+待改 通知字體
+圖片
+jwt
+(名稱用大寫E結尾)
+若客戶有兩棟房子
+
+主任 home login 23
+     case(新案件畫面list)  05
+     case畫面23
+     case(搜尋)
+     notice37
+
+1.現在三個平台放一起 之後再分開嗎(客戶APP、主任APP、後台)?分開 model共用
+2.如果有主任同時是住戶的情況，或是一帳戶兩棟房子
+3.主畫面的新通知數量
+4.工時(單位)
+
+
+
+1.客戶報修
+主任        客戶
+報修通知    
+2.確認時間
+主任        客戶
+            時間確認通知
+3.第二次時間通知
+主任        客戶
+            時間確認通知
+4.評分通知
+主任        客戶
+            評分通知
+5.取消通知
+主任        客戶
+            案件取消通知            
+
