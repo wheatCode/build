@@ -40,7 +40,7 @@
             ini_set ( 'date.timezone' , 'Asia/Taipei' );
 			date_default_timezone_set('Asia/Taipei');
 		    $date=date("Y-m-d")." ".date("H:i:s");
-		    
+		    $date2=date("m/d")." ".date("H:i");
             if($type=="finish"){
                 $case_model->update_case_profile("`status` = 'finish',`end_datetime` = '$date'","id=$case_id");
                 //$data = base64_decode($pdf);
@@ -52,7 +52,7 @@
                 //saving
                 $fileName = $case_id.'.png';
                 file_put_contents("/home/ubuntu/workspace/sign/".$fileName, $fileData);  
-                $notice_model->insert_new_notice('finish',$case_id,'請幫我們做個評分，謝謝!','您的維修已完成');
+                $notice_model->insert_new_notice('finish',$case_id,'請幫我們做個評分，謝謝!','您的維修已完成'.' '.$date2);
                 
             }else if($type =="unfinish")
             {
@@ -60,7 +60,7 @@
             }else if($type =="cancel")
             {
                 $case_model->update_case_profile("`status` = 'cancel'","id=$case_id");
-                $notice_model->insert_new_notice('cancel',$case_id,'您報修的案件已取消','案件取消通知');
+                $notice_model->insert_new_notice('cancel',$case_id,'您報修的案件已取消','案件取消通知'.' '.$date2);
             }
            
             return json_encode($return_value);

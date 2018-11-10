@@ -13,13 +13,14 @@ class repair_show_repair_page extends ActionHandler {
     ajax_success(json_str) {
         var txtId = 2;
         var txtna = 1;
+        var image64 = '';
         $(document).ready(function() {
             $("select").on("change", function() {
                 var s = $("select[name='select1']").val();
-                console.log(s);
+                //console.log(s);
                 var r = $("select[name='select0']").val();
                 if (r) {
-                    console.log(r);
+                    //console.log(r);
                     $("#construction_num").val(r);
                 }
 
@@ -28,14 +29,32 @@ class repair_show_repair_page extends ActionHandler {
             $("#progressbarTWInput").change(function() {
                 $("#preview_progressbarTW_imgs").html(""); // 清除預覽
                 readURL(this);
+                var file = document.querySelector('#progressbarTWInput').files[0];
+                getBase64(file)
                 // console.log(this);
             });
+
+            function getBase64(file) {
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function() {
+                    //console.log(reader.result);
+                    image64 += reader.result;
+                    //document.getElementById('inimg').value = image64;
+                    $("#inimg").val(image64);
+                };
+                reader.onerror = function(error) {
+                    console.log('Error: ', error);
+                };
+            }
+
+
+
 
             function readURL(input) {
                 var str = "";
                 var imgtype = "";
-                //var gs = $("#progressbarTWInput").val(); //獲取圖片url
-                // console.log(gs);
+
                 var src = "";
 
                 //imgtype = gs.toLowerCase().split('.'); //截取圖片格式 png，jpg，是一個數組
@@ -51,21 +70,14 @@ class repair_show_repair_page extends ActionHandler {
                             // $("#preview_progressbarTW_imgs").html(str); //預覽圖片
                             var img = $("<img width='300' height='200'>").attr('src', e.target.result);
                             $("#preview_progressbarTW_imgs").append(img);
+                            //console.log(src);
                         }
-                        console.log(src);
                     }
                 }
                 else {
                     var noPictures = $("<p>目前沒有圖片</p>");
                     $("#preview_progressbarTW_imgs").append(noPictures);
                 }
-            }
-            //add input block in showBlock
-            function deltxt(id) {
-                var di = "div" + id;
-                $(di).detach();
-                txtna = txtna - 1;
-                console.log(txtna);
             }
         });
         try {
@@ -80,7 +92,7 @@ class repair_show_repair_page extends ActionHandler {
                 var content = document.getElementById("case_content");
 
 
-                    var str = `<header>
+                var str = `<header>
                             <!-- Navbar -->
                             <nav class="navbar bgdark text-white">
                                 <div onclick="(new home_show_home_page('home','show_home_page','body')).run()">
@@ -96,57 +108,58 @@ class repair_show_repair_page extends ActionHandler {
                                     <form>`;
 
 
-                    if (obj['check_construction'] == "yes") {
-                        //$("#construction_num").val("over1");
-                        str += `<div class="row">
+                if (obj['check_construction'] == "yes") {
+                    //$("#construction_num").val("over1");
+                    str += `<div class="row">
                                             <div class="col-4">
                                                 <label class="font-weight-bold">報修社區:</label>
                                             </div>
                                             <div class="col-8 form-group">`;
-                        str += '<select class="mdb-select" name="select0" id="select0">';
-                        for (var index = 0; index < obj['construction_data'].length; index++) {
-                            if (index == 0) {
-                                str += '<option value="' + obj['construction_data'][index]['id'] + '" selected>' + obj['construction_data'][index]['name'] + '</option>';
-                                this.conid = obj['construction_data'][index]['id'];
-                            }
-                            else {
-                                str += '<option value="' + obj['construction_data'][index]['id'] + '" >' + obj['construction_data'][index]['name'] + '</option>';
-                            }
+                    str += '<select class="mdb-select" name="select0" id="select0">';
+                    for (var index = 0; index < obj['construction_data'].length; index++) {
+                        if (index == 0) {
+                            str += '<option value="' + obj['construction_data'][index]['id'] + '" selected>' + obj['construction_data'][index]['name'] + '</option>';
+                            this.conid = obj['construction_data'][index]['id'];
                         }
-                        str += '</select>';
-                        str += `</div></div>`;
-                        //var n = $("#select0").val();
-
-
+                        else {
+                            str += '<option value="' + obj['construction_data'][index]['id'] + '" >' + obj['construction_data'][index]['name'] + '</option>';
+                        }
                     }
-                    else if (obj['check_construction'] == "nonono") {
-
-                        alert('此帳號沒有綁定建案， 請聯絡客服');
-                        (new home_show_home_page('home', 'show_home_page', 'body')).run()
-                    }
+                    str += '</select>';
+                    str += `</div></div>`;
+                    //var n = $("#select0").val();
 
 
-                    str += `
+                }
+                else if (obj['check_construction'] == "nonono") {
+
+                    alert('此帳號沒有綁定建案， 請聯絡客服');
+                    (new home_show_home_page('home', 'show_home_page', 'body')).run()
+                }
+
+
+                str += `
                                     <div class="row">
+                                    <div id="inimg" style="display:none"></div>
                                             <div class="col-4">
                                                 <label class="font-weight-bold">維修類型:</label>
                                             </div>
                                             <div class="col-8 form-group">`;
-                    str += '<select class="mdb-select" name="select1">';
-                    for (var index in ds) {
-                        if (ds[index]['name'] == this.repair_type) {
-                            str += '<option value="' + ds[index]['id'] + '"  selected>' + ds[index]['namech'] + '</option>';
+                str += '<select class="mdb-select" name="select1">';
+                for (var index in ds) {
+                    if (ds[index]['name'] == this.repair_type) {
+                        str += '<option value="' + ds[index]['id'] + '"  selected>' + ds[index]['namech'] + '</option>';
 
-                        }
-                        else if (ds[index]['id'] == 4) {
-                            str += "";
-                        }
-                        else {
-                            str += '<option value="' + ds[index]['id'] + '">' + ds[index]['namech'] + '</option>';
-                        }
                     }
-                    str += '</select>';
-                    str += `</div></div>
+                    else if (ds[index]['id'] == 4) {
+                        str += "";
+                    }
+                    else {
+                        str += '<option value="' + ds[index]['id'] + '">' + ds[index]['namech'] + '</option>';
+                    }
+                }
+                str += '</select>';
+                str += `</div></div>
                         <div class="row mt-0 mb-3 pb-0" id="showBlock">
                             <label for="time" class="font-weight-bold col-12">請輸入您方便的時間<a type="button" id="addbtn" value="addItem"><i class="fa fa-plus" aria-hidden="true"></i></a></label>
                             <div class="col-4">
@@ -159,6 +172,7 @@ class repair_show_repair_page extends ActionHandler {
                                 <input placeholder="結束時間" type="text" id="input_starttime1-2" class="form-control timepicker">
                             </div>
                         </div>
+                        
                     <div id="timearea" class="row pl-2 pt-0"></div>
                     <div id="time_err"></div>
                     <div class="row">
@@ -188,7 +202,7 @@ class repair_show_repair_page extends ActionHandler {
                                         
                                                                                   <!--(new repair_do_repair_action('repair','do_repair_action','body')).run()-->
                                     </form>
-                                    <div id="inimg"></div>
+                                    
                                 </div>
                             </div>
                             <script>
@@ -214,7 +228,7 @@ class repair_show_repair_page extends ActionHandler {
                                 
                             </script>
                                 `;
-                
+
                 $('#' + this.position_id).html(str);
                 $(document).ready(function() {
                     //remove div
@@ -292,29 +306,14 @@ class repair_show_repair_page extends ActionHandler {
                     }
 
 
-                    // var image64 = '';
-                    // $("#dorepair").click(function checktime() {
-                    //     //console.log(this.conid);
-                    //     $("#construction_num").val(this.conid);
 
-                    //     function getBase64(file) {
-                    //         var reader = new FileReader();
-                    //         reader.readAsDataURL(file);
-                    //         reader.onload = function() {
-                    //             console.log(reader.result);
-                    //             image64 += reader.result;
-                    //             document.getElementById('inimg').value = image64;
-                    //             //$("#inimg").val(image64);
-                    //             console.log(image64);
-                    //         };
-                    //         reader.onerror = function(error) {
-                    //             console.log('Error: ', error);
-                    //         };
-                    //     }
-                    //     var file = document.querySelector('#progressbarTWInput').files[0];
-                    //     //var file = document.querySelector('#files > input[type="file"]').files[0];
-                    //     //var image = document.getElementById('progressbarTWInput');
-                    //     getBase64(file);
+
+                    $("#dorepair").click(function checktime() {
+                        //console.log(this.conid);
+                        $("#construction_num").val(this.conid);
+
+
+
 
 
                         var t1 = gt();
@@ -471,7 +470,7 @@ class repair_show_repair_page extends ActionHandler {
                                             document.getElementById("time_err").innerHTML = `<p class="red-text">時間選擇有誤</p>`;
                                         }
                                         else {
-                                            document.getElementById("time_err").innerHTML = `<p class="red-text">時間選擇正���</p>`;
+                                            document.getElementById("time_err").innerHTML = `<p class="red-text">時間選擇正確</p>`;
                                             //do repair action;
                                             (new repair_do_repair_action('repair', 'do_repair_action', 'body')).run();
                                         }

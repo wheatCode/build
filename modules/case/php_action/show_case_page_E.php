@@ -28,17 +28,15 @@
                 $household_user_data=$household_model->get_something_from_household_user("*","id=".$case_data[0]['household_user_id']);
                 $return_value['warranty'] = $household_user_data[0]['warranty'];
                 //保固
-                if($household_user_data[0]['household_profile_id'] != null){//一班報修
-                    $return_value['ifpf']="no";
-                    $household_data=$household_model->get_something_from_household_profile("*","id=".$household_user_data[0]['household_profile_id']);
-                    $return_value['household_data']=$household_data;
-                    //戶號地址
-                    $user_data=$user_model->get_something_from_user_profile("name,phone","id=".$household_user_data[0]['user_profile_id']);
-                    $return_value['user_data']=$user_data;
-                    //使用者名稱 電話
-                    $construction_project=$building_model->get_something_from_construction_project("*",$household_data[0]['construction_project_id']);
-                    $return_value['construction_project']=$construction_project[0]['name'];
-                }else if($household_user_data[0]['public_facilities_id'] != null){//公設報修
+                
+                if(file_exists("/home/ubuntu/workspace/case_img/".$case_id.".jpeg")){
+                    $filedata=file_get_contents("/home/ubuntu/workspace/case_img/".$case_id.".jpeg");
+                    $img=base64_encode($filedata);
+                    $img="data:image/jpeg;base64,".$img;
+                    $return_value['case_img'] = $img;
+                    }
+                
+                if($household_user_data[0]['public_facilities_id'] != null){//公設報修
                     $return_value['ifpf']="yes";
                     $pf_data=$household_model->get_something_from_public_facilities("*","id=".$household_user_data[0]['public_facilities_id']);
                     $return_value['pf_data']=$pf_data;
@@ -49,6 +47,17 @@
                     $construction_project=$building_model->get_something_from_construction_project("*",$pf_data[0]['construction_project_id']);
                     $return_value['construction_project']=$construction_project[0]['name'];
                     
+                    
+                }else if($household_user_data[0]['household_profile_id'] != null){//一班報修
+                    $return_value['ifpf']="no";
+                    $household_data=$household_model->get_something_from_household_profile("*","id=".$household_user_data[0]['household_profile_id']);
+                    $return_value['household_data']=$household_data;
+                    //戶號地址
+                    $user_data=$user_model->get_something_from_user_profile("name,phone","id=".$household_user_data[0]['user_profile_id']);
+                    $return_value['user_data']=$user_data;
+                    //使用者名稱 電話
+                    $construction_project=$building_model->get_something_from_construction_project("*",$household_data[0]['construction_project_id']);
+                    $return_value['construction_project']=$construction_project[0]['name'];
                 }else{
                     $return_value['ifpf']="資料庫有誤";
                     //資料庫有誤
@@ -64,11 +73,14 @@
                 $apply_date=$repair_model->get_something_from_applydate("start_Time,end_Time","repair_history_id=".$repair_history_id[0][0]);
                 if($case_data[0]['status']=="finish"){
                     
+                    
+                    
+                    if(file_exists("/home/ubuntu/workspace/sign/".$case_id.".png")){
                     $filedata=file_get_contents("/home/ubuntu/workspace/sign/".$case_id.".png");
                     $sign=base64_encode($filedata);
                     $sign="data:image/png;base64,".$sign;
                     $return_value['sign_img'] = $sign;
-                    
+                    }
                     $return_value['check_finish'] = 10;
                     $return_value['status_message'] = "已完成的案件";
                 }else if($case_data[0]['status']=="unfinish"){

@@ -21,7 +21,7 @@
             $repair_model= new repair_model();
             $repair_company_model=new repair_company_model();
             $check_finish=$case_model->get_something_from_case_profile("status","id=$case_id");
-            $repair_history=$repair_model->get_something_from_repair_history("*","case_id=".$case_id." ORDER BY `repair_history_profile`.`reservetime` ASC");
+            $repair_history=$repair_model->get_something_from_repair_history("*","case_id=".$case_id." ORDER BY `repair_history_profile`.`id` ASC");
             $repair_type=array();
             $repair_com=array();
             for($i=0;$i<sizeof($repair_history);$i++){

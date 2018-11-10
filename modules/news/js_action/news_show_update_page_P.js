@@ -10,12 +10,21 @@ class news_show_update_page_P extends ActionHandler {
         
     }
     prepareArgs() {
-        this.php = false;
+        this.addArgs("nid",this.newsId);
+        this.php = true;
     }
-    showResult(xhttp){
+    ajax_success(xhttp){
+        var json_str = xhttp.responseText;
+        var obj = JSON.parse(json_str);
+        
+        
         var newsTopic =this.newsTopic;
-       
-        console.log(newsTopic);
+        
+        
+        var n1=this.newsContent;
+        $(document).ready(function() {
+            $("#newstextarea").val(n1);
+        });
         
         
                 var content = "";
@@ -23,7 +32,7 @@ class news_show_update_page_P extends ActionHandler {
         <div class="row mt-0">
             <div class="col-lg-12 col-md-7">
                 <div class="w-100 p-2 borderB">
-                    <h1 class="bold">廠商編輯</h1>
+                    <h1 class="bold">新聞編輯</h1>
                 </div>
                 <from>
                 <div class="mt-2">
@@ -32,15 +41,28 @@ class news_show_update_page_P extends ActionHandler {
                  </div> 
                  <div>
                     <label>新聞內容</label>
-                    <input type="text" style="max-width:100%" id="content" class="form-control mb-0 pb-1" value="${this.newsContent}">
+                    <textarea maxlength="200" id="newstextarea" type="text"  class="md-textarea form-control" rows="5"></textarea>
+                    
                  </div>
                  <div>
                     <label hidden>日期</label>
                     <input type="text" style="max-width:100%" id="date" class="form-control mb-0 pb-1" value="${this.newsDate}" hidden>
-                </div>
+                </div>`;
                 
-                        `;
+                
+                
+                
+                if(obj['news_img']){
                     
+                    
+                
+                content+=`
+                <div>
+                    <label hidden>圖片</label>
+                    <img src="${obj['news_img']}">
+                </div>
+                  `;      
+                } 
                 
                     
             content+=`
@@ -60,7 +82,9 @@ class news_show_update_page_P extends ActionHandler {
                 this.loadModuleScript("news", "do_update_action_P");
                 
     }
-          
+    ajax_error(msg) {
+        $('#' + this.position_id).html(msg.status);
+    }      
 }
 
  

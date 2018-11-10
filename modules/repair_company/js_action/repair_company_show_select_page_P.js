@@ -10,6 +10,16 @@ class repair_company_show_select_page_P extends ActionHandler {
 
 ajax_success(xhttp) {
        try {
+           
+           $(document).ready(function() {
+            $("select").on("change", function() {
+                var s = $("select[id='select1']").val();
+                console.log(s);
+                
+
+            });});
+           
+           
        
             this.loadModuleScript("repair_company", "show_update_page_P");
             this.loadModuleScript("repair_company", "show_insert_page_P");
@@ -40,19 +50,19 @@ ajax_success(xhttp) {
                     <span class="bold mr-2">廠商名稱</span><input class="mt-2 mr-2 w-8" style="max-width:8%" type="text" id="selectName">
                     <span class="bold mr-2">廠商負責人</span><input class="mt-2 mr-2 w-8" style="max-width:8%" type="text" id="selectContactor">
                     <span class="bold mr-2">維修類別</span>
-                    <select class="mdb-select md-form" id="selectType">
-                        <option value=""></option>
-                            <option value="1">電機相關</option>
-                            <option value="2">水電報修</option>
+                    <select class="mdb-select md-form" id="select1" >
+                            <option value="0">全部類別</option>
+                            <option value="1">水電報修</option>
+                            <option value="2">電機相關</option>
                             <option value="3">安裝工程</option>
-                            <option value="4">清潔服務</option>
-                            <option value="5">公設維修</option>
-                            <option value="6">家具維修</option>
+                            <option value="4">公設維修</option>
+                            <option value="5">家具維修</option>
+                            <option value="6">清潔服務</option>
                             <option value="7">油漆工程</option>
                             <option value="8">其他維修</option>
                     </select>
                     <button onclick="(new repair_company_do_select_search_action_P('repair_company','do_select_search_action_P','search')).run()" class="btn btn-indigo btn-sm  mx-1">搜尋</button>
-                    <button id="resetForm" class="btn btn-indigo btn-sm  mx-1">清空</button>
+                    <button id="resetForm" class="btn btn-indigo btn-sm  mx-1" >清空</button>
                     
                     
                     <button type="button" class="btn btn-indigo btn-sm mx-3"onclick="(new repair_company_show_insert_page_P('repair_company','show_insert_page_P','body1')).run()">新增維修廠商</button></a>
@@ -120,10 +130,18 @@ ajax_success(xhttp) {
         $('.select-dropdown').css('max-width','100%').css('margin','0').css('height','2rem');
         $('.select-wrapper').css('display','inline-block').css('margin','0').css('max-width','100px');
         $('#resetForm').on('click',function(){
-            $('#selectType option[value=5]').attr('selected', 'selected');
+            
+            $('#select1 option[value=0]').attr('selected', 'selected');
+            console.log($("#select1").val());
+            //console.log($('#select1').attr("option",0));
+            var obj=document.getElementById('select1');
+            obj.options[0].selected=true;
             $('#selectName').val("");
             $('#selectContactor').val("");
-        })
+        });
+        
+        
+        
     }); 
 
         }

@@ -50,38 +50,10 @@
     <script type="text/javascript" src="include/lib/MDB/js/mdb.min.js"></script>
 
     <script>
-        // $('.mdb-select').material_select();
-
-        // var input = $('#manual-operations-input').pickatime({
-        //     autoclose: true,
-        //     'default': 'now'
-        // });
-        // // Manually toggle to the minutes view
-        // $('#check-minutes').click(function(e) {
-        //     e.stopPropagation();
-        //     input.pickatime('show').pickatime('toggleView', 'minutes');
-        // });
-
-        // //時間
-        // $('#input_starttime1-1').pickatime({});
-        // $('#input_starttime1-2').pickatime({});
-        // $('#input_starttime2-1').pickatime({});
-        // $('#input_starttime2-2').pickatime({});
-        // $('#input_starttime3-1').pickatime({});
-        // $('#input_starttime3-2').pickatime({});
-        // //});
-
-        // //set the default value
-        // var txtId = 1;
-        // //add input block in showBlock
-        // $("#btn").click(function() {
-        //     $("#showBlock").append('<div id="div' + txtId + '"><div class="col-4" "><input type="date" class="form-control" name="test[]" id="month1" placeholder="Enter month" /></div><div class="col-4"><input type="text" class="form-control timepicker" name="test[]" id="input_starttime1-1" placeholder="起始時間"/></div><div class="col-4"><input type="text" class="form-control timepicker" name="test[]" id="input_starttime1-2" placeholder="結束時間"/></div><input type="button" value="del" onclick="deltxt(' + txtId + ')"></div>');
-        //     txtId++;
-        // });
-        // //remove div
-        // function deltxt(id) {
-        //     $("#div" + id).remove();
-        // }
+        function ct(){
+                    $('#select1 option[value=0]').attr('selected', 'selected');
+                    console.log($("#select1").val());
+                }
     </script>
 </body>
 

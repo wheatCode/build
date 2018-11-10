@@ -13,7 +13,8 @@
         
             $user = new user_profile_model();
             $data = $user->insert_user_profile($account,$password,$name,$phone,$type);
-            
+            $user_profile_id=$user->get_last_insert();
+            $user->insert_notice_key($user_profile_id);
             return json_encode($data);
         }
     }

@@ -28,7 +28,7 @@
             ini_set ( 'date.timezone' , 'Asia/Taipei' );
 			date_default_timezone_set('Asia/Taipei');
 		    $date=date("Y-m-d")." ".date("H:i:s");
-		    
+		    $date2=date("m/d")." ".date("H:i");
 		    $repair_date = date_create($datetime);
             $repair_date = $repair_date->format('Y/m/d H:i');
             $repair_date = "$repair_date";
@@ -41,7 +41,7 @@
                 $repair_model->update_repair_history("reservetime = '$datetime', repair_company_id='$repair_company_id'" ,"repair_history_profile.id =".$repair_history_id[0][0]);
                 $case_model->update_case_profile("status='unfinish'","id=".$case_id);
                 $contact_model->insert_new_contact($date,$new_contact,$case_id);
-                $notice_model->insert_new_notice('confirm',$case_id,"將於$repair_date進行維修",'時間確認通知');
+                $notice_model->insert_new_notice('confirm',$case_id,"將於".$repair_date."進行維修",'時間確認通知'.'  '.$date2);
             }else{
                 $return_value['status_code'] = 100;
                 $return_value['status_message'] = "沒有收到case_id";

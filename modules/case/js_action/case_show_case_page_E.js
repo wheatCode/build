@@ -17,7 +17,7 @@ class case_show_case_page_E extends ActionHandler {
             if (obj['status_code'] == 0) {
                 var ds = obj['data_set'];
                 console.log(obj);
-                this.loadModuleScript("home", "show_home_page_E");
+                this.loadModuleScript("home", "show_home_page_P");
                 this.loadModuleScript("repair", "show_apply_date_E");
                 this.loadModuleScript("repair_company", "show_repair_company_E");
                 this.loadModuleScript("case", "show_repair_type_E");
@@ -33,18 +33,35 @@ class case_show_case_page_E extends ActionHandler {
                 (new repair_show_repair_history_E('repair', 'show_repair_history_E', 'show_repair_history', obj['case_data'][0]['id'])).run();
                 var content = "";
                 content += `
-            
+                <nav class="navbar bgdark text-white py-1">
+                    <a class="navbar-brand text-right" onclick="(new home_show_home_page_P('home','show_home_page_P','body1')).run()">
+                    <i class="fa fa-chevron-left text-white" aria-hidden="true"></i>
+                </a>
+                    <span class="h6 m-auto pr-3 font30">
+                           維修狀況
+                    </span>
+                </nav>
                 <!-- /.Navbar -->
-            </header>
-        
+            </header>`;
+
+                content += `
             <div class="container mt-4 pt-0 font30 px-0">
                 <div class="row border boxShadow mt-2">
                     <div class="col-12">
                         <div class="row">
                             <div class="col-4">
-                                <span>案名: ` + obj['construction_project'];
+                                <span>案名: `;
+                if (obj['construction_project'] != null) {
+                    content += obj['construction_project'];
+                }
+                else {
+                    content += '找不到建案';
+                }
                 if (obj['case_data'][0]['status'] == 'cancel') {
                     content += '(案件已取消)'
+                }
+                else {
+
                 }
                 content += `</span>
                             </div>
@@ -62,7 +79,11 @@ class case_show_case_page_E extends ActionHandler {
                                 <span>受理日期:</span>
                                 <br>
                                 <span>`;
-                content += st_time_to_min(obj['case_data'][0]['start_datetime']);
+                if (obj['case_data'][0]['start_datetime'] != null) {
+                    content += st_time_to_min(obj['case_data'][0]['start_datetime']);
+                }
+                else { content += '找不到起始時間'; }
+
                 content += `</span>
                             </div>
                             <div class="col-4">
@@ -81,7 +102,12 @@ class case_show_case_page_E extends ActionHandler {
                                 <span>保固期限:</span>
                                 <br>
                                 <span>`;
-                content += st_time_to_date(obj['warranty']);
+                if (obj['warranty'] != null) {
+                    content += st_time_to_date(obj['warranty']);
+                }
+                else {
+                    content += "無保固期限";
+                }
                 content += `</span>
                             </div>
                         </div>
@@ -95,21 +121,45 @@ class case_show_case_page_E extends ActionHandler {
                 else if (obj['ifpf'] == "yes") {
                     content += ` <span>戶號: 公共設施</span>`;
                 }
+                else {
+                    content += '找不到戶號';
+                }
                 content += `
                                 
                             </div>
                             <div class="col-4">
-                                <span>客戶名稱: ` + obj['user_data']['data_set'][0]['name'] + `</span>
+                                <span>客戶名稱: `;
+                if (obj['user_data']['data_set'][0]['name'] != null) {
+                    content += obj['user_data']['data_set'][0]['name'];
+                }
+                else {
+                    content += '找不到客戶名稱'
+                }
+                content += `</span>
                             </div>
                             <div class="col-4">
-                                <span>工務主任: ` + obj['ename'] + `</span>
+                                <span>工務主任: `;
+                if (obj['ename']) {
+                    content += obj['ename'];
+                }
+                else {
+                    content += '找不到工務主任'
+                }
+                content += `</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="row">
                             <div class="col-4">
-                                <span>電話: ` + obj['user_data']['data_set'][0]['phone'] + `</span>
+                                <span>電話: `;
+                if (obj['user_data']['data_set'][0]['phone']) {
+                    content += obj['user_data']['data_set'][0]['phone'];
+                }
+                else {
+                    content += '找不到客戶電話'
+                }
+                content += `</span>
                             </div>
                             <div class="col-4">
         
@@ -128,6 +178,9 @@ class case_show_case_page_E extends ActionHandler {
                 }
                 else if (obj['ifpf'] == "yes") {
                     content += ` <span>公設位置: ` + obj['pf_data'][0]['location'] + `</span>`;
+                }
+                else {
+                    content += `找不到地址`;
                 }
                 content += `
                             </div>
@@ -232,23 +285,35 @@ class case_show_case_page_E extends ActionHandler {
                             <div id="unfinish_err"></div>
                         </div>`;
                 }
-                // content += `
-                //         <div class="col-12">
-                //             <div class="row">
-                //                 <div class="col-6">
-                //                     <span>工務副理: 姚明</span>
-                //                 </div>
-                //                 <div class="col-6">
-                //                     <span>維修經辦: ` + obj['ename'] + `</span>
-                //                 </div>
-                //             </div>
-                //         </div>
-                //     </div>
-                //     `;
+                if (obj['case_img'] != null) {
+                    content += `<div class="ml-4 mr-1 "><button type="button" class="btn btn-danger font30 px-2" data-toggle="modal" data-target="#basicExampleModal1">
+                                          顯示圖片
+                                        </button></div>
+                            
+                            <!-- Modal -->
+                            <div class="modal fade " id="basicExampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog modal-fluid" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">圖片</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body"><img src="${obj['case_img']}"></div>
+                                  <div class="modal-footer">
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                            </div>`;
+                }
                 if (obj['sign_img'] != null) {
                     content += `<div class="col-12 mt-2"><img src="${obj['sign_img']}"></div>`;
                 }
                 if (obj['check_finish'] == 10 && obj['case_data'][0]['user_rank'] != null) {
+
+
                     content += `
                     <div class="col-12 mt-2 ">
                         客戶評價:`;
@@ -259,15 +324,7 @@ class case_show_case_page_E extends ActionHandler {
                         else {
                             content += `<span class="fa fa-star"></span>`;
                         }
-                        // content += `
-                        //     <!--沒辦法就暫時用這個簡單版的 -->
-                        //     <span class="fa fa-star checked"></span>
-                        //     <span class="fa fa-star checked"></span>
-                        //     <span class="fa fa-star checked"></span>
-                        //     <span class="fa fa-star"></span>
-                        //     <span class="fa fa-star"></span>
-                        //     <!--沒辦法就暫時用這個簡單版的 -->
-                        //     `;
+
                     }
                     content += `
                     </div>

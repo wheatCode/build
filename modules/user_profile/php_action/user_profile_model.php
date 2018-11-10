@@ -89,6 +89,24 @@
             // }
             return $return_value;
         }
+        public function insert_notice_key($user_profile_id){
+            $sql="INSERT INTO `notice_key` (`id`, `user_profile_id`, `c_key`, `e_key`) VALUES (NULL, '$user_profile_id', NULL, NULL)";
+            $stmt = $this->conn->prepare($sql);
+            $return_value = $stmt->execute();
+            return $return_value;
+        }
+        //$user_profile_model->update_notice_key_c("'".$device_token_c."'",$userid);
+        public function update_notice_key_c($ckey,$userid){
+            $sql="UPDATE `notice_key` SET `c_key` = $ckey WHERE `notice_key`.`user_profile_id` = $userid;";
+            $stmt = $this->conn->prepare($sql);
+            $return_value = $stmt->execute();
+        }
+        public function update_notice_key_e($ekey,$userid){
+            $sql="UPDATE `notice_key` SET `e_key` = $ekey WHERE `notice_key`.`user_profile_id` = $userid;";
+            $stmt = $this->conn->prepare($sql);
+            $return_value = $stmt->execute();
+        }
+        
     }
     
 ?>

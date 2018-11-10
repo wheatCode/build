@@ -3,10 +3,29 @@
     require_once 'include/php/event_message.php';
     require_once 'modules/user_profile/user_profile_api.php';
     //require_once  'modules/login/php_action/login_model.php';
+    require_once 'modules/user_profile/php_action/user_profile_model.php';
     
     class do_login_action implements action_listener{
         public function actionPerformed(event_message $em) {
             $obj = user_profile_api::check_account($em);
+            session_start();
+            //$post = $em->getPost();
+            if($obj['data_set'][0]['id']!='' && $obj['data_set'][0]['id']!=null){
+                $_SESSION['userid'] = $obj['data_set'][0]['id'];
+                $_SESSION['user'] = $obj['data_set'][0]['name'];
+                $_SESSION['useracc'] = $obj['data_set'][0]['account'];
+            }
+            $post = $em->getPost();
+            $device_token_c = $post['device_token_c'];
+            $device_token_e = $post['device_token_e'];
+            $userid=$_SESSION['userid'];
+            $user_profile_model=new user_profile_model();
+            if($device_token_c != null){
+                $user_profile_model->update_notice_key_c("'$device_token_c'",$userid);
+            }
+            if($device_token_e != null){
+                $user_profile_model->update_notice_key_e("'$device_token_e'",$userid);
+            }
             if($obj['status_code']== 0){ //0為登入成功 -100失敗(帳密錯誤)
                 if($obj['data_set'][0]['id']==4){
                     $obj['status_code']= 1;
@@ -72,13 +91,8 @@
                      echo json_encode($unencodedArray);
                      */
             }
-            session_start();
-            $post = $em->getPost();
-            if($obj['data_set'][0]['id']!='' && $obj['data_set'][0]['id']!=null){
-                $_SESSION['userid'] = $obj['data_set'][0]['id'];
-                $_SESSION['user'] = $obj['data_set'][0]['name'];
-                $_SESSION['useracc'] = $obj['data_set'][0]['account'];
-            }
+            
+            $obj['ckey']=$device_token_c;
             return json_encode($obj);
         }        
     }

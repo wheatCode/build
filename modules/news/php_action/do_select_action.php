@@ -22,10 +22,17 @@
                         array_push($imgarr,$newsi);
                     }
                     else{
-                        $filedata=file_get_contents("/home/ubuntu/workspace/news_img/hyl.jpeg");
+                        if(file_exists("/home/ubuntu/workspace/news_img/hyl.jpeg")){
+                            $filedata=file_get_contents("/home/ubuntu/workspace/news_img/hyl.jpeg");
                         $newsi=base64_encode($filedata);
                         $newsi="data:image/jpeg;base64,".$newsi;
                         array_push($imgarr,$newsi);
+                            
+                        }else{
+                            $newsi="";
+                            array_push($imgarr,$newsi);
+                        }
+                        
                     }
                 }catch (Exception $e) {}
             }

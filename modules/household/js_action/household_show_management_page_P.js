@@ -7,6 +7,7 @@ class household_show_management_page_P extends ActionHandler {
         this.workerid=workerid;
         this.workername=workername;
     }
+    
     prepareArgs() {
         this.php = true;
         this.php_action = 'do_select_action';
@@ -108,7 +109,35 @@ class household_show_management_page_P extends ActionHandler {
             $('#selectName').val("");
             $('#selectContactor').val("");
         })
+        
     }); 
+        //
+//                       _oo0oo_
+//                      o8888888o
+//                      88" . "88
+//                      (| -_- |)
+//                      0\  =  /0
+//                    ___/`---'\___
+//                  .' \\|     |// '.
+//                 / \\|||  :  |||// \
+//                / _||||| -:- |||||- \
+//               |   | \\\  -  /// |   |
+//               | \_|  ''\---/''  |_/ |
+//               \  .-\__  '-'  ___/-. /
+//             ___'. .'  /--.--\  `. .'___
+//          ."" '<  `.___\_<|>_/___.' >' "".
+//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//         \  \ `_.   \_ __\ /__ _/   .-` /  /
+//     =====`-.____`.___ \_____/___.-`___.-'=====
+//                       `=---='
+//
+//
+//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//               佛祖保佑         永無BUG
+//
+//
+//
         this.loadModuleScript(this.module, "show_insert_page");
         this.loadModuleScript(this.module, "show_details_page_P");
         this.loadModuleScript(this.module, "show_update_page_P");

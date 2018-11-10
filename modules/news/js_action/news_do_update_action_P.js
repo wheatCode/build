@@ -8,17 +8,19 @@ class news_do_update_action_P extends ActionHandler {
         this.php = true;
         // this.addArgsById('id');
         
-        this.addArgsbyid('content');
+        this.addArgsbyid('newstextarea');
         this.addArgsbyid('topic');
         this.addArgsbyid('date');
         this.addArgs('newsID',this.newsID);
         
         
         console.log(  
-        $('#content').val(),
+        $('#newstextarea').val(),
         $('#topic').val(),
         $('#date').val(),
-        $('#newsID').val(),
+        
+        
+        
         );
         
         // this.addArgsbyid('service');
@@ -27,7 +29,7 @@ class news_do_update_action_P extends ActionHandler {
         try {
             var json_str = json_str.responseText;
             var obj = JSON.parse(json_str);
-            console.log(obj);
+            //console.log(obj);
             
             if(obj !=""){
                 setTimeout("alert('修改成功')",0);

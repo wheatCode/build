@@ -11,27 +11,41 @@ class repair_show_public_repair_page extends ActionHandler {
     ajax_success(json_str) {
         var txtId = 2;
         var txtna = 1;
+        var image64 = '';
         $(document).ready(function() {
             $("select").on("change", function() {
-                var s = $("select[name='select1']").val();
-                var r = s;
-                console.log(r);
+                //var s = $("select[name='select1']").val();
             });
+
             $("#progressbarTWInput").change(function() {
                 $("#preview_progressbarTW_imgs").html(""); // 清除預覽
                 readURL(this);
-                // console.log(this);
+                var file = document.querySelector('#progressbarTWInput').files[0];
+                getBase64(file)
             });
+
+            function getBase64(file) {
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function() {
+                    //console.log(reader.result);
+                    image64 += reader.result;
+                    //document.getElementById('inimg').value = image64;
+                    $("#inimg").val(image64);
+                };
+                reader.onerror = function(error) {
+                    console.log('Error: ', error);
+                };
+            }
 
             function readURL(input) {
                 var str = "";
                 var imgtype = "";
-                var gs = $("#progressbarTWInput").val(); //獲取圖片url
-                // console.log(gs);
+
                 var src = "";
 
-                imgtype = gs.toLowerCase().split('.'); //截取圖片格式 png，jpg，是一個數組
-                imgtype = imgtype[1]; //選取
+                //imgtype = gs.toLowerCase().split('.'); //截取圖片格式 png，jpg，是一個數組
+                //imgtype = imgtype[1]; //選取
 
                 if (input.files && input.files.length >= 0) {
                     for (var i = 0; i < input.files.length; i++) {
@@ -43,24 +57,8 @@ class repair_show_public_repair_page extends ActionHandler {
                             // $("#preview_progressbarTW_imgs").html(str); //預覽圖片
                             var img = $("<img width='300' height='200'>").attr('src', e.target.result);
                             $("#preview_progressbarTW_imgs").append(img);
+                            //console.log(src);
                         }
-                        console.log(src);
-
-                        // $.ajax({
-
-                        //     url: "module_dispatcher.php?module=" + this.module + "&action="
-                        //     do_uploadphoto_action,
-                        //     type: "post",
-                        //     data: {
-                        //         src: src,
-                        //         imgtype: imgtype
-                        //     },
-                        //     success: function(data) {
-                        //         console.log(data)
-                        //     }
-
-                        // })
-
                     }
                 }
                 else {
@@ -89,6 +87,7 @@ class repair_show_public_repair_page extends ActionHandler {
                                 <div class="form-group">
                                     <form>
                                     <div class="row">
+                                            <div id="inimg" style="display:none"></div>
                                             <div class="col-4">
                                                 <label class="font-weight-bold">維修類型:</label>
                                             </div>

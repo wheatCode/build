@@ -7,9 +7,13 @@
 
     class do_select_search_action_P implements action_listener{
         public function actionPerformed(event_message $em) {
+            $post = $em->getPost();
             $selectName = $_POST['selectName'];
             $selectContactor = $_POST['selectContactor'];
-            $selectType = $_POST['selectType'];
+            //$selectType = $_POST['selectType'];
+            
+            $repair_type_id=$post['repair_type_id'];
+            
             
             if(isset($_SESSION['useracc'])){
 			    $user_id=$_SESSION['userid'];
@@ -19,30 +23,46 @@
             
             
            if($selectName){
-                $where .='name LIKE "%'.$selectName.'%"';
-                if($selectContactor){
-                    $where .=' AND contactor LIKE "%'.$selectContactor.'%"';
-                    
+                $where .='repair_company_profile.name LIKE "%'.$selectName.'%"';
+                if($selectContactor==""){
+                    if($repair_type_id){
+                         $where .=' AND repair_type_id = "'.$repair_type_id.'"';
+                    }
+                }else{
+                    $where .=' AND repair_company_profile.contactor LIKE "%'.$selectContactor.'%"';
+                    if($repair_type_id){
+                         $where .=' AND repair_type_id = "'.$repair_type_id.'"';
+                    }
                 }
             }else if($selectContactor){
-                    $where .='contactor LIKE "%'.$selectContactor.'%"';
+                    $where .='repair_company_profile.contactor LIKE "%'.$selectContactor.'%"';
+                    if($repair_type_id){
+                        $where .=' AND repair_type_id = "'.$repair_type_id.'"';
+                    }
                     
             }
-            else if($selectType){
-                    $where .='namech LIKE "%'.$selectType.'%"';
+            else if($repair_type_id){
+                    $where .='repair_type_id = "'.$repair_type_id.'"';
                     
             }
             else{
-                $where.="1";
+                $where="1";
             }
             
-            $where .=" ORDER BY id DESC"; 
+            $where .=" ORDER BY repair_company_profile.id DESC"; 
             
             
             
             
             $join="JOIN repair_company_type ON repair_company_profile.id=repair_company_type.repair_company_id JOIN repair_type ON repair_company_type.repair_type_id = repair_type.id";
-            $repair_company_data=$repair_company_model->get_something_from_repair_company_join("repair_company_profile.id,repair_company_profile.name,repair_company_profile.contactor,repair_company_profile.address,repair_company_profile.phone,repair_company_type.repair_type_id,repair_company_type.repair_company_id,repair_type.name,repair_type.namech FROM `repair_company_profile`",$join,$where);
+            //$repair_company_data1=$repair_company_model->get_something_from_repair_company_join("repair_company_profile.id,repair_company_profile.name,repair_company_profile.contactor,repair_company_profile.address,repair_company_profile.phone,repair_company_type.repair_type_id,repair_company_type.repair_company_id,repair_type.name,repair_type.namech FROM `repair_company_profile`",$join,$where);
+            $repair_company_data1=$repair_company_model->get_something_from_repair_company_join("*",$join,$where);
+            
+            
+            $repair_company_data=$repair_company_model->get_something_from_repair_company_profile_P("*",$where);
+
+//SELECT * FROM `repair_company_profile` JOIN repair_company_type ON repair_company_profile.id=repair_company_type.repair_company_id JOIN repair_type ON repair_company_type.repair_type_id = repair_type.id where name LIKE "%風城%" ORDER BY repair_company_profile.id DESC
+
 
             $rctid=array();
             $repair_type_name=array();
@@ -58,9 +78,9 @@
             }
     
             $return_value['rctid']=$rctid;
-            
+            $return_value['data']=$repair_company_data1;
             $return_value['status_code'] = 0;
-        
+            $return_value['where']=$where;
             return json_encode($return_value);
         }
     }
