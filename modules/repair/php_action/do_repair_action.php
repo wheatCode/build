@@ -34,19 +34,20 @@
 		    ini_set ( 'date.timezone' , 'Asia/Taipei' );
 			date_default_timezone_set('Asia/Taipei');
 		    $date=date("Y-m-d")." ".date("H:i:s");
+		    $date2=date("m/d")." ".date("H:i");
 			if($household_user!="no"){
 				//$household_user_id = $household_model->get_something_from_household_user("household_profile_id","user_profile_id =".$userid);
 		    	$case_model->insert_new_case($household_user,$repair_type_id,$case_title, $case_content,$date);//insert_new_case($household_user_id,$repair_type_id,$title, $content,$start_datetime)
 				$case_id=$case_model->get_case_id($household_user,$date);
 				// $household_id=get_something_from_household_user('household_profile_id','id='.$household_user);
 				// get_something_from_household_profile('construction_project_id','id='.$household_id[0][0]);
-				$notice_model->insert_new_notice('enew',$case_id,'','新案件通知');
+				$notice_model->insert_new_notice('enew',$case_id,'','新案件通知'.' '.$date2);
 				
 			}else{
 				$household_user_id = $household_model->get_something_from_household_user("household_profile_id","user_profile_id =".$userid);
 		    	$case_model->insert_new_case($household_user_id[0][0],$repair_type_id,$case_title, $case_content,$date);//insert_new_case($household_user_id,$repair_type_id,$title, $content,$start_datetime)
 				$case_id=$case_model->get_case_id($household_user_id[0][0],$date);
-				$notice_model->insert_new_notice('enew',$case_id,'','新案件通知');
+				$notice_model->insert_new_notice('enew',$case_id,'','新案件通知'.' '.$date2);
 				
 			}
 		    // $household_user_id = $household_model->get_something_from_household_user("household_profile_id","user_profile_id =".$userid);

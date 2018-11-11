@@ -20,13 +20,13 @@ class case_do_insert_action_p extends ActionHandler {
             var json_str = json_str.responseText;
             var phpDatas = JSON.parse(json_str);
 
-            if(phpDatas === true){
+            // if(phpDatas === true){
                 setTimeout("alert('新增成功')",0);
                 setTimeout((new case_show_select_page_p('case','show_select_page_p','body1')).run(),1000);
-            }else{
-                setTimeout("alert('新增失敗')",0);
-                setTimeout((new case_show_select_page_p('case','show_select_page_p','body1')).run(),1000);
-           }
+        //     }else{
+        //         setTimeout("alert('新增失敗')",0);
+        //         setTimeout((new case_show_select_page_p('case','show_select_page_p','body1')).run(),1000);
+        //   }
         }catch (e) {
             console.log(e);
         }

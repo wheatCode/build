@@ -25,6 +25,10 @@
             // $repair_type_name=array();
             for( $l=0;$l<sizeof($building);$l++){
                 $li=$household_model->get_something_from_household_profile_P("*","construction_project_id=".$consid);
+                // for($k=0;$k<sizeof($li);$k++){
+                //     $kd = $household_model->get_something_from_household_user_P("*","household_profile_id=".$li[$k]['id']);
+                // }
+                
                 $a=['HOUSEHOLD' => $li];
                 // array_push($rctid,$a);
             }
@@ -34,7 +38,7 @@
                 // $return_value['rctid']=$rctid;
                 // $return_value['1']=$consid;
                 // $return_value['2']=$workid;
-                // $return_value['3']=$workname;
+                // $return_value['3']=$kd;
                 $return_value['4']=$li;
             }
             

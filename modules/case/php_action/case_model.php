@@ -79,6 +79,14 @@
             return $return_value;
 
         }
+        public function get_p_case(){//從case_profile取
+            $sql ="SELECT case_profile.id, start_datetime , repair_type.namech,construction_project.name, household_profile.number, user_profile.name FROM `case_profile` JOIN repair_type ON case_profile.repair_type_id = repair_type.id JOIN household_user ON case_profile.household_user_id = household_user.id JOIN household_profile ON household_profile.id = household_user.household_profile_id JOIN construction_project ON household_profile.construction_project_id = construction_project.id JOIN user_profile ON household_user.user_profile_id= user_profile.id ORDER by case_profile.id DESC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchall();
+            return $result;
+
+        }
     }
     
 ?>

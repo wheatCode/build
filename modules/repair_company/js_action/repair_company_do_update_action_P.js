@@ -11,6 +11,8 @@ class repair_company_do_update_action_P extends ActionHandler {
         this.addArgsbyid('contactor');
         this.addArgsbyid('address');
         this.addArgsbyid('phone');
+        this.addArgsbyid('namech');
+
         this.addArgs('companyID',this.companyID);
         
         
@@ -19,7 +21,9 @@ class repair_company_do_update_action_P extends ActionHandler {
         $('#contactor').val(),
         $('#address').val(),
         $('#phone').val(),
+        $('#namech').val(),
         $('#companyID').val(),
+        
         );
         
         // this.addArgsbyid('service');

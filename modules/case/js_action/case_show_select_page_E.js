@@ -2,7 +2,7 @@ class case_show_select_page_E extends ActionHandler {
     constructor(module, action, position_id) {
         super(module, action);
         this.position_id = position_id;
-        
+
 
     }
     prepareArgs() {
@@ -25,7 +25,7 @@ class case_show_select_page_E extends ActionHandler {
                 var test = obj['test'];
 
 
-
+                console.log(obj);
                 console.log(test);
                 console.log(obj);
                 //console.log(ds[0]); //every user 0-1-2...
@@ -207,8 +207,63 @@ class case_show_select_page_E extends ActionHandler {
 
             }
             else {
-                $('#' + this.position_id).html(obj['status_message']);
-                //console.log(obj['data_set']);
+                var content = "";
+                content += `<div class="container pt-3">
+                <div class="row mt-4">
+                    <div class="col-4">
+                        <span class="h2">案件</span>
+                    </div>
+                    <div class="switch col-6">
+                        <ul class="nav nav-tabs nav-justified bg-indigo">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#Yet_Finish" role="tab">待完成</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#New" role="tab">新案件</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row tab-content card mt-4" id="min-h">
+                    <!--Panel 1-->
+                    <div class="tab-pane fade in show active" id="Yet_Finish" role="tabpanel">
+                        <table class="table table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="py-1 font-weight-bold h4">建案名稱 </th>
+                                    <th scope="col" class="py-1 font-weight-bold h4">維修日期 </th>
+                                    <th scope="col" class="py-1 font-weight-bold h4">維修事項</th>
+                                    <th scope="col" class="py-1 font-weight-bold h4">維修進度</th>
+                                </tr>
+                            </thead>
+                            
+                        </table>
+                    </div>
+                    <!--/.Panel 1-->
+                    <!--Panel 2-->
+                    <div class="tab-pane fade" id="New" role="tabpanel">
+                        <table class="table table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="py-1 font-weight-bold h4">報修類別</th>
+                                    <th scope="col" class="py-1 font-weight-bold h4">待修情形</th>
+                                    <th scope="col" class="py-1 font-weight-bold h4">建案名稱 </th>
+                                    <th scope="col" class="py-1 font-weight-bold h4">戶號</th>
+                                </tr>
+                            </thead>
+                            
+                        </table>
+                    </div>
+                    <!--/.Panel 2-->
+                </div>
+            </div>
+                                            `;
+
+
+
+
+                $('#' + this.position_id).html(content);
+                console.log(obj);
 
             }
 

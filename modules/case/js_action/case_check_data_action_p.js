@@ -27,7 +27,7 @@ class case_check_data_action_p extends ActionHandler {
 number++;
                 }
             }else{
-                data="無此名字，請重新輸入...";
+                data="未找到相關資料，請重新輸入...";
             }
             $('#' + this.position_id).html(data);
         }catch (e) {

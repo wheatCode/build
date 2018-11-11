@@ -13,6 +13,48 @@
             $sql ="INSERT INTO `announcement` (`id`, `topic`, `content`, `date`) VALUES (NULL, '$topic', '$content', '$date');";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
+            
+            $sql ="SELECT c_key FROM notice_key WHERE c_key is not null";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute();
+                $allckey = $stmt->fetchall();
+                $alluser=array();
+                for($i=0;$i<sizeof($allckey);$i++){
+                    array_push($alluser,$allckey[$i]['c_key']);
+                    //$allckey[$i]['c_key'];
+                }
+                $post_json['to'] = $alluser;
+                $post_json['data']['body'] =$content;
+                $post_json['data']['title'] =$topic;
+                $post_json['notification']['body'] =$content;
+                $post_json['notification']['title'] =$topic;
+                $skey = 'AAAAAnytK_o:APA91bGhQ93p3Tdlc2qqJQdo1L1v1fZkLWoXDGZ4dTiJo71snsEDm64C8HdD45UJLp4pWNk1Kr3Vr74ZdQCAHo4eNflvRjqwwGUJDGGcsgJoFMKBvxOtGt2z0VND6P8NAKQWeTD5mSgU';
+                
+                $data = json_encode($post_json);
+                //FCM API end-point
+                $url = 'https://fcm.googleapis.com/fcm/send';
+                //api_key in Firebase Console -> Project Settings -> CLOUD MESSAGING -> Server key
+                $server_key =$skey;
+                //header with content_type api key
+                $headers = array(
+                    'Content-Type:application/json',
+                    'Authorization:key='.$server_key
+                );
+                //CURL request to route notification to FCM connection server (provided by Google)
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                $result = curl_exec($ch);
+                if ($result === FALSE) {
+                    die('Oops! FCM Send Error: ' . curl_error($ch));
+                }
+                curl_close($ch);
+            
         }
         public function get_something_from_news($something,$where){
             $sql ="SELECT $something FROM `announcement` WHERE $where";

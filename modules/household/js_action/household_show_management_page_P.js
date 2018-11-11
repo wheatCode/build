@@ -23,7 +23,7 @@ class household_show_management_page_P extends ActionHandler {
             if (obj['status_code'] === 0) 
             // console.log(obj);
             var ds=obj['4'];
-            console.log(ds);
+            // console.log(ds);
             var str=`
             <div class="row mt-0">
             <div class="col-lg-12 col-md-7">
@@ -45,9 +45,9 @@ class household_show_management_page_P extends ActionHandler {
                                 <th scope="col" class="h5 px-2 bold py-2">戶號</th>
                                 <th scope="col" class="h5 px-0 bold py-2">地址</th>
                                 <th scope="col" class="h5 px-0 bold py-2">詳情</th>
-                                <th scope="col" class="h5 px-0 bold py-2">編輯</th>
-                                <th scope="col" class="h5 px-0 bold py-2">刪除</th>
-                            </tr>
+                                <th scope="col" class="h5 px-0 bold py-2">編輯</th>`;
+                                // <th scope="col" class="h5 px-0 bold py-2">刪除</th>
+                          str+=`  </tr>
                         </thead>
                         <tbody>
                             <tr>`;
@@ -58,7 +58,7 @@ class household_show_management_page_P extends ActionHandler {
                                 str+=`<td class="py-0">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         
-                                         <a type="button" class="btn bg-transparent p-2" onclick="(new household_show_details_page_P('household','show_details_page_P','body2')).run()">
+                                         <a type="button" class="btn bg-transparent p-2" data-toggle="modal" data-target="#modalCart" onclick="(new household_show_details_page_P('household','show_details_page_P','show_area','${ds[i]['id']}','${ds[i]['address']}')).run()">
                                         
                                     <i class="fa fa-building-o fa-lg text-dark"></i>
                                 </a>
@@ -75,16 +75,19 @@ class household_show_management_page_P extends ActionHandler {
                                 </a>
                                     </div>
                                 </td>
+                                <div class="container" id="content"></div>
+                            <div id="show_area">
+                        </div>`;
 
-                                <td class="py-0">
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a type="button" class="btn bg-transparent p-2" onclick="(new household_do_delete_action_P('household','do_delete_action_P','body1','${ds[i]['id']}')).run()">
-                                    <i class="fa fa-close fa-lg text-dark"></i>
-                                </a>
-                                    </div>
-                                </td>
+                                // <td class="py-0">
+                                //     <div class="btn-group" role="group" aria-label="Basic example">
+                                //         <a type="button" class="btn bg-transparent p-2" onclick="(new household_do_delete_action_P('household','do_delete_action_P','body1','${ds[i]['id']}')).run()">
+                                //     <i class="fa fa-close fa-lg text-dark"></i>
+                                // </a>
+                                //     </div>
+                                // </td>
 
-                            </tr>`;
+                           str+=` </tr>`;
                             // }
                                 }
                         str+=`</tobody>
@@ -141,7 +144,7 @@ class household_show_management_page_P extends ActionHandler {
         this.loadModuleScript(this.module, "show_insert_page");
         this.loadModuleScript(this.module, "show_details_page_P");
         this.loadModuleScript(this.module, "show_update_page_P");
-        this.loadModuleScript(this.module, "do_delete_action_P");
+        // this.loadModuleScript(this.module, "do_delete_action_P");
     }
     ajax_error(msg) {}
 }

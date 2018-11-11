@@ -62,7 +62,8 @@ ajax_success(xhttp) {
                             <option value="8">其他維修</option>
                     </select>
                     <button onclick="(new repair_company_do_select_search_action_P('repair_company','do_select_search_action_P','search')).run()" class="btn btn-indigo btn-sm  mx-1">搜尋</button>
-                    <button id="resetForm" class="btn btn-indigo btn-sm  mx-1" >清空</button>
+                   <button onclick="(new repair_company_show_select_page_P('repair_company','repair_company_show_select_page_P','body1')).run()" class="btn btn-indigo btn-sm  mx-1">清空</button>
+
                     
                     
                     <button type="button" class="btn btn-indigo btn-sm mx-3"onclick="(new repair_company_show_insert_page_P('repair_company','show_insert_page_P','body1')).run()">新增維修廠商</button></a>
@@ -108,7 +109,7 @@ ajax_success(xhttp) {
                                 </td>
                                 <td class="py-2">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a type="button" class="btn bg-transparent p-2" onclick="(new repair_company_show_update_page_P('repair_company','show_update_page_P','body1','${ds[cn]['company']['name']}','${ds[cn]['company']['contactor']}','${ds[cn]['company']['address']}','${ds[cn]['company']['phone']}','${ds[cn][0][0][0]["namech"]}','${ds[cn]['company']['id']}','${ds[cn][0][sn][0]["namech"]}')).run()">
+                                        <a type="button" class="btn bg-transparent p-2" onclick="(new repair_company_show_update_page_P('repair_company','show_update_page_P','body1','${ds[cn]['company']['id']}')).run()">
                                     <i class="fa fa-pencil-square-o fa-lg text-dark"></i>
                                 </a>
                                     </div>
@@ -159,3 +160,4 @@ ajax_success(xhttp) {
     }
 
 }
+                    //  <button id="resetForm" class="btn btn-indigo btn-sm  mx-1" >清空</button>

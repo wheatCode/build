@@ -22,10 +22,12 @@
             $repair_type=$case_model->get_something_from_repair_type("id,name,namech","1");
             //SELECT id,household_profile_id FROM `household_user` WHERE household_profile_id is not null AND user_profile_id = 1
             $household=$household_model->get_something_from_household_user("id,household_profile_id","household_profile_id is not null AND user_profile_id = $userid");
+            
+            //if(){}
             if(sizeof($household)>1){
                 //SELECT household_user.id, construction_project.name FROM `household_user` JOIN household_profile ON household_user.household_profile_id=household_profile.id JOIN construction_project ON household_profile.construction_project_id=construction_project.id WHERE household_profile_id is not null AND user_profile_id = 1
                 $join="household_profile ON household_user.household_profile_id=household_profile.id JOIN construction_project ON household_profile.construction_project_id=construction_project.id";
-                $construction_project=$household_model->get_something_from_household_user_join("household_user.id, construction_project.name",$join,"household_profile_id is not null AND user_profile_id = $userid");
+                $construction_project=$household_model->get_something_from_household_user_join("household_user.id, construction_project.name",$join,"household_profile_id is not null AND user_profile_id = $userid AND public_facilities_id IS null");
                 $return_value['check_construction']="yes";
                 $return_value['construction_data']=$construction_project;
             }else if(sizeof($household)==1){

@@ -26,7 +26,8 @@ class news_show_news_page extends ActionHandler {
                                 <span class="h6 m-auto pr-3 py-2">新聞</span>
                             </nav>
                             <!-- /.Navbar -->
-                            </header>`;
+                            </header>
+                            <br/>`;
         str += `<div class="container"><div class="pt-3"></div><div class="row border boxShadow rounded">
                 <div class="col-2"></div>
                 <div class="col-8"><span class="h5 m-0 m-auto pr-3 py-2">${info[0]["topic"]}</span></div>

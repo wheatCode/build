@@ -62,7 +62,9 @@
             
             for($i=0;$i<sizeof($household_user);$i++){
                 $hi=$case_model->get_something_from_case_profile("*","household_user_id=".$household_user[$i][0]." ORDER BY `start_datetime` DESC");
-                array_push($caseall,$hi);
+                
+                if($hi!=null){
+                array_push($caseall,$hi);}
                 for($z=0;$z<sizeof($hi);$z++){
                     $repair_history_id=$repair_model->get_last_repair_history_id($hi[$z]["id"]);
                     $repair_date=$repair_model->get_something_from_repair_history("reservetime","id=".$repair_history_id[0][0]);
@@ -76,6 +78,7 @@
                         //array_push($check_repair_date,"no");
                     }
                 }
+            
             }
             
             
@@ -101,7 +104,7 @@
             
             $reservetime=$repair_model->check_reservetime($case_id);
                 
-            if($caseall){
+            if($caseall !=null){
                 $ds = $caseall;
                 $return_value['status_code'] = 0;
                 $return_value['status_message'] = 'Execute Success';

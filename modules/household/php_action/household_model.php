@@ -42,7 +42,7 @@
 
         }
         public function get_something_from_household_user_P($something,$where){//從household_user取
-            $sql ="SELECT ".$something." FROM `household_user` WHERE $where";
+            $sql ="SELECT ".$something." FROM `household_user` WHERE $where && public_facilities_id IS null";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchall();

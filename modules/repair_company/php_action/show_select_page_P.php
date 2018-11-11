@@ -26,6 +26,10 @@
                 $a=['company' => $repair_company_data[$l],$repair_type_name];
                 array_push($rctid,$a);
             }
+            
+            
+            
+            
             //for($l=0;$l<sizeof($rctid))
             
             // $testtr=array();

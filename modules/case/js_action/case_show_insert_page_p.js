@@ -34,18 +34,15 @@ class case_show_insert_page_p extends ActionHandler {
                 <br>
                    <div class="md-form my-0">
                         <input type="text" id="name" style="max-width:100%" class="form-control my-0 pb-1" value="">
-                        <label for="name">名字</label>
+                        <label for="name">名字(必填)</label>
                     </div>
                     <div class="md-form mt-3 mb-0">
                         <input type="text" id="phone" style="max-width:100%" class="form-control mb-0 pb-1" value="">
-                        <label for="name">電話</label>
+                        <label for="name">電話(必填)</label>
                         <button class="my-2" onclick="(new case_check_data_action_p('case','check_data_action_p','showAddress')).run()" >確認資料</button>
                     </div>
                     <div class="md-form mt-0 mb-3" id="showAddress"></div>
-                    <div class="md-form my-0">
-                        <input type="text" id="caseName" style="max-width:100%" class="form-control mb-0 pb-1" value="">
-                        <label for="caseName" class="mt-2">案件名稱</label>
-                    </div>
+                    
                     <br>
                     <div class="md-form my-0">
                         <input type="text" id="title" style="max-width:100%" class="form-control mb-0 pb-1" value="">
@@ -62,11 +59,11 @@ class case_show_insert_page_p extends ActionHandler {
                     </div>
                      <div class="md-form my-0">
                         <input style="max-width:100%" type="text" id="startTime" class="form-control timepicker">
-                        <label for="content">起始時間</label>
+                        <label for="content">預約起始時間</label>
                     </div>
                      <div class="md-form my-0">
                         <input style="max-width:100%" type="text" id="endTime" class="form-control timepicker">
-                        <label for="content">結束時間</label>
+                        <label for="content">預約結束時間</label>
                     </div>
             </div>
         </div>

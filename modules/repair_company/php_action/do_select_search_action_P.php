@@ -24,17 +24,19 @@
             
            if($selectName){
                 $where .='repair_company_profile.name LIKE "%'.$selectName.'%"';
-                if($selectContactor==""){
+                if($selectContactor){
+                    //$where .='repair_company_profile.contactor LIKE "%'.$selectContactor.'%"';
                     if($repair_type_id){
                          $where .=' AND repair_type_id = "'.$repair_type_id.'"';
                     }
+                    
                 }else{
                     $where .=' AND repair_company_profile.contactor LIKE "%'.$selectContactor.'%"';
                     if($repair_type_id){
                          $where .=' AND repair_type_id = "'.$repair_type_id.'"';
                     }
                 }
-            }else if($selectContactor){
+            }else if($selectContactor !=""){
                     $where .='repair_company_profile.contactor LIKE "%'.$selectContactor.'%"';
                     if($repair_type_id){
                         $where .=' AND repair_type_id = "'.$repair_type_id.'"';
@@ -62,7 +64,7 @@
             $repair_company_data=$repair_company_model->get_something_from_repair_company_profile_P("*",$where);
 
 //SELECT * FROM `repair_company_profile` JOIN repair_company_type ON repair_company_profile.id=repair_company_type.repair_company_id JOIN repair_type ON repair_company_type.repair_type_id = repair_type.id where name LIKE "%風城%" ORDER BY repair_company_profile.id DESC
-
+//SELECT repair_company_profile.name,repair_company_profile.contactor,repair_type.namech,repair_company_profile.id FROM `repair_company_profile` JOIN repair_company_type ON repair_company_profile.id=repair_company_type.repair_company_id JOIN repair_type ON repair_company_type.repair_type_id = repair_type.id  where 1 GROUP by repair_company_profile.id,repair_type.namech
 
             $rctid=array();
             $repair_type_name=array();
@@ -81,6 +83,7 @@
             $return_value['data']=$repair_company_data1;
             $return_value['status_code'] = 0;
             $return_value['where']=$where;
+            $return_value['con']=$selectContactor;
             return json_encode($return_value);
         }
     }

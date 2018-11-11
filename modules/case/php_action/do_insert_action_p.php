@@ -22,7 +22,7 @@
             // $startTime = $startTime01." ".$startTime02;
             
             // $case = new case_model();
-            $data=[$repairTypeId,$caseName,$title,$content,$houseHoldUserId,$startTime,$endTime,$date];
+            //$data=[$repairTypeId,$caseName,$title,$content,$houseHoldUserId,$startTime,$endTime,$date];
             
             $repair_model=new repair_model();
 		    $case_model= new case_model();

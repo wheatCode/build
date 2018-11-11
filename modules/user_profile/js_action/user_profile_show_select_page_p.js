@@ -29,7 +29,8 @@ class user_profile_show_select_page_p extends ActionHandler {
                         <option value="pf_user">管理員</option>
                     </select>
                     <button onclick="(new user_profile_do_select_search_action_p('user_profile','do_select_search_action_p','search')).run()" class="btn btn-indigo btn-sm  mx-1">搜尋</button>
-                    <button id="resetForm" class="btn btn-indigo btn-sm  mx-1">清空</button>
+                    <button onclick="(new user_profile_show_select_page_p('user_profile','show_select_page_p','body1')).run()" class="btn btn-indigo btn-sm  mx-1">清空</button>
+                    
                     <a onclick="(new user_profile_show_insert_page_p('user_profile','show_insert_page_p','body1')).run()"><button type="button" class="btn btn-indigo btn-sm  mx-1 text-white"><i class="fa fa-user fa-lg">新增使用者</i></button></a>
                 </div>
                 <div class="overFlow1">
@@ -89,6 +90,7 @@ class user_profile_show_select_page_p extends ActionHandler {
     this.loadModuleScript("user_profile", "show_update_page_p");
     this.loadModuleScript("user_profile", "do_delete_action_p");
     this.loadModuleScript("user_profile", "do_select_search_action_p");
+    this.loadModuleScript("user_profile", "show_select_page_p");
    $(document).ready(function() {
         $('.mdb-select').material_select();
         $('.caret').css('margin-top','-7px');
@@ -108,3 +110,4 @@ class user_profile_show_select_page_p extends ActionHandler {
 
     }
 }
+// <button id="resetForm" class="btn btn-indigo btn-sm  mx-1">清空</button>

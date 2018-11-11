@@ -33,11 +33,5 @@
             return json_encode($return_value);
         }        
     }
-
-//SELECT * FROM `case_profile` A JOIN `notice` B ON B.case_profile_id=A.id JOIN household_user C ON A.household_user_id=C.id JOIN user_profile D ON C.user_profile_id=D.id WHERE D.id=$user_id
-//SELECT * FROM `case_profile` A JOIN `repair_type` B ON A.repair_type_id=B.id
-
-
-//
 ?>
 

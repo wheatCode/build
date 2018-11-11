@@ -1,24 +1,24 @@
 class repair_company_show_update_page_P extends ActionHandler {
-    constructor(module, action, position_id,companyName,companyContactor,companyAddress,companyPhone,companyType,companyID,companyType2) {
+    constructor(module, action, position_id,companyID) {
         super(module, action);
         this.position_id = position_id;
-        this.companyName= companyName;
-        this.companyContactor= companyContactor;
-        this.companyAddress= companyAddress;
-        this.companyPhone= companyPhone;
-        this.companyType= companyType;
         this.companyID=companyID;
-        this.companyType2= companyType2;
+        
         
     }
     prepareArgs() {
-        this.php = false;
+        this.php = true;
+        this.addArgs('comid',this.companyID);
     }
-    showResult(xhttp){
-        var companyType =this.companyType;
-        var companyType2 =this.companyType2;
-        console.log(companyType);
-        console.log(companyType2);
+    ajax_success(xhttp){
+        
+        var json_str = xhttp.responseText;
+        var obj = JSON.parse(json_str);
+        console.log(obj);
+        //var companyType =this.companyType;
+        //var companyType2 =this.companyType2;
+        //console.log(companyType);
+        //console.log(companyType2);
         
                 var content = "";
                 content+= `
@@ -30,38 +30,37 @@ class repair_company_show_update_page_P extends ActionHandler {
                 <from>
                 <div class="mt-2">
                     <label>廠商名稱</label>
-                    <input type="text" style="max-width:100%" id="name" class="form-control mb-0 pb-1" value="${this.companyName}">
+                    <input type="text" style="max-width:100%" id="name" class="form-control mb-0 pb-1" value="${obj['comall'][0]['name']}">
                  </div> 
                  <div>
                     <label>廠商聯絡人</label>
-                    <input type="text" style="max-width:100%" id="contactor" class="form-control mb-0 pb-1" value="${this.companyContactor}">
+                    <input type="text" style="max-width:100%" id="contactor" class="form-control mb-0 pb-1" value="${obj['comall'][0]['contactor']}">
                  </div>
                  <div>
                     <label>廠商地址</label>
-                    <input type="text" style="max-width:100%" id="address" class="form-control mb-0 pb-1" value="${this.companyAddress}">
+                    <input type="text" style="max-width:100%" id="address" class="form-control mb-0 pb-1" value="${obj['comall'][0]['address']}">
                 </div>
                 <div>
                     <label>廠商電話</label>
-                    <input type="text" style="max-width:100%" id="phone" class="form-control mb-0 pb-1" value="${this.companyPhone}">
+                    <input type="text" style="max-width:100%" id="phone" class="form-control mb-0 pb-1" value="${obj['comall'][0]['phone']}">
                 </div>`;
-                if(companyType==companyType2){
+                
+                var text="";    
+                for(var i in obj['comall']){
+                    text+=obj['comall'][i]['namech'];
+                    
+                }
+                //console.log(text);
                     content+=`
                 <div>
                     <label>廠商類型</label>
-                    <input type="text" style="max-width:100%" id="namech" class="form-control mb-0 pb-1" value="${this.companyType}">
+                    <input type="text" style="max-width:100%" id="namech" class="form-control mb-0 pb-1" value="${text}">
                 </div>
                         `;
                     
-                }
-                else{
-                content+=`
-                <div>
-                    <label>廠商類型</label>
-                    <input type="text" style="max-width:100%" id="namech" class="form-control mb-0 pb-1" value="${this.companyType}${this.companyType2}">
-                </div>
-                        `;
+                
                     
-                }
+                
                     
             content+=`
                     </select>
@@ -80,7 +79,9 @@ class repair_company_show_update_page_P extends ActionHandler {
                 this.loadModuleScript("repair_company", "do_update_action_P");
                 
     }
-          
+    ajax_error(msg) {
+        // $('#' + this.position_id).html(msg.status);
+    }      
 }
 
  

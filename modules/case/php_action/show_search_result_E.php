@@ -37,14 +37,16 @@
                     if($a['end_datetime'] == $b['end_datetime']) return 0;
                     return ($a['end_datetime'] < $b['end_datetime']) ? 1 : -1;
                 }
-                usort($case_data, 'sort_by_end_datetime');
+                if($case_data){
+                    usort($case_data, 'sort_by_end_datetime');
+                }
                 if($case_data){
                     $return_value['status_code'] = 0;
                     $return_value['case_data'] = $case_data;
                     $return_value['pf_case_data']=$case_data2;
                 }else{
                      $return_value['status_code'] = 1;
-                     $return_value['status_message'] = "error";
+                     $return_value['status_message'] = "無維修案件";
                 }
                 
             }else if($end == "condition"){

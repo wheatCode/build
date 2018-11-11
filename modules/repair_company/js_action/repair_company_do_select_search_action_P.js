@@ -1,8 +1,8 @@
 class repair_company_do_select_search_action_P extends ActionHandler {
-    constructor(module, action, position_id,userId) {
+    constructor(module, action, position_id) {
         super(module, action);
         this.position_id = position_id;
-        this.userId = userId;
+        
     }
     prepareArgs() {
         this.php = true;
@@ -16,6 +16,8 @@ class repair_company_do_select_search_action_P extends ActionHandler {
        //console.log(s);
     }
     ajax_success(xhttp) {
+        this.loadModuleScript("repair_company", "show_update_page_P");
+        this.loadModuleScript("repair_company", "do_delete_action_P");
         
          
         
@@ -27,6 +29,8 @@ class repair_company_do_select_search_action_P extends ActionHandler {
             //console.log(json_str);
             var obj = JSON.parse(json_str);
             var string="";
+            console.log(obj['con']);
+            
             console.log(obj['where']);
             console.log(obj['data']);
             if (obj['status_code'] === 0) {
@@ -55,7 +59,7 @@ class repair_company_do_select_search_action_P extends ActionHandler {
                                 </td>
                                 <td class="py-2">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a type="button" class="btn bg-transparent p-2" onclick="(new repair_company_show_update_page_P('repair_company','show_update_page_P','body1','${ds[cn]['name']}','${ds[cn]['contactor']}','${ds[cn]['address']}','${ds[cn]['phone']}','${ds[cn]["namech"]}','${ds[cn]['id']}')).run()">
+                                        <a type="button" class="btn bg-transparent p-2" onclick="(new repair_company_show_update_page_P('repair_company','show_update_page_P','body1','${ds[cn]['repair_company_id']}')).run()">
                                     <i class="fa fa-pencil-square-o fa-lg text-dark"></i>
                                 </a>
                                     </div>

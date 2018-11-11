@@ -34,6 +34,5 @@ class household_do_insert_action extends ActionHandler {
         }
     }
     ajax_error(msg) {
-
     }
 }

@@ -104,9 +104,24 @@
             return $return_value;
 
         }
+        public function update_new_repair_company_type($repair_type_id){
+            $sql="UPDATE repair_company_type SET repair_type_id=:repair_type_id, repair_company_id=:repair_company_id Where repair_company_id=$companyID";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(array(':repair_type_id'=>$repair_type_id ));
+        }
         
        
+        public function get_com_data($where){
+            $sql ="SELECT repair_company_profile.name,repair_company_profile.contactor,repair_type.namech,repair_company_profile.id ,repair_company_profile.address,repair_company_profile.phone FROM `repair_company_profile` JOIN repair_company_type ON repair_company_profile.id=repair_company_type.repair_company_id JOIN repair_type ON repair_company_type.repair_type_id = repair_type.id  where $where GROUP by repair_company_profile.id,repair_type.namech";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchall();
+            if ($result != null) {
+                 $return_value = $result;
+             }
+            return $return_value;   
 
+        }
             
 
         

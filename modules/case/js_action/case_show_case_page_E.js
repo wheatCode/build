@@ -17,7 +17,7 @@ class case_show_case_page_E extends ActionHandler {
             if (obj['status_code'] == 0) {
                 var ds = obj['data_set'];
                 console.log(obj);
-                this.loadModuleScript("home", "show_home_page_P");
+                this.loadModuleScript("case", "show_select_page_p");
                 this.loadModuleScript("repair", "show_apply_date_E");
                 this.loadModuleScript("repair_company", "show_repair_company_E");
                 this.loadModuleScript("case", "show_repair_type_E");
@@ -34,7 +34,7 @@ class case_show_case_page_E extends ActionHandler {
                 var content = "";
                 content += `
                 <nav class="navbar bgdark text-white py-1">
-                    <a class="navbar-brand text-right" onclick="(new home_show_home_page_P('home','show_home_page_P','body1')).run()">
+                    <a class="navbar-brand text-right" onclick="(new case_show_select_page_p('case','show_select_page_p','body1')).run()">
                     <i class="fa fa-chevron-left text-white" aria-hidden="true"></i>
                 </a>
                     <span class="h6 m-auto pr-3 font30">
