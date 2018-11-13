@@ -12,27 +12,24 @@
 		    $post = $em->getPost();
 		    $housepid=$post['housepid'];
             $user_profile_model = new user_profile_model();
+            $user_profile_model_2 = new user_profile_model();
             $household_model =new household_model();
             $houseuser=$household_model->get_something_from_household_user_P("*","household_profile_id=".$housepid);
-            // $test=$user_profile_model->get_something_from_user_profile_p("*",'id=');
+            
             $rctid=array();
-            // for($c=0;$c<=sizeof($houseuser);$c++){
-            //     $li=$user_profile_model->get_something_from_user_profile_p("*","id=".$houseuser[$c]['user_profile_id']);
-            // }
-             for( $l=0;$l<=sizeof($houseuser);$l++){
+             for( $l=0;$l<sizeof($houseuser);$l++){
                 $user_name=$user_profile_model->get_something_from_user_profile_p("*","id=".$houseuser[$l]["user_profile_id"]);
                 
-                // $a=['constructor_search' => $totle[$l],$user_name];
-                // array_push($rctid,$a);
+                $a=['constructor_search' => $user_name];
+                array_push($rctid,$a);
             }
+            $all_user=$user_profile_model_2->get_something_from_user_profile_p("*","1");
             // var_dump($k);
-            if($user_name){
+            if($housepid){
                 $return_value['status_code'] = 0;
-                // $return_value['rctid']=$rctid;
-                // $return_value['1']=$consid;
                 $return_value['2']=$housepid;
-                $return_value['3']=$user_name;
-                $return_value['4']=$houseuser;
+                $return_value['3']=$rctid;
+                $return_value['4']=$all_user;
             }
             
             else{

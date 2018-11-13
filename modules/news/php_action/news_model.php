@@ -23,7 +23,7 @@
                     array_push($alluser,$allckey[$i]['c_key']);
                     //$allckey[$i]['c_key'];
                 }
-                $post_json['to'] = $alluser;
+                $post_json['registration_ids'] = $alluser;
                 $post_json['data']['body'] =$content;
                 $post_json['data']['title'] =$topic;
                 $post_json['notification']['body'] =$content;

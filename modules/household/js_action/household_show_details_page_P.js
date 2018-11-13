@@ -11,88 +11,53 @@ class household_show_details_page_P extends ActionHandler {
         this.addArgs('housepid',this.housepid);
     }
     ajax_success(json_str) {
-        // console.log(json_str);
-        var json_str = json_str.responseText;
-            var obj = JSON.parse(json_str);
-            if (obj['status_code'] === 0) 
-            console.log(obj);
-            // var ds=obj['3'];
-            // console.log(ds);
-        // try {
+        try {
+            var json_str = json_str.responseText;
+                var obj = JSON.parse(json_str);
+                if (obj['status_code'] === 0) 
+                // console.log(obj);
+                var ds=obj['3'];
+                // console.log(ds);
+            var str=`
+            <div class="modal-content" id="show_area">
+            <!--Header-->
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">${this.houseadd}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                      <div class="modal-body" >
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>住戶姓名</th>
+                              <th>Phone</th>
+                            </tr>
+                          </thead>
+                          <tbody>`;
+                          for(var p in ds){
+                            //   for(var k in ds[0]){
+                            str+=`<tr>
+                              <th scope="row">${ds[p]['constructor_search'][0]['id']}</th>
+                              <td>${ds[p]['constructor_search'][0]['name']}</td>
+                              <td>${ds[p]['constructor_search'][0]['phone']}</td>
+                            </tr>`;
+                            //   }
+                          }
+                          str+=`</tbody>
+                        </table>
+                      </div><!--Footer-->
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                                          </div></div>`;
+                $('#' + this.position_id).html(str);
             
-            
-        //     var str=`<!-- Modal: modalCart -->
-        //         <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        //           <div class="modal-dialog" role="document">
-        //             <div class="modal-content">
-        //               <!--Header-->
-        //               <div class="modal-header">
-        //                 <h4 class="modal-title" id="myModalLabel">${this.houseadd} ${this.housepid}</h4>
-        //                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        //                   <span aria-hidden="true">×</span>
-        //                 </button>
-        //               </div>
-        //               <!--Body-->
-        //               <div class="modal-body">
-                
-        //                 <table class="table table-hover">
-        //                   <thead>
-        //                     <tr>
-        //                       <th>#</th>
-        //                       <th>住戶姓名</th>
-        //                       <th>Price</th>
-        //                       <th>Remove</th>
-        //                     </tr>
-        //                   </thead>
-        //                   <tbody>
-        //                     <tr>
-        //                       <th scope="row">1</th>
-        //                       <td>Product 1</td>
-        //                       <td>100$</td>
-        //                       <td><a><i class="fa fa-remove"></i></a></td>
-        //                     </tr>
-        //                     <tr>
-        //                       <th scope="row">2</th>
-        //                       <td>Product 2</td>
-        //                       <td>100$</td>
-        //                       <td><a><i class="fa fa-remove"></i></a></td>
-        //                     </tr>
-        //                     <tr>
-        //                       <th scope="row">3</th>
-        //                       <td>Product 3</td>
-        //                       <td>100$</td>
-        //                       <td><a><i class="fa fa-remove"></i></a></td>
-        //                     </tr>
-        //                     <tr>
-        //                       <th scope="row">4</th>
-        //                       <td>Product 4</td>
-        //                       <td>100$</td>
-        //                       <td><a><i class="fa fa-remove"></i></a></td>
-        //                     </tr>
-        //                     <tr class="total">
-        //                       <th scope="row">5</th>
-        //                       <td>Total</td>
-        //                       <td>400$</td>
-        //                       <td></td>
-        //                     </tr>
-        //                   </tbody>
-        //                 </table>
-                
-        //               </div>
-        //               <!--Footer-->
-        //               <div class="modal-footer">
-        //                 <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-        //                 <button class="btn btn-primary">Checkout</button>
-        //               </div>
-        //             </div>
-        //           </div>
-        //         </div>`;
-        //         $('#' + this.position_id).html(str);
-            
-        // } catch (e) {
-        //     var msg = e + "<br>";
-        //     msg += "JSON String: " + json_str;
-        // }
+        } catch (e) {
+            var msg = e + "<br>";
+            msg += "JSON String: " + json_str;
+        }
     }
     ajax_error(msg) {}
 }

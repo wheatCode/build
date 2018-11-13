@@ -11,7 +11,7 @@ class user_profile_do_insert_action_p extends ActionHandler {
         this.addArgs('password',password);
         this.addArgsbyid('phone');
         this.addArgsbyid('type');
-        
+        this.addArgs('householdid',$('input[name=building]:checked').val());
         console.log(  
         $('#name').val(),
         $('#account').val(),

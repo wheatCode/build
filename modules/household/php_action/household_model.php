@@ -52,6 +52,17 @@
             return $return_value;
 
         }
+        public function update_household_profile_P($housepid,$housepnum,$housepadd,$houseflow){
+            $sql="UPDATE `household_profile` SET number=:number, address=:address, floor=:floor Where id=$housepid";
+            $stmt = $this->conn->prepare($sql);
+            $return_value = $stmt->execute(array(':number'=>$housepnum, ':address'=>$housepadd, ':floor'=>$houseflow));
+            return $return_value;
+        }
+        public function insert_household_user_P($test_test,$housepid){
+            $sql ="INSERT INTO `household_user` (`id`, `user_profile_id`, `household_profile_id`, `warranty`, `public_facilities_id`) VALUES (NULL,$test_test, $housepid, NULL, NULL)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+        }
         public function insert_household_profile($construction_project_id,$number,$address,$floor){
             $sql="INSERT INTO `household_profile` ( `construction_project_id`,`number`,`address`,`floor`) VALUES ( '$construction_project_id','$number','$address','$floor')";
             $stmt = $this->conn->prepare($sql);

@@ -24,7 +24,7 @@ class building_show_management_page extends ActionHandler {
             var obj = JSON.parse(json_str);
             if (obj['status_code'] === 0) 
             var ds=obj['rctid'];
-            console.log(ds);
+            // console.log(ds);
             var str=`
             <div class="row mt-0">
             <div class="col-lg-12 col-md-7">

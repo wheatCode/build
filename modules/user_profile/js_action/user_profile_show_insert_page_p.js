@@ -4,9 +4,31 @@ class user_profile_show_insert_page_p extends ActionHandler {
         this.position_id = position_id;
     }
     prepareArgs() {
-        this.php = false;
+        this.php = true;
     }
-    showResult(xhttp){
+     ajax_success(xhttp){
+         var building_id="";
+         
+         this.loadModuleScript("user_profile","do_check_building_p");
+         $(document).ready(function() {
+            $("select").on("change", function() {
+                building_id = $("select[name='building']").val();
+                console.log(building_id);
+                $("#bid").val(building_id);
+            });
+            $("#checkb1").on("change", function() {
+            var v=$("#checkb1").prop("checked");
+                //console.log(v);
+                
+            });
+              $('.mdb-select').material_select();
+         });
+         
+         
+         var json_str = xhttp.responseText;
+            var obj = JSON.parse(json_str);
+            console.log(obj);
+         
                 var content = "";
                 content+= `
         <div class="row mt-0">
@@ -38,15 +60,44 @@ class user_profile_show_insert_page_p extends ActionHandler {
                 <div>
                     <label>角色</label>
                    <select class="browser-default mt-3 mb-0" id="type">
-                        <option value="user">住戶</option>
+                        <option value="user">使用者</option>
                         <option value="pf_user">管理員</option>
                     </select>
-                </div>
+                </div>`;
+                //<綁定帳號>
+                // content+=`
+                // <div class="row mt-0">
+                //     <label>是否要綁定戶號</label>
+                //     <div class="form-check">
+                //         <input class="form-check-input" type="checkbox" value="" id="checkb1">
+                //         <label class="form-check-label gray-text" for="checkb1">yes</label>
+                //     </div>
                 
+                // <label>建案</label>
+                // <div class="md-form my-0 row pl-3">
+                // <select class="browser-default mt-3 mb-0" id="building" name="building">
+                // <option selected="selected">選擇建案</option>`;
+                // for(var i in obj['building']){
+                // content+=`<option value="${obj['building'][i]["id"]}">${obj['building'][i]["name"]}</option>`;
+                // }        
+                
+                // content+=`
+                // </select>
+                // </div>
+                //     <button onclick="(new user_profile_do_check_building_p('user_profile','do_check_building_p','check_building')).run()" class="btn btn-blue darken-4 waves-effect ml-5">test</button>
+                //     <div id="check_building" class="md-form"></div>
+                //     <div id="bid" class="hidden"></div>
+                // </div>
+                // `;
+                
+                
+                content+=`
                 <br>
                 
                 <div class="mt-2">
                     <button onclick="(new user_profile_do_insert_action_p('user_profile','do_insert_action_p','body1')).run()" class="btn btn-blue darken-4 waves-effect" type="submit">新增</button>
+                    <button onclick="(new user_profile_show_select_page_p('user_profile','show_select_page_p','body1')).run()" class="btn btn-danger text-white waves-effect px-5">取消</button>
+                    
                 </div>
             </div>
         </div>
@@ -57,6 +108,8 @@ class user_profile_show_insert_page_p extends ActionHandler {
                 this.loadScript("include/lib/CryptoJSv3.1.2/rollups/aes.js", "CryptoJS_AES");
                 this.loadModuleScript("user_profile", "do_insert_action_p");
     }
-          
+    ajax_error(msg) {
+        
+    }      
 }
 

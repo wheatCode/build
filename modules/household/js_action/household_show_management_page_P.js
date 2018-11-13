@@ -69,15 +69,22 @@ class household_show_management_page_P extends ActionHandler {
                                 <td class="py-0">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         
-                                         <a type="button" class="btn bg-transparent p-2" onclick="(new household_show_update_page_P('household','show_update_page_P','body1')).run()">
+                                         <a type="button" class="btn bg-transparent p-2" data-toggle="modal" data-target="#modalCart" onclick="(new household_show_update_page_P('household','show_update_page_P','show_area','${ds[i]['number']}','${ds[i]['id']}','${ds[i]['address']}','${ds[i]['floor']}')).run()">
                                         
                                     <i class="fa fa-pencil-square-o fa-lg text-dark"></i>
                                 </a>
                                     </div>
                                 </td>
-                                <div class="container" id="content"></div>
-                            <div id="show_area">
-                        </div>`;
+                                
+                                
+                                <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="true">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content" id="show_area">
+                                         
+                                        </div>
+                                      </div>
+                                    </div>
+                                `;
 
                                 // <td class="py-0">
                                 //     <div class="btn-group" role="group" aria-label="Basic example">
@@ -144,6 +151,7 @@ class household_show_management_page_P extends ActionHandler {
         this.loadModuleScript(this.module, "show_insert_page");
         this.loadModuleScript(this.module, "show_details_page_P");
         this.loadModuleScript(this.module, "show_update_page_P");
+        // this.loadModuleScript(this.module, "do_update_action_P");
         // this.loadModuleScript(this.module, "do_delete_action_P");
     }
     ajax_error(msg) {}
