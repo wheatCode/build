@@ -343,6 +343,7 @@ class repair_show_repair_page extends ActionHandler {
                                         document.getElementById("time_err").innerHTML = `<p class="red-text">時間選擇相同</p>`;
                                     }
                                     else {
+                                        console.log(time1);
                                         if (time1 > time2) {
                                             document.getElementById("time_err").innerHTML = `<p class="red-text">時間選擇有誤</p>`;
                                         }
