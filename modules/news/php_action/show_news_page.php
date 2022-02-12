@@ -33,7 +33,7 @@
                 $return_value['status_code'] = 0;
                 $return_value['status_message'] = 'Execute Success';
                 $return_value['news_info'] = $news_info;
-                $return_value['news_img'] = $newsi;
+                $return_value['news_img'] = "/news_img/".$news_id.".jpeg";
             }
             else{
                 $return_value['status_code'] = -1;

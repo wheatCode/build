@@ -12,7 +12,6 @@ class news_show_news_page extends ActionHandler {
         var json_str = xhttp.responseText;
         //console.log(json_str);
         var obj = JSON.parse(json_str);
-        console.log(1);
 console.log(obj);
         //console.log(obj);
         var info = obj["news_info"];
@@ -24,7 +23,7 @@ console.log(obj);
                                 <div onclick="(new home_show_home_page('home','show_home_page','body','home')).run()">
                                 <i class="fa fa-chevron-left text-white" aria-hidden="true"></i>
                                 </div>
-                                <span class="h6 m-auto pr-3 py-2">新聞111</span>
+                                <span class="h6 m-auto pr-3 py-2">新聞</span>
                             </nav>
                             <!-- /.Navbar -->
                             </header>
