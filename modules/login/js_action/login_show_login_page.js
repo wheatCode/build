@@ -16,7 +16,7 @@ class login_show_login_page extends ActionHandler {
                 <div class="container p-3 mt-5">
                     <form>
                         <div class="text-center mb-3 col-md-12">
-                            <a href="#"><img src="/logo/logo" class="img-fluid flex-center"></a>
+                            <a href="#"><img src="/logo/logo.png" class="img-fluid flex-center"></a>
                         </div>
                         <!-- Material input email -->
                         <div class="md-form text-gray">
