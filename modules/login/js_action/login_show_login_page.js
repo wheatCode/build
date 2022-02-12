@@ -49,6 +49,6 @@ class login_show_login_page extends ActionHandler {
         this.loadScript("include/lib/CryptoJSv3.1.2/rollups/aes.js", "CryptoJS_AES");
         document.getElementById(this.position_id).innerHTML = str;
         // this.loadModuleScript('login', 'do_login_action');
-        this.loadModuleScript('login', 'do_login_action_P');
+        this.loadModuleScript('login', 'do_login_action');
     }
 }

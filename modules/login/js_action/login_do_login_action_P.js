@@ -19,7 +19,12 @@ class login_do_login_action extends ActionHandler {
             var obj = JSON.parse(json_str);
 
             if (obj['status_code'] === 0) { //0為登入成功 -100失敗(帳密錯誤)
-                (new home_show_home_page('home', 'show_home_page', 'body')).run();     
+                //var str = `<button type="button" class="btn btn-success btn-block btn-rounded z-depth-1" onclick="(new home_show_home_page('home', 'show_home_page', 'body')).run()">登入</button>`;
+                //document.getElementById(this.position_id).innerHTML = str;
+                document.getElementById("login_err_msg").innerHTML = `<h2><p class="red-text">請登入主任帳號</p></h2>`;
+            }
+            else if (obj['status_code'] === 1) {
+                (new home_show_home_page_P('home', 'show_home_page_P', 'body')).run();
             }
             else if (obj['status_code'] === -100) {
                 document.getElementById("login_err_msg").innerHTML = `<div><p class="font-small white-text d-flex justify-content-end"></p> <a href="#" class="gray-text ml-1 font-weight-bold">忘記密碼?</a></div><p class="red-text">帳號或密碼錯誤</p>`;
