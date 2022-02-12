@@ -180,7 +180,7 @@ class repair_show_repair_page extends ActionHandler {
                             <label class="font-weight-bold ">待修狀況:</label>
                         </div>
                         <div class="col-8" >
-                            <input type="text" id="case_title" name="" length="30" style="border:1px solid #ced4da;border-radius:2px"/>
+                            <input type="text" id="case_title" name="" length="30" style="border:1px solid #ced4da;border-radius:2px;min-width:100%"/>
                         </div>
                     </div>
                     <div class="col-12">
