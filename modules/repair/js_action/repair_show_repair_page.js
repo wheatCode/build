@@ -251,7 +251,7 @@ class repair_show_repair_page extends ActionHandler {
                         <div class="col-4">
                             <input placeholder="結束時間" type="text" id="input_starttime1-2" style="min-width:100%"class="form-control timepicker">
                         </div>   
-                                                        <div class="col-1 p-0 pr-2">    
+                                                        <div class="col-1">    
                                                                 <button type="button" id="btnd` + txtId + `" class="btn btn-primary m-0 p-0" style="height:38px;width:38px;"  value="del` + txtId + `">
                                                                     X
                                                                 </button>
