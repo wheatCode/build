@@ -246,10 +246,10 @@ class repair_show_repair_page extends ActionHandler {
                             <input type="date" style="min-width:100%"class="form-control" id="date1" placeholder="Enter month">
                         </div>
                         <div class="col-4" >
-                            <input placeholder="起始時間" type="time" id="input_starttime1-1" style="min-width:100%"class="form-control">
+                            <input placeholder="起始時間" type="time" id="input_starttime1-3" style="min-width:100%"class="form-control">
                         </div>
                         <div class="col-4">
-                            <input placeholder="結束時間" type="time" id="input_starttime1-2" style="min-width:100%"class="form-control">
+                            <input placeholder="結束時間" type="time" id="input_starttime1-4" style="min-width:100%"class="form-control">
                         </div>   
                                                         <div class="col-1">    
                                                                 <button type="button" id="btnd` + txtId + `" class="btn btn-primary m-0 p-0" style="height:38px;width:38px;"  value="del` + txtId + `">
