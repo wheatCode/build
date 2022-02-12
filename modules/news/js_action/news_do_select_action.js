@@ -10,7 +10,7 @@ class news_do_select_action extends ActionHandler {
     ajax_success(xhttp) {
         var json_str = xhttp.responseText;
         //console.log(json_str);
-        var obj = JSON.parse(json_str);
+        var obj = JSON.parse(json_str);console.log( obj['news_img']);
         var info = obj['news_info'];
         var img = obj['news_img'];
         this.loadModuleScript("news", "show_news_page");
