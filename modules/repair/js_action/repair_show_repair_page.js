@@ -183,12 +183,14 @@ class repair_show_repair_page extends ActionHandler {
                             <input type="text" id="case_title" name="" length="30" style="border:1px solid #ced4da;border-radius:2px;min-width:100%"/>
                         </div>
                     </div>
+                    <div class="row mt-0">
                     <div class="col-12">
                         <label class="font-weight-bold ">說明:</label>
                         <div class="md-form mt-1 mb-3">
                             <i class="fa fa-pencil prefix grey-text mt-2"></i>
                             <textarea type="text" id="case_content" style="min-width:100%"class="form-control md-textarea ml-4" rows="4"></textarea>
                         </div>
+                    </div>
                     </div>
                                         <div class="col-12">
                                             <div class="md-form row mt-0">
