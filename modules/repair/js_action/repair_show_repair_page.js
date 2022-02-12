@@ -163,13 +163,13 @@ class repair_show_repair_page extends ActionHandler {
                         <div class="row mt-0 mb-3 pb-0" id="showBlock">
                             <label for="time" class="font-weight-bold col-12">請輸入您方便的時間<a type="button" id="addbtn" value="addItem"><i class="fa fa-plus" aria-hidden="true"></i></a></label>
                             <div class="col-4">
-                                <input type="date" class="form-control mr-0" id="date1" placeholder="Enter month">
+                                <input type="date" style="width:100%" class="form-control" id="date1" placeholder="Enter month">
                             </div>
                             <div class="col-4" >
-                                <input placeholder="起始時間" type="text" id="input_starttime1-1" class="form-control mr-0 timepicker">
+                                <input placeholder="起始時間" type="text" id="input_starttime1-1" style="width:100%" class="form-control timepicker">
                             </div>
                             <div class="col-4">
-                                <input placeholder="結束時間" type="text" id="input_starttime1-2" class="form-control mr-0 timepicker">
+                                <input placeholder="結束時間" type="text" id="input_starttime1-2" style="width:100%" class="form-control timepicker">
                             </div>
                         </div>
                         
@@ -187,7 +187,7 @@ class repair_show_repair_page extends ActionHandler {
                         <label class="font-weight-bold ">說明:</label>
                         <div class="md-form mt-1 mb-3">
                             <i class="fa fa-pencil prefix grey-text mt-2"></i>
-                            <textarea type="text" id="case_content" class="form-control mr-0 md-textarea ml-4" rows="4"></textarea>
+                            <textarea type="text" id="case_content" style="width:100%" class="form-control md-textarea ml-4" rows="4"></textarea>
                         </div>
                     </div>
                                         <div class="col-12">
@@ -240,22 +240,22 @@ class repair_show_repair_page extends ActionHandler {
                             if (x) { txtId = 3; }
                             else if (y) { txtId = 2; }
                             else { txtId = 2; }
-                            //$("#timearea").append('<div class="row" id="div' + txtId + '"><div class="col-1"></div><div class="col-3 p-0"><input type="date" class="form-control mr-0" name="test[]" id="date' + txtId + '" placeholder="Enter month" /></div><div class="col-3 p-0"><input type="text" name="test[]" class="form-control mr-0 timepicker" id="input_starttime' + txtId + '-1" placeholder="起始時間"/></div><div class="col-3 p-0"><input type="text" class="form-control mr-0 timepicker" name="test[]"id="input_starttime' + txtId + '-2" placeholder="結束時間"/></div><div class="col-1 p-0 w-32"><button type="button" id="btnd' + txtId + '" class="btn btn-primary m-0 p-0"  style="height:38px;width:38px;" value="del">X</button></div></br>');
+                            //$("#timearea").append('<div class="row" id="div' + txtId + '"><div class="col-1"></div><div class="col-3 p-0"><input type="date" style="width:100%" class="form-control" name="test[]" id="date' + txtId + '" placeholder="Enter month" /></div><div class="col-3 p-0"><input type="text" name="test[]" style="width:100%" class="form-control timepicker" id="input_starttime' + txtId + '-1" placeholder="起始時間"/></div><div class="col-3 p-0"><input type="text" style="width:100%" class="form-control timepicker" name="test[]"id="input_starttime' + txtId + '-2" placeholder="結束時間"/></div><div class="col-1 p-0 w-32"><button type="button" id="btnd' + txtId + '" class="btn btn-primary m-0 p-0"  style="height:38px;width:38px;" value="del">X</button></div></br>');
                             $("#timearea").append(`<div class="row mt-0 pt-0 pl-1 pb-3" id="div` + txtId + `" >
                                                         <div class="col-1"></div>
                                                         <div class="col-3 p-0 pr-2">
                                                             
-                                                            <input type="date" class="form-control mr-0" name="test[]" id="date` + txtId + `" placeholder="Enter month" />
+                                                            <input type="date" style="width:100%" class="form-control" name="test[]" id="date` + txtId + `" placeholder="Enter month" />
                                                             
                                                         </div>
                                                         <div class="col-3 p-0 pr-2">
                                                             
-                                                            <input type="text" name="test[]" class="form-control mr-0 timepicker" id="input_starttime` + txtId + `-1" placeholder="起始時間"/>
+                                                            <input type="text" name="test[]" style="width:100%" class="form-control timepicker" id="input_starttime` + txtId + `-1" placeholder="起始時間"/>
                                                             
                                                         </div>
                                                         <div class="col-3 p-0 pr-2">
                                                             
-                                                                <input type="text" class="form-control mr-0 timepicker" name="test[]" id="input_starttime` + txtId + `-2" placeholder="結束時間"/>
+                                                                <input type="text" style="width:100%" class="form-control timepicker" name="test[]" id="input_starttime` + txtId + `-2" placeholder="結束時間"/>
                                                         </div>    
                                                         <div class="col-1 p-0 pr-2">    
                                                                 <button type="button" id="btnd` + txtId + `" class="btn btn-primary m-0 p-0" style="height:38px;width:38px;"  value="del` + txtId + `">
