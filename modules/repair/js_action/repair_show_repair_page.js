@@ -110,7 +110,7 @@ class repair_show_repair_page extends ActionHandler {
 
                 if (obj['check_construction'] == "yes") {
                     //$("#construction_num").val("over1");
-                    str += `<div class="row">
+                    str += `<div class="row mt-0">
                                             <div class="col-4">
                                                 <label class="font-weight-bold">報修社區:</label>
                                             </div>
@@ -139,7 +139,7 @@ class repair_show_repair_page extends ActionHandler {
 
 
                 str += `
-                                    <div class="row">
+                                    <div class="row mt-0">
                                     <div id="inimg" style="display:none"></div>
                                             <div class="col-4">
                                                 <label class="font-weight-bold">維修類型:</label>
@@ -173,9 +173,9 @@ class repair_show_repair_page extends ActionHandler {
                             </div>
                         </div>
                         
-                    <div id="timearea" class="row pl-2 pt-0"></div>
+                    <div id="timearea" class="row mt-0 pl-2 pt-0"></div>
                     <div id="time_err"></div>
-                    <div class="row">
+                    <div class="row mt-0">
                         <div class="col-4" >
                             <label class="font-weight-bold ">待修狀況:</label>
                         </div>
@@ -191,7 +191,7 @@ class repair_show_repair_page extends ActionHandler {
                         </div>
                     </div>
                                         <div class="col-12">
-                                            <div class="md-form row">
+                                            <div class="md-form row mt-0">
                                                <input type="file" id="progressbarTWInput" accept="image/gif, image/jpeg, image/png" multiple/ >
                                                <div id="preview_progressbarTW_imgs" style="width:100%; height: 300px; overflow:scroll;">
                                                    <p>目前沒有圖片</p>
