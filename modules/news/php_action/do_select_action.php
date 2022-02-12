@@ -29,7 +29,7 @@
                         array_push($imgarr,$newsi);
                             
                         }else{
-                            $newsi="111";
+                            $newsi=$news_id;
                             array_push($imgarr,$newsi);
                         }
                         
