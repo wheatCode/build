@@ -104,7 +104,7 @@ class repair_show_repair_page extends ActionHandler {
                             </header>   
                             <div id="construction_num" style="display:none" value="no"></div>
                             <div class="container px-3 mt-2">
-                                <div class="form-group">
+                                <div class="">
                                     <form>`;
 
 
@@ -114,7 +114,7 @@ class repair_show_repair_page extends ActionHandler {
                                             <div class="col-4">
                                                 <label class="font-weight-bold">報修社區:</label>
                                             </div>
-                                            <div class="col-8 form-group">`;
+                                            <div class="col-8 ">`;
                     str += '<select class="mdb-select" name="select0" id="select0">';
                     for (var index = 0; index < obj['construction_data'].length; index++) {
                         if (index == 0) {
@@ -144,7 +144,7 @@ class repair_show_repair_page extends ActionHandler {
                                             <div class="col-4">
                                                 <label class="font-weight-bold">維修類型:</label>
                                             </div>
-                                            <div class="col-8 form-group">`;
+                                            <div class="col-8">`;
                 str += '<select class="mdb-select" name="select1">';
                 for (var index in ds) {
                     if (ds[index]['name'] == this.repair_type) {
