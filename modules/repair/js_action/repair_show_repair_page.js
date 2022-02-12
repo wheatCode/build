@@ -245,8 +245,8 @@ class repair_show_repair_page extends ActionHandler {
                             <div class="col-4">
                             <input type="date" style="min-width:100%"class="form-control" id="date1" placeholder="Enter month">
                         </div>
-                        <div class="col-4" >
-                            <input placeholder="起始時間" type="text" id="input_starttime1-1" style="min-width:100%"class="form-control timepicker">
+                        <div class="col-4 timepicker" >
+                            <input placeholder="起始時間" type="text" id="input_starttime1-1" style="min-width:100%"class="form-control">
                         </div>
                         <div class="col-4">
                             <input placeholder="結束時間" type="text" id="input_starttime1-2" style="min-width:100%"class="form-control timepicker">
