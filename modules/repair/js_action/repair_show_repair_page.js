@@ -160,7 +160,7 @@ class repair_show_repair_page extends ActionHandler {
                 }
                 str += '</select>';
                 str += `</div></div>
-                        <div class="row mt-0 mb-3 pb-0" id="showBlock">
+                        <div class="row mt-0 mb-3 pb-0" id="">
                             <label for="time" class="font-weight-bold col-12">請輸入您方便的時間<a type="button" id="addbtn" value="addItem"><i class="fa fa-plus" aria-hidden="true"></i></a></label>
                             <div class="col-12 pr-0">
                             <input type="date" style="min-width:100%"class="form-control" id="date1" placeholder="Enter month">
