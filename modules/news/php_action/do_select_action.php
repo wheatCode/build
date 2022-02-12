@@ -29,7 +29,7 @@
                         array_push($imgarr,$newsi);
                             
                         }else{
-                            $newsi=$news_id;
+                            $newsi="/news_img/".$news_id.".jpeg";
                             array_push($imgarr,$newsi);
                         }
                         
