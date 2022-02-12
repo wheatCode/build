@@ -4,11 +4,16 @@
 <head>
     <title>index</title>
     <meta charset="UTF-8">
+	
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<meta http-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -19,26 +24,24 @@
     <link href="include/lib/MDB/css/service.css" rel="stylesheet">
     <link href="include/lib/MDB/css/star.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
+    <link href="include/lib/MDB/css/indexfooter.css" rel="stylesheet">
     <script src="include/js/ActionHandler.js"></script>
     <script src="modules/login/js_action/login_show_login_page.js" id="login_show_login_page"></script>
     <script src="modules/login/js_action/login_do_login_action.js" id="login_do_login_action"></script>
-    <script src="modules/home/js_action/home_show_home_page_P.js" id="home_show_home_page_P"></script>
-    <!--<script src="modules/repair_company/js_action/repair_company_show_select_page_P.js" id="repair_company_show_select_page_P"></script>-->
-    <script src="modules/building/js_action/building_show_management_page.js" id="building_show_management_page"></script>
-
+    <script src="modules/home/js_action/home_show_home_page.js" id="home_show_home_page"></script>
+    <script src="modules/news/js_action/news_do_select_action.js" id="news_do_select_action"></script>
 </head>
 
 <body id='meanbody' onload="loadhome()" class="fixed-sn black-skin">
     <div class="container-fluid px-0 py-0 mx-0 my-0" id='body'></div>
-
+	<div id="device_token_c" style="display:none">
 
 
 
     <script>
         function loadhome() {
-            (new home_show_home_page_P('home', 'show_home_page_P', 'body')).run();
+            (new home_show_home_page('home', 'show_home_page', 'body', 'home')).run();
         }
-
     </script>
 
 
@@ -50,11 +53,20 @@
     <script type="text/javascript" src="include/lib/MDB/js/mdb.min.js"></script>
 
     <script>
-        function ct(){
-                    $('#select1 option[value=0]').attr('selected', 'selected');
-                    console.log($("#select1").val());
-                }
+        $('.mdb-select').material_select();
+
+        var input = $('#manual-operations-input').pickatime({
+            autoclose: true,
+            'default': 'now'
+        });
+        // Manually toggle to the minutes view
+        $('#check-minutes').click(function(e) {
+            e.stopPropagation();
+            input.pickatime('show').pickatime('toggleView', 'minutes');
+        });
     </script>
+	<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>
