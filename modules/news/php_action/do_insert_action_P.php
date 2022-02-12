@@ -31,7 +31,7 @@
 				$img = str_replace(' ', '+', $img);
 				$data = base64_decode($img);
 				$fileName = $news_id.'.jpeg';
-				file_put_contents("/home/ubuntu/workspace/news_img/".$fileName, $data);
+				file_put_contents("/news_img/".$fileName, $data);
 				$return_value['img'] = 'inimg'.$img;
 			}
             

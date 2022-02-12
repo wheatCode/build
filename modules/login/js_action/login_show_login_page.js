@@ -16,7 +16,7 @@ class login_show_login_page extends ActionHandler {
                 <div class="container p-3 mt-5">
                     <form>
                         <div class="text-center mb-3 col-md-12">
-                            <a href="#"><img src="http://www.huayulien.com/wp-content/uploads/2020/11/%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-2.png" class="img-fluid flex-center"></a>
+                            <a href="#"><img src="/logo/logo.png" class="img-fluid flex-center"></a>
                         </div>
                         <!-- Material input email -->
                         <div class="md-form text-gray">
