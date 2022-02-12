@@ -1,10 +1,10 @@
 <?php
 {
     "db": {
-        "db_host":"db.mis.kuas.edu.tw",
-        "db_name":"s1104137237",
-        "db_user":"s1104137237",
-        "db_password":"a699754332"
+        "db_host":"wheat0710.tw",
+        "db_name":"build",
+        "db_user":"wheat0710",
+        "db_password":"wheat0710"
     }
 }
 

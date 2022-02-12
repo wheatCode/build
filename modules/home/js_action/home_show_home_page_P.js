@@ -11,20 +11,14 @@ class home_show_home_page_P extends ActionHandler {
         try {
             var json_str = xhttp.responseText;
             var obj = JSON.parse(json_str);
-            
+            console.log(obj);
             this.loadModuleScript("user_profile", "show_select_page_p");
             this.loadModuleScript("case", "show_select_page_p");
             this.loadModuleScript("repair_company", "show_select_page_P");
             this.loadModuleScript("news", "show_select_page_P");
-            
-
-
-
+            this.loadModuleScript("building","show_management_page");
+            this.loadModuleScript("login", "do_logout_action");
             if (obj['status_code'] === 1) {
-                
-
-
-
                 var str = `
                 <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark flex w-100 z-index999">
@@ -82,7 +76,7 @@ class home_show_home_page_P extends ActionHandler {
                         <i class="fa fa-user-circle fa-2x white-text" aria-hidden="true"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">登出</a>
+                        <a onclick="(new login_do_logout_action('login','do_logout_action','body1')).run()" class="dropdown-item">登出</a>
                     </div>
                 </li>
             </ul>
@@ -94,44 +88,16 @@ class home_show_home_page_P extends ActionHandler {
                     `;
 
                 document.getElementById(this.position_id).innerHTML = str;
-           
-
-
-                // switch (this.blank) {
-                //     case 'home':
-                //         {
-                //             $('#homeb').click();
-                //             break;
-                //         }
-                //     case 'record':
-                //         {
-                //             $('#recordb').click();
-                //             break;
-                //         }
-                //     case 'notice':
-                //         {
-                //             $('#noticeb').click();
-                //             break;
-                //         }
-                //     default:
-                //         {
-                //             $('#homeb').click();
-                //             break;
-                //         }
-
-                // }
-
-
-
             }
             else if (obj['status_code'] == 2) {
+                // alert("後臺管理");
                 (new login_show_login_page("login", "show_login_page", "body")).run();
                 var script = this.loadModuleScript("login", "show_login_page");
+                
             }
             else if (obj['status_code'] == 5) {
                 console.log("dd");
                 (new home_show_home_page_P('home', 'show_home_page_P', 'body')).run();
-                var script = this.loadModuleScript("home", "show_home_page_P");
             }
             else {
                 console.log("Invalid status code " + obj['status_code']);

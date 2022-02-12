@@ -1,22 +1,32 @@
 class news_do_insert_action_P extends ActionHandler {
-    constructor(module, action, position_id) {
+    constructor(module, action, position_id,num) {
         super(module, action);
         this.position_id = position_id;
+        this.num=num;
         // this.newsID=newsID;
     }
     prepareArgs() {
         this.php = true;
         // this.addArgsById('id');
-        
-        this.addArgsbyid('content');
+        var data='';
+        var a=1;
+        for(var i=1;i<=this.num;i++){
+            if(i === this.num){
+                data+=$('#content'+a).val().trim();  
+            }else{
+                data+=$('#content'+a).val().trim()+`<br><br>`;
+            }
+            a++;
+        }
+        this.addArgsbyid('title');
+        this.addArgs('content', data);
         this.addArgsbyid('topic');
-        this.addArgsbyid('inimg');
+        this.addArgsbyid('inimg'); 
 
         // this.addArgs('newsID',this.newsID);
         
-        
         console.log(  
-        $('#content').val(),
+        data,
         $('#topic').val(),
          $('#inimg').val(),
         );
@@ -39,6 +49,6 @@ class news_do_insert_action_P extends ActionHandler {
 
 }
  ajax_error(msg) {
-        console.log(msg.status);
+        // console.log(msg.status);
     }
 }

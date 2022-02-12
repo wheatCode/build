@@ -9,16 +9,18 @@
             //  $data=[]; 
         //   $newsID = $_POST['newsID'];
             $post = $em->getPost();
+            $title =$post['title'];
             $topic = $post['topic'];
             $content = $post['content'];
             $img=$post['inimg'];
+            
 
 
             $news_model = new news_model();
             ini_set ( 'date.timezone' , 'Asia/Taipei' );
 			date_default_timezone_set('Asia/Taipei');
 		    $date=date("Y-m-d");
-            $return_value = $news_model->insert_new_news($topic,$content,$date);
+            $return_value = $news_model->insert_new_news($title,$topic,$content,$date);
             $news_id=$news_model->get_last_insert();
 			$return_value['news_id']=$news_id;
             

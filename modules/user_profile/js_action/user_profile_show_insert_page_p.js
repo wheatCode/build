@@ -61,7 +61,7 @@ class user_profile_show_insert_page_p extends ActionHandler {
                     <label>角色</label>
                    <select class="browser-default mt-3 mb-0" id="type">
                         <option value="user">使用者</option>
-                        <option value="pf_user">管理員</option>
+                        <option value="pf_user">管委會</option>
                     </select>
                 </div>`;
                 //<綁定帳號>

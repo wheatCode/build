@@ -34,11 +34,12 @@ class news_show_select_page_P extends ActionHandler {
                      <table class="table mb-0 text-center">
                          <thead>
                             <tr>
-                              <th scope="col" class="h5 bold py-2 w-20">新聞標題</th>
-                                <th scope="col" class="h5 bold py-2 w-20">新聞內容</th>
-                                <th scope="col" class="h5 bold py-2 w-20">日期</th>
-                                <th scope="col" class="h5 bold py-2 w-20">刪除</th>
-                                <th scope="col" class="h5 bold py-2 w-20">修改內容</th>
+                            <th scope="col" class="h5 bold py-2 w-15">新聞標籤</th>
+                              <th scope="col" class="h5 bold py-2 w-25">新聞標題</th>
+                                <th scope="col" class="h5 bold py-2 w-25">新聞內容</th>
+                                <th scope="col" class="h5 bold py-2 w-15">日期</th>
+                                <th scope="col" class="h5 bold py-2">修改資料</th>
+                                <th scope="col" class="h5 bold py-2">刪除資料</th>
                             </tr>
                          </thead>
                      </table>
@@ -47,28 +48,51 @@ class news_show_select_page_P extends ActionHandler {
                     <table class="table text-center mb-0">
                         <tbody id="search">
                 `;
+                var title="";
+                var topic="";
+                var dataContent="";
                 for (var cn in ds) {
+                    if(ds[cn]["type"] === "latest"){
+                        title="最新消息";
+                    }else if(ds[cn]["type"] === "activities"){
+                        title="好康活動";
+                    }else if(ds[cn]["type"] === "information"){
+                        title="節慶資訊";
+                    }
                     
+                    if(ds[cn]["topic"].length>10){
+                        topic = ds[cn]["topic"].split('',10).join('')+"...";
+                    }else{
+                        topic = ds[cn]["topic"];
+                    }
+                    
+                    if(ds[cn]["content"].length>12){
+                        dataContent = ds[cn]["content"].split('',12).join('')+"...";
+                    }else{
+                        dataContent = ds[cn]["content"];
+                    }
                     content +=
                               '<tr>'+
-                              '<td class="py-2 w-20">'+ds[cn]["topic"]+'</td>'+
-                              '<td class="py-2 w-20">'+ds[cn]["content"]+'</td>'+
-                              '<td class="py-2 w-20">'+ds[cn]["date"]+'</td>';  
+                              '<td class="py-2">'+title+'</td>'+
+                              '<td class="py-2 w-25">'+topic+'</td>'+
+                              '<td class="py-2 w-25">'+dataContent+'</td>'+
+                              '<td class="py-2">'+ds[cn]["date"]+'</td>';  
                     content+=`
-                              <td class="py-2">
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a type="button" class="btn bg-transparent p-2" onclick="(new news_do_delete_action_P('news','do_delete_action_P','body1','${ds[cn]['id']}')).run()">
-                                    <i class="fa fa-close fa-lg text-dark"></i>
-                                </a>
-                                    </div>
-                                </td>
                                 <td class="py-2">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a type="button" class="btn bg-transparent p-2" onclick="(new news_show_update_page_P('news','show_update_page_P','body1','${ds[cn]['topic']}','${ds[cn]['content']}','${ds[cn]['date']}','${ds[cn]['id']}')).run()">
+                                        <a type="button" class="btn bg-transparent p-2" onclick="(new news_show_update_page_P('news','show_update_page_P','body1','${ds[cn]['type']}','${ds[cn]['topic']}','${ds[cn]['content']}','${ds[cn]['date']}','${ds[cn]['id']}','${this.newsId}')).run()">
                                     <i class="fa fa-pencil-square-o fa-lg text-dark"></i>
                                 </a>
                                     </div>
-                                </td></tr>`;
+                                </td>
+                                 <td class="py-2">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a type="button" class="btn bg-transparent p-2" onclick="(new news_do_delete_action_P('news','do_delete_action_P','body1','${ds[cn]['id']}')).run()">
+                                    <i class="fa fa-close fa-lg text-dark"></i>            
+                                </a>
+                                    </div>
+                                </td>
+                                </tr>`;
                           
                 }
                   content +='</tbody></table></div>';
@@ -101,16 +125,16 @@ class news_show_select_page_P extends ActionHandler {
 
         }
         catch (e) {
-            var msg = e + "<br>";
-            msg += "JSON String: " + json_str;
-            $('#' + this.position_id).html(msg);
+            // var msg = e + "<br>";
+            // msg += "JSON String: " + json_str;
+            // $('#' + this.position_id).html(msg);
             console.log(msg);
         }
 
 
     }
     ajax_error(msg) {
-        $('#' + this.position_id).html(msg.status);
+        // $('#' + this.position_id).html(msg.status);
     }
 
 }

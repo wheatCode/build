@@ -6,10 +6,6 @@
     class show_home_page_P implements action_listener{
         public function actionPerformed(event_message $em) {
             if($_SESSION['user']!= null){
-                // if($_SESSION['userid'] == 4){
-                //     $return_value['status_code'] = 5;
-                // }
-                //else {
                     $return_value['status_code'] = 1;
                 //}
             }else{

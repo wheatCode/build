@@ -43,10 +43,10 @@ class user_profile_show_update_page_p extends ActionHandler {
                         `;
                         if(this.userCharacter === 'user'){
                            content+=`<option value="user" selected>住戶</option> 
-                                    <option value="pf_user">管理員</option>`;
+                                    <option value="pf_user">管委會</option>`;
                         }else{
                            content+=`<option value="user">住戶</option> 
-                                    <option value="pf_user" selected>管理員</option>`; 
+                                    <option value="pf_user" selected>管委會</option>`; 
                         }
             content+=`
                     </select>

@@ -26,7 +26,7 @@ class user_profile_show_select_page_p extends ActionHandler {
                     <span class="bold mr-2">角色</span>
                     <select class="mdb-select md-form" id="selectUserCharacter">
                         <option value="user">使用者</option>
-                        <option value="pf_user">管理員</option>
+                        <option value="pf_user">管委會</option>
                         <option value="admin">後台管理者</option>
                     </select>
                     <button onclick="(new user_profile_do_select_search_action_p('user_profile','do_select_search_action_p','search')).run()" class="btn btn-indigo btn-sm  mx-1">搜尋</button>
@@ -57,7 +57,7 @@ class user_profile_show_select_page_p extends ActionHandler {
                             if(phpDatas[phpData]['user']['type'] === 'user'){
                                 userCharacter = "住戶";
                             }else{
-                                userCharacter = "管理員";
+                                userCharacter = "管委會";
                             }
                              
                             data+=`<tr>

@@ -28,7 +28,7 @@
 		    $case_model= new case_model();
 		    $household_model= new household_model();
 		    
-		    $case_model->insert_new_case($houseHoldUserId,$repairTypeId,$title,$content,$date);
+		    $case_model->insert_new_case($houseHoldUserId,$repairTypeId,$title,$content,$date,'null','null','null','null');
 			$case_id=$case_model->get_case_id($houseHoldUserId,$date);
 			$repair_model->insert_new_repair_history($case_id);
 			$repair_history_id=$repair_model->get_something_from_repair_history("id","case_id=".$case_id);

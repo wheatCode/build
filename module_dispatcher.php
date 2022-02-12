@@ -31,18 +31,20 @@
             }
             if($get['module'] !== 'login' ||  $get['action'] !== 'do_login_action'){
                 if($get['module'] !== 'login' ||  $get['action'] !== 'do_login_action_E'){
-                    try{
-                        session_start();
-                        if(!isset($_SESSION['user'])) throw new Exception("No user login.", 2);
-                        $user = $_SESSION['user'];
-                        $user_name=$_SESSION['user_name'];
-                        // var_dump($user);
-                        // var_dump($user_name);
-                    } catch (Exception $e){
-                            $return_value['status_code'] = $e->getCode();
-                            $return_value['status_message'] = $e->getMessage();
-                            return json_encode($return_value);
-                    }
+                    // if($get['module'] !== 'login' ||  $get['action'] !== 'do_login_action_P'){
+                        try{
+                            session_start();
+                            if(!isset($_SESSION['user'])) throw new Exception("No user login.", 2);
+                            $user = $_SESSION['user'];
+                            $user_name=$_SESSION['user_name'];
+                            // var_dump($user);
+                            // var_dump($user_name);
+                        } catch (Exception $e){
+                                $return_value['status_code'] = $e->getCode();
+                                $return_value['status_message'] = $e->getMessage();
+                                return json_encode($return_value);
+                        }
+                    // }
                 }
             }
             require_once "modules" . "/" . $module. "/" . 'action_dispatcher.php';

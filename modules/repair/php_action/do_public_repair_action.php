@@ -39,7 +39,7 @@
 		    ini_set ( 'date.timezone' , 'Asia/Taipei' );
 			date_default_timezone_set('Asia/Taipei');
 		    $date=date("Y-m-d")." ".date("H:i:s");
-		    $date2=date("m/d")." ".date("H:i");
+		    $date1=date("m/d")." ".date("H:i");
 		    $household_profile_id = $household_model->get_something_from_household_user("household_profile_id","user_profile_id =".$userid);
 		    
 		    $construction_project_id=$household_model->get_something_from_household_profile("construction_project_id","id=".$household_profile_id[0][0]);
@@ -52,12 +52,17 @@
 		    $household_model->insert_public_household_user($userid,$household_profile_id[0][0],$public_facilities_id[0][0]);
 		    $last_household_user_id=$household_model->get_something_from_household_user("id","1 order by id desc limit 1");
 		    
-		    
+		    // public function insert_new_case($household_user_id,$repair_type_id,$title, $content,$start_datetime, $contact_starttime, $contact_endtime, $contact_name, $contact_tel){
+      //      $sql ="INSERT INTO `case_profile` (`id`, `status`, `household_user_id`, `repair_type_id`, `title`, `content`, `user_rank`, `user_comment`, `start_datetime`, `end_datetime`, `contact_starttime`, `contact_endtime`, `contact_name`, `contact_tel`, `cancel`) VALUES (NULL, 'new', '$household_user_id', '$repair_type_id', '$title', '$content', NULL, NULL, '$start_datetime', NULL, '$contact_starttime', '$contact_endtime', '$contact_name', '$contact_tel', NULL)";
+      //      $stmt = $this->conn->prepare($sql);
+      //      $stmt->execute();
+      //  }
 		    
 		    //househouserid
-		    $case_model->insert_new_case($last_household_user_id[0][0],$repair_type_id,$case_title, $case_content,$date);//insert_new_case($household_user_id,$repair_type_id,$title, $content,$start_datetime)
+		    $case_model->insert_new_case($last_household_user_id[0][0],$repair_type_id,$case_title, $case_content,$date,'00:00:00.000000','00:00:00.000000','null','null');//insert_new_case($household_user_id,$repair_type_id,$title, $content,$start_datetime)
+			
 			$case_id=$case_model->get_case_id($last_household_user_id[0][0],$date);
-			$notice_model->insert_new_notice('enew',$case_id,'','新案件通知'.$date2);
+			$notice_model->insert_new_notice('enew',$case_id,'','新案件通知'.' '.$date1);
 			$repair_model->insert_new_repair_history($case_id);
 			$repair_history_id=$repair_model->get_something_from_repair_history("id","case_id=".$case_id);
 			$repair_model->insert_new_applydate($repair_history_id[0][0],$month1,$input_starttime1_1,$input_starttime1_2);

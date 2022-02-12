@@ -15,6 +15,7 @@ class household_show_management_page_P extends ActionHandler {
         this.addArgs('constructorname',this.constructorname);
         this.addArgs('workerid',this.workerid);
         this.addArgs('workername',this.workername);
+        console.log(this.constructorid,this.constructorname,this.workerid,this.workername);
     }
     ajax_success(json_str) {
         try {

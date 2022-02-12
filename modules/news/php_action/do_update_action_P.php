@@ -8,13 +8,14 @@
         public function actionPerformed(event_message $em) {
             //  $data=[]; 
             $post=$em->getPost();
+            $title=$post['title'];
             $newsID = $post['newsID'];
-            $content = $post['newstextarea'];
+            $content = $post['content'];
             $topic = $post['topic'];
             $date = $post['date'];
         
             $news_model = new news_model();
-            $return_value = $news_model->update_news($topic,$content,$date,$newsID);
+            $return_value = $news_model->update_news($title,$topic,$content,$date,$newsID);
             
 			
 

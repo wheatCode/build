@@ -9,8 +9,8 @@
             parent::__construct();
         }
         
-        public function insert_new_news($topic,$content,$date){
-            $sql ="INSERT INTO `announcement` (`id`, `topic`, `content`, `date`) VALUES (NULL, '$topic', '$content', '$date');";
+        public function insert_new_news($title,$topic,$content,$date){
+            $sql ="INSERT INTO `announcement` (`id`, `type`,`topic`, `content`, `date`) VALUES (NULL, '$title','$topic', '$content', '$date');";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             
@@ -92,10 +92,10 @@
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
         }
-        public function update_news($topic,$content,$date,$newsID){
-            $sql="UPDATE announcement SET topic=:topic, content=:content, date=:date  Where announcement.id=$newsID";
+        public function update_news($title,$topic,$content,$date,$newsID){
+            $sql="UPDATE announcement SET type =:type,topic=:topic, content=:content, date=:date  Where announcement.id=$newsID";
             $stmt = $this->conn->prepare($sql);
-            $stmt->execute(array(':topic'=>$topic,  ':content'=>$content ,':date'=>$date));
+            $stmt->execute(array(':type'=>$title,':topic'=>$topic,':content'=>$content,':date'=>$date));
         }
         public function get_last_insert(){
             $sql ="select LAST_INSERT_ID();";

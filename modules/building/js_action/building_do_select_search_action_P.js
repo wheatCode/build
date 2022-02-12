@@ -31,7 +31,7 @@ class building_do_select_search_action_P extends ActionHandler {
                     str+=`<td class="py-0">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         
-                                         <a type="button" class="btn bg-transparent p-2" onclick="(new household_show_management_page_P('household','show_management_page_P','body1','${ds[i]['constructor_search']['id']}','${ds[i][0][k]["id"]}','${ds[i][0][k]["name"]}')).run()">
+                                         <a type="button" class="btn bg-transparent p-2" onclick="(new household_show_management_page_P('household','show_management_page_P','body1','${ds[i]['constructor_search']['id']}','${ds[i]['constructor_search']['name']}','${ds[i][0][k]["id"]}','${ds[i][0][k]["name"]}')).run()">
                                         
                                     <i class="fa fa-building-o fa-lg text-dark"></i>
                                 </a>

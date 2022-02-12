@@ -8,7 +8,7 @@
 			    $user_id=$_SESSION['userid'];
 		    }
             $news_model = new news_model();
-            $news_model_data=$news_model->get_something_from_news("*","1 ORDER BY date DESC");
+            $news_model_data=$news_model->get_something_from_news("*","1 ORDER BY id DESC");
             $return_value['news_model_data']=$news_model_data;
             $return_value['status_code'] = 0;
            

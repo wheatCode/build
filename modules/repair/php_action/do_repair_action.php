@@ -24,6 +24,10 @@
             $repair_type_id=$post['class'];
             $household_user=$post['construction_num'];
             $img=$post['inimg'];
+            $contact_input_starttime1_1 = $post['contact_input_starttime1-1'];
+            $contact_input_starttime1_2 = $post['contact_input_starttime1-2'];
+            $contact_tel=$post['contact_tel'];
+            $contact_name=$post['contact_name'];
             if(isset($_SESSION['useracc'])){
 			    $userid=$_SESSION['userid'];
 		    }
@@ -34,20 +38,20 @@
 		    ini_set ( 'date.timezone' , 'Asia/Taipei' );
 			date_default_timezone_set('Asia/Taipei');
 		    $date=date("Y-m-d")." ".date("H:i:s");
-		    $date2=date("m/d")." ".date("H:i");
+		    $date1=date("m/d")." ".date("H:i");
 			if($household_user!="no"){
 				//$household_user_id = $household_model->get_something_from_household_user("household_profile_id","user_profile_id =".$userid);
-		    	$case_model->insert_new_case($household_user,$repair_type_id,$case_title, $case_content,$date);//insert_new_case($household_user_id,$repair_type_id,$title, $content,$start_datetime)
+		    	$case_model->insert_new_case($household_user,$repair_type_id,$case_title, $case_content,$date,$contact_input_starttime1_1,$contact_input_starttime1_2,$contact_name,$contact_tel);//insert_new_case($household_user_id,$repair_type_id,$title, $content,$start_datetime)
 				$case_id=$case_model->get_case_id($household_user,$date);
 				// $household_id=get_something_from_household_user('household_profile_id','id='.$household_user);
 				// get_something_from_household_profile('construction_project_id','id='.$household_id[0][0]);
-				$notice_model->insert_new_notice('enew',$case_id,'','新案件通知'.' '.$date2);
+				$notice_model->insert_new_notice('enew',$case_id,'','新案件通知'.' '.$date1);
 				
 			}else{
 				$household_user_id = $household_model->get_something_from_household_user("household_profile_id","user_profile_id =".$userid);
-		    	$case_model->insert_new_case($household_user_id[0][0],$repair_type_id,$case_title, $case_content,$date);//insert_new_case($household_user_id,$repair_type_id,$title, $content,$start_datetime)
+		    	$case_model->insert_new_case($household_user_id[0][0],$repair_type_id,$case_title, $case_content,$date,$contact_input_starttime1_1,$contact_input_starttime1_2,$contact_name,$contact_tel);//insert_new_case($household_user_id,$repair_type_id,$title, $content,$start_datetime)
 				$case_id=$case_model->get_case_id($household_user_id[0][0],$date);
-				$notice_model->insert_new_notice('enew',$case_id,'','新案件通知'.' '.$date2);
+				$notice_model->insert_new_notice('enew',$case_id,'','新案件通知'.' '.$date1);
 				
 			}
 		    // $household_user_id = $household_model->get_something_from_household_user("household_profile_id","user_profile_id =".$userid);
@@ -75,6 +79,9 @@
 			$return_value['$household_user']=$household_user;
 			$return_value['status_code'] = 0;
 			$return_value['case_id'] = $case_id;
+			$return_value['$contact_tel'] = $contact_tel;
+			$return_value['$contact_name'] = $contact_name;
+			$return_value['$contact_input_starttime1_1'] = $contact_input_starttime1_1;
 			$return_value['img'] = 'inimg'.$img;
 			
 			$return_value['$stime']=$input_starttime1_1;
@@ -82,33 +89,6 @@
             return json_encode($return_value);
 		}
 	}
-	//
-//                       _oo0oo_
-//                      o8888888o
-//                      88" . "88
-//                      (| -_- |)
-//                      0\  =  /0
-//                    ___/`---'\___
-//                  .' \\|     |// '.
-//                 / \\|||  :  |||// \
-//                / _||||| -:- |||||- \
-//               |   | \\\  -  /// |   |
-//               | \_|  ''\---/''  |_/ |
-//               \  .-\__  '-'  ___/-. /
-//             ___'. .'  /--.--\  `. .'___
-//          ."" '<  `.___\_<|>_/___.' >' "".
-//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-//         \  \ `_.   \_ __\ /__ _/   .-` /  /
-//     =====`-.____`.___ \_____/___.-`___.-'=====
-//                       `=---='
-//
-//
-//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
-//               佛祖保佑         永无BUG
-//
-//
-//
 
 
 ?> 
