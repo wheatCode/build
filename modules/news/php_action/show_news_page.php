@@ -16,14 +16,14 @@
             
             $news_info=$news->get_something_from_news('*',"id=".$news_id);
             
-            if(file_exists("/home/ubuntu/workspace/news_img/".$news_id.".jpeg")){
-                $filedata=file_get_contents("/home/ubuntu/workspace/news_img/".$news_id.".jpeg");
+            if(file_exists("/news_img/".$news_id.".jpeg")){
+                $filedata=file_get_contents("/news_img/".$news_id.".jpeg");
                 $newsi=base64_encode($filedata);
                 $newsi="data:image/jpeg;base64,".$newsi;
                 
             }
             else{
-                $filedata=file_get_contents("/home/ubuntu/workspace/news_img/hyl.jpeg");
+                $filedata=file_get_contents("/news_img/hyl.jpeg");
                 $newsi=base64_encode($filedata);
                 $newsi="data:image/jpeg;base64,".$newsi;
             }
