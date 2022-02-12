@@ -48,7 +48,7 @@ class home_show_home_page extends ActionHandler {
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-gear fa-lg p-0" aria-hidden="true"></i> 設定
-                     
+                    </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" onclick="(new user_profile_show_update_page('user_profile','show_update_page','body')).run()">基本資料</a> 
                         <a class="dropdown-item" onclick="(new login_do_logout_action('login','do_logout_action','body')).run()">登出</a>
