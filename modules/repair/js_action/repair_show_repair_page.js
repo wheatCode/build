@@ -173,7 +173,7 @@ class repair_show_repair_page extends ActionHandler {
                             </div>
                         </div>
                         
-                    <div id="timearea" class="row mt-0 pl-2 pt-0"></div>
+                    <div id="timearea"></div>
                     <div id="time_err"></div>
                     <div class="row mt-0">
                         <div class="col-4" >
