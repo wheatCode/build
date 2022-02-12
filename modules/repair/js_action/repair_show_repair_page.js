@@ -162,13 +162,13 @@ class repair_show_repair_page extends ActionHandler {
                 str += `</div></div>
                         <div class="row mt-0 mb-3 pb-0" id="showBlock">
                             <label for="time" class="font-weight-bold col-12">請輸入您方便的時間<a type="button" id="addbtn" value="addItem"><i class="fa fa-plus" aria-hidden="true"></i></a></label>
-                            <div class="col-4">
+                            <div class="col-4 pr-0">
                             <input type="date" style="min-width:100%"class="form-control" id="date1" placeholder="Enter month">
                         </div>
-                        <div class="col-4" >
+                        <div class="col-4 pr-0" >
                             <input placeholder="起始時間" type="time" id="input_starttime1-1" style="min-width:100%"class="form-control">
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 pr-0">
                             <input placeholder="結束時間" type="time" id="input_starttime1-2" style="min-width:100%"class="form-control">
                         </div> 
                         </div>
@@ -244,13 +244,13 @@ class repair_show_repair_page extends ActionHandler {
                             else { txtId = 2; }
                             //$("#timearea").append('<div class="row" id="div' + txtId + '"><div class="col-1"></div><div class="col-3 p-0"><input type="date" style="min-width:100%"class="form-control" name="test[]" id="date' + txtId + '" placeholder="Enter month" /></div><div class="col-3 p-0"><input type="text" name="test[]" style="min-width:100%"class="form-control timepicker" id="input_starttime' + txtId + '-1" placeholder="起始時間"/></div><div class="col-3 p-0"><input type="text" style="min-width:100%"class="form-control timepicker" name="test[]"id="input_starttime' + txtId + '-2" placeholder="結束時間"/></div><div class="col-1 p-0 w-32"><button type="button" id="btnd' + txtId + '" class="btn btn-primary m-0 p-0"  style="height:38px;width:38px;" value="del">X</button></div></br>');
                             $("#timearea").append(`<div class="row mt-0 pt-0 pb-3" id="div` + txtId + `" >
-                            <div class="col-4">
+                            <div class="col-4 pr-0">
                             <input type="date" style="min-width:100%"class="form-control" id="date1" placeholder="Enter month">
                         </div>
-                        <div class="col-4" >
+                        <div class="col-4 pr-0" >
                             <input placeholder="起始時間" type="time" id="input_starttime1-3" style="min-width:100%"class="form-control">
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 pr-0">
                             <input placeholder="結束時間" type="time" id="input_starttime1-4" style="min-width:100%"class="form-control">
                         </div>   
                                                         <div class="col-1">    
