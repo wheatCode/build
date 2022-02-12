@@ -8,7 +8,7 @@
             
             $news=new news_model();
             
-            $news_info=$news->get_something_from_news('*','1 order by date asc LIMIT 10');
+            $news_info=$news->get_something_from_news('*','1 order by date asc LIMIT 3');
             
             $imgarr=array();
             $newsi;
