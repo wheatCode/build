@@ -12,7 +12,7 @@ class news_show_news_page extends ActionHandler {
         var json_str = xhttp.responseText;
         //console.log(json_str);
         var obj = JSON.parse(json_str);
-
+console.log(obj["news_img"]);
         //console.log(obj);
         var info = obj["news_info"];
         var img = obj["news_img"];
