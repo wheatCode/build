@@ -160,6 +160,7 @@ class repair_show_repair_page extends ActionHandler {
                 }
                 str += '</select>';
                 str += `</div></div>
+                <div id="timearea1">
                         <div class="row mt-0 mb-3 pb-0" id="">
                             <label for="time" class="font-weight-bold col-12">請輸入您方便的時間<a type="button" id="addbtn" value="addItem"><i class="fa fa-plus" aria-hidden="true"></i></a></label>
                             <div class="col-12 pr-0">
@@ -172,8 +173,9 @@ class repair_show_repair_page extends ActionHandler {
                             <input placeholder="結束時間" type="time" id="input_starttime1-2" style="min-width:100%"class="form-control">
                         </div> 
                         </div>
+                        </div>
                         
-                    <div id="timearea"></div>
+                    <div id="timearea2"></div>
                     <div id="time_err"></div>
                     <div class="row mt-0">
                         <div class="col-4" >
