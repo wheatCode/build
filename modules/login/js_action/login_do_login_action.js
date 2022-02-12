@@ -42,7 +42,7 @@ class login_do_login_action extends ActionHandler {
         }
         catch (e) {
             var msg = e + "<br>";
-            msg += "JSON String: " + json_str;
+            msg += "JSON String: " + json_str +'a';
             //msg += "<br> login's catch";
             $('#' + this.position_id).html(msg);
         }
