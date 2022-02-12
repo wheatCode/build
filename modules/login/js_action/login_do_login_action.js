@@ -7,6 +7,8 @@ class login_do_login_action extends ActionHandler {
     prepareArgs() {
         this.php = true;
         this.addArgsbyid('account');
+		//console.log("token : "+$("#device_token_c").val());
+		this.addArgs('device_token_c',$("#device_token_c").val());
         var enpassword = $("#password").val();
         //console.log(enpassword);
         enpassword = CryptoJS.MD5(enpassword);
@@ -15,11 +17,19 @@ class login_do_login_action extends ActionHandler {
     }
     ajax_success(xhttp) {
         try {
+
+            this.loadModuleScript('home', 'show_home_page');
             var json_str = xhttp.responseText;
             var obj = JSON.parse(json_str);
+			//console.log(obj);
 
             if (obj['status_code'] === 0) { //0為登入成功 -100失敗(帳密錯誤)
-                (new home_show_home_page('home', 'show_home_page', 'body')).run();     
+                //var str = `<button type="button" class="btn btn-success btn-block btn-rounded z-depth-1" onclick="(new home_show_home_page('home', 'show_home_page', 'body')).run()">登入</button>`;
+                //document.getElementById(this.position_id).innerHTML = str;
+                (new home_show_home_page('home', 'show_home_page', 'body')).run();
+            }
+            else if (obj['status_code'] === 1) {
+                (new home_show_home_page('home', 'show_home_page', 'body')).run();
             }
             else if (obj['status_code'] === -100) {
                 document.getElementById("login_err_msg").innerHTML = `<div><p class="font-small white-text d-flex justify-content-end"></p> <a href="#" class="gray-text ml-1 font-weight-bold">忘記密碼?</a></div><p class="red-text">帳號或密碼錯誤</p>`;
