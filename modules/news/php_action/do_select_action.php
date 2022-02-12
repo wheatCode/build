@@ -8,7 +8,7 @@
             
             $news=new news_model();
             
-            $news_info=$news->get_something_from_news('*','1 order by date desc LIMIT 4');
+            $news_info=$news->get_something_from_news('*','1 order by date desc LIMIT 10');
             
             $imgarr=array();
             $newsi;
@@ -29,7 +29,7 @@
                         array_push($imgarr,$newsi);
                             
                         }else{
-                            $newsi="";
+                            $newsi="111";
                             array_push($imgarr,$newsi);
                         }
                         
