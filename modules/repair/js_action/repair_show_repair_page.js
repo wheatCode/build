@@ -163,14 +163,14 @@ class repair_show_repair_page extends ActionHandler {
                         <div class="row mt-0 mb-3 pb-0" id="showBlock">
                             <label for="time" class="font-weight-bold col-12">請輸入您方便的時間<a type="button" id="addbtn" value="addItem"><i class="fa fa-plus" aria-hidden="true"></i></a></label>
                             <div class="col-4">
-                                <input type="date" style="min-width:100%"class="form-control" id="date1" placeholder="Enter month">
-                            </div>
-                            <div class="col-4" >
-                                <input placeholder="起始時間" type="time" id="input_starttime1-1" style="min-width:100%"class="form-control">
-                            </div>
-                            <div class="col-4">
-                                <input placeholder="結束時間" type="time" id="input_starttime1-2" style="min-width:100%"class="form-control">
-                            </div>
+                            <input type="date" style="min-width:100%"class="form-control" id="date1" placeholder="Enter month">
+                        </div>
+                        <div class="col-4" >
+                            <input placeholder="起始時間" type="time" id="input_starttime1-1" style="min-width:100%"class="form-control">
+                        </div>
+                        <div class="col-4">
+                            <input placeholder="結束時間" type="time" id="input_starttime1-2" style="min-width:100%"class="form-control">
+                        </div> 
                         </div>
                         
                     <div id="timearea"></div>

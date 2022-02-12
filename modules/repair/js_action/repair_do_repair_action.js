@@ -46,6 +46,6 @@ class repair_do_repair_action extends ActionHandler {
         }
     }
     ajax_error(xhttp) {
-        console.log("error");
+        // console.log("error");
     }
 }
