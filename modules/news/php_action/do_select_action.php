@@ -15,15 +15,15 @@
             for($i=0;$i<sizeof($news_info);$i++){
                 $news_id=$news_info[$i]["id"];
                 try{
-                    if(file_exists("/home/ubuntu/workspace/news_img/".$news_id.".jpeg")){
-                        $filedata=file_get_contents("/home/ubuntu/workspace/news_img/".$news_id.".jpeg");
+                    if(file_exists("/news_img/".$news_id.".jpeg")){
+                        $filedata=file_get_contents("/news_img/".$news_id.".jpeg");
                         $newsi=base64_encode($filedata);
                         $newsi="data:image/jpeg;base64,".$newsi;
                         array_push($imgarr,$newsi);
                     }
                     else{
-                        if(file_exists("/home/ubuntu/workspace/news_img/hyl.jpeg")){
-                            $filedata=file_get_contents("/home/ubuntu/workspace/news_img/hyl.jpeg");
+                        if(file_exists("/news_img/hyl.jpeg")){
+                            $filedata=file_get_contents("/news_img/hyl.jpeg");
                         $newsi=base64_encode($filedata);
                         $newsi="data:image/jpeg;base64,".$newsi;
                         array_push($imgarr,$newsi);
