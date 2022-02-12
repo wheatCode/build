@@ -27,6 +27,7 @@ class home_show_home_page extends ActionHandler {
 
             if (obj['status_code'] === 1) {
                 (new news_do_select_action('news', 'do_select_action', 'news')).run();
+
                 var utype = obj['pf'][0]["type"];
                 console.log(utype);
 
@@ -51,6 +52,7 @@ class home_show_home_page extends ActionHandler {
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" onclick="(new user_profile_show_update_page('user_profile','show_update_page','body')).run()">基本資料</a> 
                         <a class="dropdown-item" onclick="(new login_do_logout_action('login','do_logout_action','body')).run()">登出</a>
+						<a href="tel:077801381">聯絡我們</a>
                     </div>
                 </li>
             </ul>
@@ -73,7 +75,7 @@ class home_show_home_page extends ActionHandler {
                     <button type="button"  class="btn btn-deep-purple darken-3 m-0 w-32" onclick="(new repair_show_repair_page('repair','show_repair_page','body','CleaningServices','6')).run()"><i class="fa fa-bug" aria-hidden="true" ></i></br>清潔<br>服務</button>
                 </div>
                 <div class="mt-1">
-                    <button type="button"  class="btn btn-warning m-0 w-49" onclick="(new repair_show_repair_page('repair','show_repair_page','body','Paintingworks','7')).run()"><i class="fa fa-paint-brush" aria-hidden="true" ></i></br>油漆工程</button>
+                    <button type="button"  class="btn btn-warning m-0 w-49" onclick="(new repair_show_repair_page('repair','show_repair_page','body','Paintingworks','7')).run()"><i class="fa fa-paint-brush" aria-hidden="true" ></i></br>歲末油漆</button>
                     <button type="button"  class="btn btn-pink m-0 w-49" onclick="(new repair_show_repair_page('repair','show_repair_page','body','Other','8')).run()"><i class="fa fa-info" aria-hidden="true" ></i></br>其他維修</button>
                 </div>
 
@@ -114,7 +116,7 @@ class home_show_home_page extends ActionHandler {
                     </li>
                     <li class="nav-item maxWidth" onclick="(new notice_show_notice_page('notice','show_notice_page ','notice')).run()"> 
                         <a href="#notice" id="noticeb" class="nav-link waves-light" data-toggle="tab" role="tab"><i class="fa fa-bell white-text fa-2x" aria-hidden="true"></i>
-                        <span class="counter">2</span>
+                        
                         </br>通知</a>
                     </li>
                 </ul>

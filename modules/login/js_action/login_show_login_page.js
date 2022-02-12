@@ -16,7 +16,7 @@ class login_show_login_page extends ActionHandler {
                 <div class="container p-3 mt-5">
                     <form>
                         <div class="text-center mb-3 col-md-12">
-                            <a href="#"><img src="/logo/logo.png" class="img-fluid flex-center"></a>
+                            <a href="#"><img src="img/H_logo.png?zoom=1&resize=112%2C48" class="img-fluid flex-center"></a>
                         </div>
                         <!-- Material input email -->
                         <div class="md-form text-gray">
@@ -29,11 +29,6 @@ class login_show_login_page extends ActionHandler {
                             <input type="password" id="password" class="form-control gray-text">
                             <label for="password">密碼</label>
                             <div id="login_err_msg"></div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck17">
-                                <label class="form-check-label gray-text" for="defaultCheck17">記住我</label>
-                    
-                            </div>
                         </div>
 
                         <div class="text-center mb-3 col-md-12">
@@ -47,8 +42,8 @@ class login_show_login_page extends ActionHandler {
         </div>
     </div>	`;
         this.loadScript("include/lib/CryptoJSv3.1.2/rollups/aes.js", "CryptoJS_AES");
+
         document.getElementById(this.position_id).innerHTML = str;
-        // this.loadModuleScript('login', 'do_login_action');
         this.loadModuleScript('login', 'do_login_action');
     }
 }

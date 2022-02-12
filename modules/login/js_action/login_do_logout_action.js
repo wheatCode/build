@@ -5,6 +5,7 @@ class login_do_logout_action extends ActionHandler {
     }
     prepareArgs() {
         this.php = true;
+		this.addArgsbyid('device_token_c');
     }
     ajax_success(xhttp) {
         try {
