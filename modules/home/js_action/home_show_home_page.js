@@ -25,7 +25,7 @@ class home_show_home_page extends ActionHandler {
 
 
 
-            if (obj['status_code'] === 1) {
+            if (obj['status_code'] === 0) {
                 (new news_do_select_action('news', 'do_select_action', 'news')).run();
                 var utype = obj['pf'][0]["type"];
                 console.log(utype);
