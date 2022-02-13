@@ -2,6 +2,7 @@ class login_show_login_page extends ActionHandler {
     constructor(module, action, position_id,type=0) {
         super(module, action);
         this.position_id = position_id;
+        this.type= type;
     }
     prepareArgs() {
         this.php = false;
