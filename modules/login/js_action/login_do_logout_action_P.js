@@ -12,12 +12,14 @@ class login_do_logout_action_P extends ActionHandler {
             var json_str = xhttp.responseText;
             var obj = JSON.parse(json_str);
             if (obj['status_code'] === 0) { //0為登入成功 -100失敗(帳密錯誤)
-                (new login_show_login_page_P('login', 'show_login_page_P', 'body')).run();
                 this.loadModuleScript('login', 'show_login_page_P');
+                (new login_show_login_page_P('login', 'show_login_page_P', 'body')).run();
+              
             }
             else {
-                (new login_show_login_page_P('login', 'show_login_page_P', 'body')).run();
                 this.loadModuleScript('login', 'show_login_page_P');
+                (new login_show_login_page_P('login', 'show_login_page_P', 'body')).run();
+               
             }
         }
         catch (e) {
