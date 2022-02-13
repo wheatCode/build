@@ -221,7 +221,11 @@ class repair_show_repair_page extends ActionHandler {
                                 
                             </script>
                                 `;
-$("#timearea1").append(` <div class="row mt-2 pt-0 pb-3">
+
+                $('#' + this.position_id).html(str);
+                $(document).ready(function() {
+                    //remove div
+                    $("#timearea1").append(` <div class="row mt-2 pt-0 pb-3">
 <div class="col-12 pr-0">
 <input type="date" style="min-width:100%"class="form-control" id="date1" placeholder="Enter month">
 </div>
@@ -232,9 +236,7 @@ $("#timearea1").append(` <div class="row mt-2 pt-0 pb-3">
 <input placeholder="結束時間" type="time" id="input_starttime1-2" style="min-width:100%" class="form-control">
 </div> 
 </div>`);
-                $('#' + this.position_id).html(str);
-                $(document).ready(function() {
-                    //remove div
+
                     $("#addbtn").click(function() {
                         var n1 = txtna;
                         if (n1 < 3) {
