@@ -22,7 +22,7 @@ class home_show_home_page_P extends ActionHandler {
                 var str = `
                 <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark flex w-100 z-index999">
-            <a onclick="(new home_show_home_page_P('home','show_home_page_P','body')).run()"class="nav-link"><img src="http://www.huayulien.com/wp-content/uploads/2015/04/H-logo-e1429491876768.png" class="img-fluid flex-center"></a>
+            <a onclick="(new home_show_home_page_P('home','show_home_page_P','body')).run()"class="nav-link"><img src="/logo/logo.png" class="img-fluid flex-center"></a>
 
             <ul class="navbar-nav nav-flex-icons mr-auto">
 
@@ -76,7 +76,7 @@ class home_show_home_page_P extends ActionHandler {
                         <i class="fa fa-user-circle fa-2x white-text" aria-hidden="true"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="navbarDropdownMenuLink">
-                        <a onclick="(new login_do_logout_action('login','do_logout_action','body1')).run()" class="dropdown-item">登出</a>
+                        <a onclick="(new login_do_logout_action_P('login','do_logout_action_P','body1')).run()" class="dropdown-item">登出</a>
                     </div>
                 </li>
             </ul>
