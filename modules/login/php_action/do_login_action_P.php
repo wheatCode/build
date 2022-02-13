@@ -5,7 +5,7 @@
     //require_once  'modules/login/php_action/login_model.php';
     require_once 'modules/user_profile/php_action/user_profile_model.php';
     
-    class do_login_action implements action_listener{
+    class do_login_action_P implements action_listener{
         public function actionPerformed(event_message $em) {
             $obj = user_profile_api::check_account($em);
             session_start();
