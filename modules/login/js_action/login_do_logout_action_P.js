@@ -16,7 +16,8 @@ class login_do_logout_action_P extends ActionHandler {
                 this.loadModuleScript('login', 'show_login_page_P');
             }
             else {
-                console.log("shit happend")
+                (new login_show_login_page_P('login', 'show_login_page_P', 'body')).run();
+                this.loadModuleScript('login', 'show_login_page_P');
             }
         }
         catch (e) {
