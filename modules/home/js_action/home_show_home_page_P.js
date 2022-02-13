@@ -93,9 +93,6 @@ class home_show_home_page_P extends ActionHandler {
             else if (obj['status_code'] == 2) {
                 // alert("後臺管理");
                 (new login_show_login_page("login", "show_login_page", "body",2)).run();
-
-
-                
             }
             else if (obj['status_code'] == 5) {
                 console.log("dd");

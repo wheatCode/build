@@ -1,5 +1,5 @@
 class login_show_login_page_p extends ActionHandler {
-    constructor(module, action, position_id,type=0) {
+    constructor(module, action, position_id,type) {
         super(module, action);
         this.position_id = position_id;
         this.type = type;

@@ -189,7 +189,7 @@ class home_show_home_page extends ActionHandler {
 
             }
             else if (obj['status_code'] == 2) {
-                (new login_show_login_page("login", "show_login_page", "body")).run();
+                (new login_show_login_page("login", "show_login_page", "body",0)).run();
                 var script = this.loadModuleScript("login", "show_login_page");
             }
             else if (obj['status_code'] == 5) {
