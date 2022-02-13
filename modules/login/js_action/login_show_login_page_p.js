@@ -1,4 +1,4 @@
-class login_show_login_page_p extends ActionHandler {
+class login_show_login_page_P extends ActionHandler {
     constructor(module, action, position_id) {
         super(module, action);
         this.position_id = position_id;
