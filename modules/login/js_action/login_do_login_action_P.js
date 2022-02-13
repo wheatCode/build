@@ -20,6 +20,7 @@ class login_do_login_action_P extends ActionHandler {
             var json_str = xhttp.responseText;
             var obj = JSON.parse(json_str);
 
+            this.loadModuleScript('home', 'show_home_page_P');
             console.log(obj);
             if (obj['status_code'] === 0) { //0為登入成功 -100失敗(帳密錯誤)
                 //var str = `<button type="button" class="btn btn-success btn-block btn-rounded z-depth-1" onclick="(new home_show_home_page('home', 'show_home_page', 'body')).run()">登入</button>`;
