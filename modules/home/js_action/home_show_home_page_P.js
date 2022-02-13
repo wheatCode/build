@@ -92,7 +92,7 @@ class home_show_home_page_P extends ActionHandler {
             }
             else if (obj['status_code'] == 2) {
                 // alert("後臺管理");
-                (new login_show_login_page_P("login", "show_login_page_P", "body")).run();
+                (new login_show_login_page_p("login", "show_login_page_p", "body")).run();
                 var script = this.loadModuleScript("login", "show_login_page_P");
 
                 
