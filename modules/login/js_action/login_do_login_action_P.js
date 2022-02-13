@@ -7,6 +7,8 @@ class login_do_login_action_P extends ActionHandler {
     prepareArgs() {
         this.php = true;
         this.addArgsbyid('account');
+		//console.log("token : "+$("#device_token_c").val());
+		this.addArgs('device_token_c',$("#device_token_c").val());
         var enpassword = $("#password").val();
         //console.log(enpassword);
         enpassword = CryptoJS.MD5(enpassword);
