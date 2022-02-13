@@ -32,7 +32,7 @@ class login_show_login_page_P extends ActionHandler {
                         </div>
 
                         <div class="text-center mb-3 col-md-12">
-                            <button type="button" class="btn btn-success btn-block btn-rounded z-depth-1" onclick="(new login_do_login_action('login','do_login_action','body')).run()">登入</button>
+                            <button type="button" class="btn btn-success btn-block btn-rounded z-depth-1" onclick="(new login_do_login_action_P('login','do_login_action_P','body')).run()">登入</button>
                         </div>
                     </form>
                 </div>
