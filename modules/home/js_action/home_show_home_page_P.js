@@ -23,7 +23,7 @@ class home_show_home_page_P extends ActionHandler {
                 var str = `
                 <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark flex w-100 z-index999">
-            <a onclick="(new home_show_home_page_P('home','show_home_page_P','body')).run()"class="nav-link"><img src="/logo/logo2.png" width="200" height="80" class="img-fluid flex-center"></a>
+            <a onclick="(new home_show_home_page_P('home','show_home_page_P','body')).run()"class="nav-link"><img src="/logo/logo2.png" width="100" height="60" class="img-fluid flex-center"></a>
 
             <ul class="navbar-nav nav-flex-icons mr-auto">
 
