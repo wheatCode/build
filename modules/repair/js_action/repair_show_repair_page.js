@@ -162,11 +162,12 @@ class repair_show_repair_page extends ActionHandler {
                 str += `</div></div>
                         <div class="row mt-0 mb-3 pb-0" id="">
                             <label for="time" class="font-weight-bold col-12">請輸入您方便的時間<a type="button" id="addbtn" value="addItem"><i class="fa fa-plus" aria-hidden="true"></i></a></label>
-                            <div class="col-12 pr-0">
-                            <input type="date" style="min-width:100%"class="form-control" id="date1" placeholder="Enter month">
                         </div>
-                        </div>
-                        <div class="row mt-0 mb-3">
+
+                        <div class="row mt-2 pt-0 pb-3">
+                        <div class="col-12 pr-0">
+                        <input type="date" style="min-width:100%"class="form-control" id="date1" placeholder="Enter month">
+                    </div>
                         <div class="col-12 pr-0" >
                         <input placeholder="起始時間" type="time" id="input_starttime1-1" style="min-width:100%" class="form-control">
                     </div>
@@ -262,7 +263,17 @@ class repair_show_repair_page extends ActionHandler {
                                                         </div>    
                                                     </div>
 
- 
+      <div class="row mt-2 pt-0 pb-3">
+                        <div class="col-12 pr-0">
+                        <input type="date" style="min-width:100%"class="form-control" id="date1" placeholder="Enter month">
+                    </div>
+                        <div class="col-12 pr-0" >
+                        <input placeholder="起始時間" type="time" id="input_starttime1-1" style="min-width:100%" class="form-control">
+                    </div>
+                    <div class="col-12 pr-0">
+                        <input placeholder="結束時間" type="time" id="input_starttime1-2" style="min-width:100%" class="form-control">
+                    </div> 
+                        </div>
                                                     `);
                             //style="height:38px;width:38px;"
                             $('#input_starttime' + txtId + '-1').pickatime({});
