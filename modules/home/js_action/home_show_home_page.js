@@ -203,7 +203,7 @@ class home_show_home_page extends ActionHandler {
         }
         catch (e) {
             var msg = e + "<br>";
-            msg += "JSON String: " + json_str;
+            msg += "JSON String: 222" + json_str;
             document.getElementById(this.position_id).innerHTML = msg;
         }
     }
