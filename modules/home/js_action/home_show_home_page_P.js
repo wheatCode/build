@@ -18,7 +18,7 @@ class home_show_home_page_P extends ActionHandler {
             this.loadModuleScript("news", "show_select_page_P");
             this.loadModuleScript("building","show_management_page");
             this.loadModuleScript("login", "do_logout_action_P");
-            this.loadModuleScript("login", "show_login_page_p");
+            this.loadModuleScript("login", "show_login_page");
             if (obj['status_code'] === 1) {
                 var str = `
                 <header>
@@ -92,8 +92,8 @@ class home_show_home_page_P extends ActionHandler {
             }
             else if (obj['status_code'] == 2) {
                 // alert("後臺管理");
-                (new login_show_login_page_p("login", "show_login_page_p", "body")).run();
-                var script = this.loadModuleScript("login", "show_login_page_p");
+                (new login_show_login_page("login", "show_login_page", "body",2)).run();
+
 
                 
             }

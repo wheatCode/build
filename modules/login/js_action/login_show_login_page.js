@@ -1,5 +1,5 @@
 class login_show_login_page extends ActionHandler {
-    constructor(module, action, position_id) {
+    constructor(module, action, position_id,type=0) {
         super(module, action);
         this.position_id = position_id;
     }
@@ -43,7 +43,12 @@ class login_show_login_page extends ActionHandler {
     </div>	`;
         this.loadScript("include/lib/CryptoJSv3.1.2/rollups/aes.js", "CryptoJS_AES");
 
+        if(this.type == 2){
+            this.loadModuleScript('login', 'do_login_action_P');
+        }else{
+            this.loadModuleScript('login', 'do_login_action');
+        }
         document.getElementById(this.position_id).innerHTML = str;
-        this.loadModuleScript('login', 'do_login_action');
+
     }
 }
