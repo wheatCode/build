@@ -13,7 +13,7 @@ class login_do_logout_action_P extends ActionHandler {
             var obj = JSON.parse(json_str);
             if (obj['status_code'] === 0) { //0為登入成功 -100失敗(帳密錯誤)
                 this.loadModuleScript('login', 'show_login_page_P');
-                (new login_show_login_page_P('login', 'show_login_page_P', 'body',2)).run();
+                (new login_show_login_page('login', 'show_login_page', 'body',2)).run();
 
 
               
