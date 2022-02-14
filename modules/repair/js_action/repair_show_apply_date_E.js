@@ -71,7 +71,7 @@ class repair_show_apply_date_E extends ActionHandler {
                                                 <div class="col-12">
                                                     <input type="date" class=""  style="min-witdh:100%"  id="pick_dateo" placeholder="Enter month">
                                                 </div>
-                                                <div class="col-12" id="timea">
+                                                <div class="col-12">
                                                     <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">
                                                 </div>
                                                 <script>$('#input_starttime4').pickatime({});</script>
@@ -125,7 +125,8 @@ class repair_show_apply_date_E extends ActionHandler {
             // $('#input_starttime3').pickatime({});
             // $('#input_starttime4').pickatime({});
 
-           
+            $('#' + this.position_id).html(content);
+
             function st(tt1) {
                 var tt3;
                 tt3 = tt1.split(" ")[0].split("-")[0] + "/" + tt1.split(" ")[0].split("-")[1] + "/" + tt1.split(" ")[0].split("-")[2];
@@ -138,10 +139,6 @@ class repair_show_apply_date_E extends ActionHandler {
                 return tt3;
             };
 
-            // $( document ).ready(function() {
-            //     $('#timea').html(` <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">`);
-
-            // });
 
             //this.loadModuleScript("case", "do_select_action");
         }
