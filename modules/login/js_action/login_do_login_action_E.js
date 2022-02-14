@@ -36,7 +36,7 @@ class login_do_login_action_E extends ActionHandler {
                 (new home_show_home_page_E('home', 'show_home_page_E', 'body')).run();
             }
             else if (obj['status_code'] === -100) {
-                document.getElementById("login_err_msg").innerHTML = `<div><p class="font-small white-text d-flex justify-content-end"></p> <a href="#" class="gray-text ml-1 font-weight-bold">忘記密碼?</a></div><p class="red-text">帳號或密碼錯誤</p>`;
+                document.getElementById("login_err_msg").innerHTML = `<div><p class="font-small white-text d-flex justify-content-end"></p> <a href="#" class="gray-text ml-1 font-weight-bold">忘記密碼?</a></div><p class="red-text">帳號或密碼錯誤or請登入主任帳號</p>`;
                 //alert("帳號或密碼錯誤");
             }
             else {
