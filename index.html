@@ -24,7 +24,7 @@
     <!-- Your custom styles (optional) -->
     <link href="include/lib/MDB/css/indexfooter.css" rel="stylesheet">
     <script src="include/js/ActionHandler.js"></script>
-    <script src="modules/home/js_action/home_show_home_page_E.js" id="show_home_page_E"></script>
+    <script src="modules/home/js_action/home_show_home_page.js" id="show_home_page"></script>
     <script src="modules/login/js_action/login_show_login_page.js" id="login_show_login_page"></script>
     <script src="modules/login/js_action/login_do_login_action.js" id="login_do_login_action"></script>
     <script src="modules/news/js_action/news_do_select_action.js" id="news_do_select_action"></script>
@@ -38,7 +38,7 @@
 
     <script>
         function loadhome() {
-            (new home_show_home_page_E('home', 'show_home_page_E', 'body')).run();
+            (new home_show_home_page('home', 'show_home_page', 'body')).run();
         }
     </script>
 
