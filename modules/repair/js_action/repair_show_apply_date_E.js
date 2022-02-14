@@ -22,10 +22,10 @@ class repair_show_apply_date_E extends ActionHandler {
                 var atime2 = obj['apply_date'][0]['end_Time'];
                 console.log(st(atime1));
                 content += `
-                     <div class="col-12 mt-4" >
+                     <div class="col-12 mt-4 pl-0" >
                                     <span>選擇適用時間</span>
                     </div>
-                                <div class="col-12 mt-2">
+                                <div class="col-12 mt-2 pl-0">
                                     <div class="form-check"id="time1" style="min-witdh:100%"  data-date="` + st(atime1) + `">
                                         <input class="form-check-input" style="min-witdh:100%"  name="group100" type="radio" id="radio101">
                                         <label class="form-check-label col-12"  style="min-witdh:100%"  font30" for="radio101">` + st(atime1) + ` (` + st_time(atime1) + `-` + st_time(atime2) + `)<br><input placeholder="確定維修時間" type="text" id="input_starttime1" class="form-control timepicker"></label>
@@ -71,7 +71,7 @@ class repair_show_apply_date_E extends ActionHandler {
                                                 <div class="col-12">
                                                     <input type="date" class=""  style="min-witdh:100%"  id="pick_dateo" placeholder="Enter month">
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12" id="timea">
                                                     <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">
                                                 </div>
                                                 <script>$('#input_starttime4').pickatime({});</script>
@@ -125,7 +125,7 @@ class repair_show_apply_date_E extends ActionHandler {
             // $('#input_starttime3').pickatime({});
             // $('#input_starttime4').pickatime({});
 
-            $('#' + this.position_id).html(content);
+            $('#timea').html(` <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">`);
 
             function st(tt1) {
                 var tt3;
@@ -139,6 +139,9 @@ class repair_show_apply_date_E extends ActionHandler {
                 return tt3;
             };
 
+            $( document ).ready(function() {
+                $('#' + this.position_id).html(content);
+            });
 
             //this.loadModuleScript("case", "do_select_action");
         }
