@@ -125,8 +125,7 @@ class repair_show_apply_date_E extends ActionHandler {
             // $('#input_starttime3').pickatime({});
             // $('#input_starttime4').pickatime({});
 
-            $('#timea').html(` <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">`);
-
+           
             function st(tt1) {
                 var tt3;
                 tt3 = tt1.split(" ")[0].split("-")[0] + "/" + tt1.split(" ")[0].split("-")[1] + "/" + tt1.split(" ")[0].split("-")[2];
@@ -140,7 +139,8 @@ class repair_show_apply_date_E extends ActionHandler {
             };
 
             $( document ).ready(function() {
-                $('#' + this.position_id).html(content);
+                $('#timea').html(` <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">`);
+
             });
 
             //this.loadModuleScript("case", "do_select_action");
