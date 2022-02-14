@@ -522,7 +522,7 @@ class case_show_case_page_E extends ActionHandler {
         }
         catch (e) {
             var msg = e + "<br>";
-            msg += "JSON String: " + json_str;
+            msg += "JSON String:aaa " + json_str;
             $('#' + this.position_id).html(msg);
         }
 
