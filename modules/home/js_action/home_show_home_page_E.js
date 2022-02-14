@@ -32,7 +32,6 @@ class home_show_home_page_E extends ActionHandler {
 
 
             if (obj['status_code'] === 1) {
-                (new case_show_select_page_E('case', 'show_select_page_E', 'home')).run();
 
 
                 var str = `
@@ -138,7 +137,7 @@ class home_show_home_page_E extends ActionHandler {
                     $('.mdb-select').material_select();
                 });
                 document.getElementById(this.position_id).innerHTML = str;
-
+                (new case_show_select_page_E('case', 'show_select_page_E', 'home')).run();
 
 
 
