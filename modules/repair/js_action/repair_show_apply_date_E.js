@@ -28,7 +28,7 @@ class repair_show_apply_date_E extends ActionHandler {
                                 <div class="col-12 mt-2">
                                     <div class="form-check"id="time1" style="min-witdh:100%"  data-date="` + st(atime1) + `">
                                         <input class="form-check-input" style="min-witdh:100%"  name="group100" type="radio" id="radio101">
-                                        <label class="form-check-label  style="min-witdh:100%"  font30" for="radio101">` + st(atime1) + ` (` + st_time(atime1) + `-` + st_time(atime2) + `)<br><input placeholder="確定維修時間" type="text" id="input_starttime1" class="form-control timepicker"></label>
+                                        <label class="form-check-label col-12"  style="min-witdh:100%"  font30" for="radio101">` + st(atime1) + ` (` + st_time(atime1) + `-` + st_time(atime2) + `)<br><input placeholder="確定維修時間" type="text" id="input_starttime1" class="form-control timepicker"></label>
                                     </div>
                                     
                                 </div>
@@ -41,7 +41,7 @@ class repair_show_apply_date_E extends ActionHandler {
                          <div class="col-12 mt-2">
                                     <div class="form-check" id="time2"  style="min-witdh:100%"  data-date="` + st(btime1) + `">
                                         <input class="form-check-input "  style="min-witdh:100%"  name="group100" type="radio" id="radio102">
-                                        <label class="form-check-label font30" style="min-witdh:100%"  for="radio102">` + st(btime1) + ` (` + st_time(btime1) + `-` + st_time(btime2) + `)<input placeholder="確定維修時間" type="text" id="input_starttime2" class="form-control timepicker"></label>
+                                        <label class="form-check-label col-12" style="min-witdh:100%"  for="radio102">` + st(btime1) + ` (` + st_time(btime1) + `-` + st_time(btime2) + `)<input placeholder="確定維修時間" type="text" id="input_starttime2" class="form-control timepicker"></label>
                                     </div>
                                 </div>
                                 <script>$('#input_starttime2').pickatime({});</script>
@@ -54,7 +54,7 @@ class repair_show_apply_date_E extends ActionHandler {
                          <div class="col-12 mt-2">
                                     <div class="form-check" id="time3"  style="min-witdh:100%"  data-date="` + st(ctime1) + `">
                                         <input class="form-check-input "  style="min-witdh:100%"  name="group100" type="radio" id="radio103">
-                                        <label class="form-check-label col-12 font30"  style="min-witdh:100%"  for="radio103" >` + st(ctime1) + ` (` + st_time(ctime1) + `-` + st_time(ctime2) + `)<input placeholder="確定維修時間" type="text" id="input_starttime3" class="form-control timepicker"></label>
+                                        <label class="form-check-label col-12"  style="min-witdh:100%"  for="radio103" >` + st(ctime1) + ` (` + st_time(ctime1) + `-` + st_time(ctime2) + `)<input placeholder="確定維修時間" type="text" id="input_starttime3" class="form-control timepicker"></label>
                                     </div>
                                 </div>
                                 <script>$('#input_starttime3').pickatime({});</script>
@@ -65,7 +65,7 @@ class repair_show_apply_date_E extends ActionHandler {
                                 <div class=" mt-3 ">
                                     <div class="form-check" id="time4">
                                         <input class="form-check-input " name="group100" type="radio" id="radio104">
-                                        <label class="form-check-label col-12 font30" for="radio104">其他:</label>
+                                        <label class="form-check-label col-12" for="radio104">其他:</label>
                                         <div class="form-check">
                                             <div class="row my-0">
                                                 <div class="col-6">
