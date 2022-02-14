@@ -315,7 +315,7 @@ class repair_show_repair_page extends ActionHandler {
                         $("#construction_num").val(this.conid);
 
 
-
+                        document.getElementById("time_err").innerHTML = "";
 
 
                         var t1 = gt();
