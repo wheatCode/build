@@ -7,7 +7,7 @@ console.log(module, action, position_id);
     }
     prepareArgs() {
         this.php = true;
-        this.php_action = 'show_select_page_E';
+        this.php_action = 'show_select_page_e';
 
     }
     ajax_success(xhttp) {
