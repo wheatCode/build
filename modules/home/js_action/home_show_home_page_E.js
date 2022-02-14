@@ -15,10 +15,10 @@ class home_show_home_page_E extends ActionHandler {
 
             this.loadModuleScript("notice", "show_notice_page_E");
             this.loadModuleScript("notice", "show_select_page_E");
-            this.loadModuleScript("case", "show_select_page_E");
+            this.loadModuleScript("case", "show_select_page_e");
             this.loadModuleScript("case", "show_repair_type_E"); //temp
             // this.loadModuleScript("case", "show_case_page_E"); //temp
-            this.loadModuleScript("case", "show_search_page_e");
+            this.loadModuleScript("case", "show_search_page_E");
             this.loadModuleScript("case", "do_unfinish_E");
             this.loadModuleScript("case", "sign_E");
             this.loadModuleScript("case", "show_search_result_E");
