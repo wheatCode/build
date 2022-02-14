@@ -278,6 +278,7 @@ class case_show_select_page_e extends ActionHandler {
     }
     ajax_error(msg) {
         $('#' + this.position_id).html(msg.status);
+        console.log(1);
     }
 
 }
