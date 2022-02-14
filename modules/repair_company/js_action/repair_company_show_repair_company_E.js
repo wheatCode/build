@@ -79,22 +79,22 @@ class repair_company_show_repair_company_E extends ActionHandler {
                                                 <span>` + address + `</span>
                                             </div>`;
                 }
+                $("#dialoga").dialog({
+                    autoOpen: false,
+                    height: 350,
+                    width: 600,
+                    modal: true,
+                    buttons: {
+                        Ok: function() {
+                            $(this).dialog("close");
+                        }
+                    },
+                    position: { my: "center", at: "left+500px top+900px ", of: window }
 
+                });
                 $(document).ready(function() {
                     document.getElementById("hid_com_id").value = "no";
-                    $("#dialoga").dialog({
-                        autoOpen: false,
-                        height: 350,
-                        width: 600,
-                        modal: true,
-                        buttons: {
-                            Ok: function() {
-                                $(this).dialog("close");
-                            }
-                        },
-                        position: { my: "center", at: "left+500px top+900px ", of: window }
-
-                    });
+              
 
 
                     //-,滑動,點選 變色
