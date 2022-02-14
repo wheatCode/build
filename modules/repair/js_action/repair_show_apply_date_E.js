@@ -68,10 +68,10 @@ class repair_show_apply_date_E extends ActionHandler {
                                         <label class="form-check-label col-12" for="radio104">其他:</label>
                                         <div class="form-check">
                                             <div class="row my-0">
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <input type="date" class=""  style="min-witdh:100%"  id="pick_dateo" placeholder="Enter month">
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">
                                                 </div>
                                                 <script>$('#input_starttime4').pickatime({});</script>
