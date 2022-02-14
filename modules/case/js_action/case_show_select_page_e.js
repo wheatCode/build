@@ -6,7 +6,7 @@ class case_show_select_page_e extends ActionHandler{
 
     }
     prepareArgs() {
-        this.php = true;
+        this.php = false;
         this.php_action = 'show_select_page_e';
 
     }
