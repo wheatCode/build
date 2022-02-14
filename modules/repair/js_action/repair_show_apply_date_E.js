@@ -28,11 +28,10 @@ class repair_show_apply_date_E extends ActionHandler {
                                 <div class="col-12 mt-2 pl-0">
                                     <div class="form-check"id="time1" style="min-witdh:100%"  data-date="` + st(atime1) + `">
                                         <input class="form-check-input" style="min-witdh:100%"  name="group100" type="radio" id="radio101">
-                                        <label class="form-check-label col-12"  style="min-witdh:100%"  font30" for="radio101">` + st(atime1) + ` (` + st_time(atime1) + `-` + st_time(atime2) + `)<br><input placeholder="確定維修時間" type="text" id="input_starttime1" class="form-control timepicker"></label>
+                                        <label class="form-check-label col-12"  style="min-witdh:100%"  font30" for="radio101">` + st(atime1) + ` (` + st_time(atime1) + `-` + st_time(atime2) + `)<br><input placeholder="確定維修時間" type="text" id="input_starttime1" class="form-control"></label>
                                     </div>
                                     
                                 </div>
-                                <script>$('#input_starttime1').pickatime({});</script>
                                 `;
                 if (obj['apply_date'][1]) {
                     var btime1 = obj['apply_date'][1]['start_Time'];
@@ -41,10 +40,10 @@ class repair_show_apply_date_E extends ActionHandler {
                          <div class="col-12 mt-2">
                                     <div class="form-check" id="time2"  style="min-witdh:100%"  data-date="` + st(btime1) + `">
                                         <input class="form-check-input "  style="min-witdh:100%"  name="group100" type="radio" id="radio102">
-                                        <label class="form-check-label col-12" style="min-witdh:100%"  for="radio102">` + st(btime1) + ` (` + st_time(btime1) + `-` + st_time(btime2) + `)<input placeholder="確定維修時間" type="text" id="input_starttime2" class="form-control timepicker"></label>
+                                        <label class="form-check-label col-12" style="min-witdh:100%"  for="radio102">` + st(btime1) + ` (` + st_time(btime1) + `-` + st_time(btime2) + `)<input placeholder="確定維修時間" type="text" id="input_starttime2" class="form-control"></label>
                                     </div>
                                 </div>
-                                <script>$('#input_starttime2').pickatime({});</script>
+                               
                     `
                 }
                 if (obj['apply_date'][2]) {
@@ -106,9 +105,8 @@ class repair_show_apply_date_E extends ActionHandler {
                                                     <input type="date" class="" id="pick_dateo" placeholder="Enter month">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input placeholder="時間" type="text" id="input_starttime4" class="form-control timepicker">
+                                                    <input placeholder="時間" type="time" id="input_starttime4" class="form-control">
                                                 </div>
-                                                <script>$('#input_starttime4').pickatime({});</script>
                                             </div>
                                         </div>
                                     </div>
