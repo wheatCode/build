@@ -1,14 +1,11 @@
-class case_show_select_page_e extends ActionHandler{
+class case_show_select_page_e extends ActionHandler {
     constructor(module, action, position_id) {
-        console.log(module, action, position_id);
         super(module, action);
         this.position_id = position_id;
 
     }
     prepareArgs() {
-        this.php = false;
-        this.php_action = 'show_select_page_e';
-
+        this.php = true;
     }
     ajax_success(xhttp) {
         try {
@@ -277,8 +274,10 @@ class case_show_select_page_e extends ActionHandler{
 
     }
     ajax_error(msg) {
-        $('#' + this.position_id).html(msg.status);
-        console.log(1);
+
+
     }
 
+
 }
+
