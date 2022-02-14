@@ -20,7 +20,7 @@ class case_show_select_page_e extends ActionHandler {
                 var ye = da.getFullYear();
                 var na = obj['buildingname'];
                 var test = obj['test'];
-
+                this.loadModuleScript("case", "show_case_page_E"); 
 
                 console.log(obj);
                 console.log(test);
