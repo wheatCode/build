@@ -52,7 +52,7 @@ class repair_company_show_repair_company_E extends ActionHandler {
                 content += `
                                     </tbody>
                                 </table>
-                                <div id="com_dialog" title="廠商詳細"></div>
+                                <div id="dialoga" title="廠商詳細"></div>
                                 
                                 <div style="display:none" id="hid_com_id" ></div>
                 `;
@@ -61,7 +61,7 @@ class repair_company_show_repair_company_E extends ActionHandler {
 
                 function incom_dialog(id, address, contector, name, phone) {
 
-                    document.getElementById("com_dialog").innerHTML = `
+                    document.getElementById("dialoga").innerHTML = `
                                             <div class="col-md font30">
                                                 <label for="Case"> 廠商名稱：</label>
                                                 <span>` + name + `</span>
@@ -82,7 +82,7 @@ class repair_company_show_repair_company_E extends ActionHandler {
 
                 $(document).ready(function() {
                     document.getElementById("hid_com_id").value = "no";
-                    $("#com_dialog").dialog({
+                    $("#dialoga").dialog({
                         autoOpen: false,
                         height: 350,
                         width: 600,
@@ -107,7 +107,7 @@ class repair_company_show_repair_company_E extends ActionHandler {
                             incom_dialog($(this).data('id'), $(this).data('address'), $(this).data('contactor'), $(this).data('name'), $(this).data('phone'));
 
 
-                            $("#com_dialog").dialog("open");
+                            $("#dialoga").dialog("open");
                         }
                     );
                     $('.cssraindemo1 tbody tr').click(
