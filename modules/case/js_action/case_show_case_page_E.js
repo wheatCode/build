@@ -442,6 +442,7 @@ class case_show_case_page_E extends ActionHandler {
                 }
 
                 function C_date(tt1) {
+                    console.log(tt1);
                     var tt3;
                     tt3 = tt1.split("/")[0] + "-" + tt1.split("/")[1] + "-" + tt1.split("/")[2];
                     return tt3;
