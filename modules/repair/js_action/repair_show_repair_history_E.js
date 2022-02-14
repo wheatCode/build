@@ -89,8 +89,8 @@ class repair_show_repair_history_E extends ActionHandler {
                                 <tr>
                                     <th class="font30" scope="row" width="25%">` + st_time_to_min(obj['repair_history'][obj['repair_history'].length - 1]['reservetime']) + `</th>
                                     <td class="font30" width="25%">` + obj['repair_com'][obj['repair_history'].length - 1] + `</td>
-                                    <td class="font30" width="25%"><div class="row mt-0"><div class="col-6 mr-0 pr-0"><input type="text" id="new_time" class="mr-0"></div><div class="col-6">小時</div></div></td>
-                                    <td class="font30" width="25%"><input type="text" id="new_content" class="mr-0"></td>
+                                    <td class="font30" width="25%"><div class="row mt-0"><div class="col-6 mr-0 pr-0"><input type="text" style="min-width:100%" id="new_time" class="mr-0"></div><div class="col-6">小時</div></div></td>
+                                    <td class="font30" width="25%"><input type="text" id="new_content" style="min-width:100%" class="mr-0"></td>
                                 </tr>
                                 <tr>
                                     <th class="font30" scope="row" colsoan="3">合計</th>
