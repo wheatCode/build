@@ -170,7 +170,7 @@ class home_show_home_page_E extends ActionHandler {
 
             }
             else if (obj['status_code'] == 2) {
-                (new login_show_login_page_E("login", "show_login_page", "body")).run();
+                (new login_show_login_page_E("login", "show_login_page_E", "body")).run();
             }
             else {
                 console.log("Invalid status code " + obj['status_code']);
