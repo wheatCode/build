@@ -44,7 +44,7 @@ class login_show_login_page extends ActionHandler {
             <!--Section: Live preview-->
         </div>
     </div>	`;
-        }else if(type==3){
+        }else if(this.type==3){
             var str = `
               <div class="container" >
             <div class="col-lg-8 col-md-6 pt-5 mt-5" style="margin:0px auto;">
