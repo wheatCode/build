@@ -140,9 +140,8 @@ class home_show_home_page_E extends ActionHandler {
                 });
                 document.getElementById(this.position_id).innerHTML = str;
                 setTimeout(()=>{
-                    (new case_show_select_page('case', 'show_select_page', 'home')).run();
-                    let a =(new case_show_select_page_e("case", "show_select_page_e", "body")).run();
-                },2000)
+                    (new case_show_select_page_e('case', 'show_select_page_e', 'home')).run();
+                },0)
  
 
 
