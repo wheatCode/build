@@ -20,7 +20,7 @@ class case_show_repair_type_E extends ActionHandler {
                 //var ds = obj['data_set'];
                 console.log(obj);
                 //this.loadModuleScript("home", "show_home_page_E");
-                var content = `<select class="mdb-select selectfont" name="select_repair_type" id="select_repair_type">`;
+                var content = `<select class="mdb-select selectfont" name="select_repair_type" style="min-width:100%" id="select_repair_type">`;
 
                 for (var index in obj['repair_type']) {
                     if (obj['repair_type'][index]['id'] == this.repair_type_id) {

@@ -25,10 +25,10 @@ class repair_show_apply_date_E extends ActionHandler {
                      <div class="col-12 mt-4" >
                                     <span>選擇適用時間</span>
                     </div>
-                                <div class=" mt-2 ">
-                                    <div class="form-check" id="time1" data-date="` + st(atime1) + `">
-                                        <input class="form-check-input " name="group100" type="radio" id="radio101">
-                                        <label class="form-check-label font30" for="radio101">` + st(atime1) + ` (` + st_time(atime1) + `-` + st_time(atime2) + `)<br><input placeholder="確定維修時間" type="text" id="input_starttime1" class="form-control timepicker"></label>
+                                <div class="mt-2">
+                                    <div class="form-check"id="time1" style="min-witdh:100%"  data-date="` + st(atime1) + `">
+                                        <input class="form-check-input" style="min-witdh:100%"  name="group100" type="radio" id="radio101">
+                                        <label class="form-check-label  style="min-witdh:100%"  font30" for="radio101">` + st(atime1) + ` (` + st_time(atime1) + `-` + st_time(atime2) + `)<br><input placeholder="確定維修時間" type="text" id="input_starttime1" class="form-control timepicker"></label>
                                     </div>
                                     
                                 </div>
@@ -39,9 +39,9 @@ class repair_show_apply_date_E extends ActionHandler {
                     var btime2 = obj['apply_date'][1]['end_Time'];
                     content += `
                          <div class=" mt-3 ">
-                                    <div class="form-check" id="time2" data-date="` + st(btime1) + `">
-                                        <input class="form-check-input " name="group100" type="radio" id="radio102">
-                                        <label class="form-check-label font30" for="radio102">` + st(btime1) + ` (` + st_time(btime1) + `-` + st_time(btime2) + `)<input placeholder="確定維修時間" type="text" id="input_starttime2" class="form-control timepicker"></label>
+                                    <div class="form-check" id="time2"  style="min-witdh:100%"  data-date="` + st(btime1) + `">
+                                        <input class="form-check-input "  style="min-witdh:100%"  name="group100" type="radio" id="radio102">
+                                        <label class="form-check-label font30" style="min-witdh:100%"  for="radio102">` + st(btime1) + ` (` + st_time(btime1) + `-` + st_time(btime2) + `)<input placeholder="確定維修時間" type="text" id="input_starttime2" class="form-control timepicker"></label>
                                     </div>
                                 </div>
                                 <script>$('#input_starttime2').pickatime({});</script>
@@ -52,9 +52,9 @@ class repair_show_apply_date_E extends ActionHandler {
                     var ctime2 = obj['apply_date'][2]['end_Time'];
                     content += `
                          <div class=" mt-3 ">
-                                    <div class="form-check" id="time3" data-date="` + st(ctime1) + `">
-                                        <input class="form-check-input " name="group100" type="radio" id="radio103">
-                                        <label class="form-check-label font30" for="radio103" >` + st(ctime1) + ` (` + st_time(ctime1) + `-` + st_time(ctime2) + `)<input placeholder="確定維修時間" type="text" id="input_starttime3" class="form-control timepicker"></label>
+                                    <div class="form-check" id="time3"  style="min-witdh:100%"  data-date="` + st(ctime1) + `">
+                                        <input class="form-check-input "  style="min-witdh:100%"  name="group100" type="radio" id="radio103">
+                                        <label class="form-check-label font30"  style="min-witdh:100%"  for="radio103" >` + st(ctime1) + ` (` + st_time(ctime1) + `-` + st_time(ctime2) + `)<input placeholder="確定維修時間" type="text" id="input_starttime3" class="form-control timepicker"></label>
                                     </div>
                                 </div>
                                 <script>$('#input_starttime3').pickatime({});</script>
@@ -69,10 +69,10 @@ class repair_show_apply_date_E extends ActionHandler {
                                         <div class="form-check">
                                             <div class="row my-0">
                                                 <div class="col-6">
-                                                    <input type="date" class="form-control" id="pick_dateo" placeholder="Enter month">
+                                                    <input type="date" class=""  style="min-witdh:100%"  id="pick_dateo" placeholder="Enter month">
                                                 </div>
                                                 <div class="col-6">
-                                                    <input placeholder="時間" type="text" id="input_starttime4" class="form-control timepicker">
+                                                    <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">
                                                 </div>
                                                 <script>$('#input_starttime4').pickatime({});</script>
                                             </div>
@@ -103,7 +103,7 @@ class repair_show_apply_date_E extends ActionHandler {
                                         <div class="form-check">
                                             <div class="row my-0">
                                                 <div class="col-6">
-                                                    <input type="date" class="form-control" id="pick_dateo" placeholder="Enter month">
+                                                    <input type="date" class="" id="pick_dateo" placeholder="Enter month">
                                                 </div>
                                                 <div class="col-6">
                                                     <input placeholder="時間" type="text" id="input_starttime4" class="form-control timepicker">
