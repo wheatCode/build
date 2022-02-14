@@ -203,7 +203,7 @@ class case_show_case_page_E extends ActionHandler {
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="row">
+                        <div class="row mt-0">
                             <div class="col-12">
                                 <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="`;
                 content += obj['case_data'][0]['content'];
