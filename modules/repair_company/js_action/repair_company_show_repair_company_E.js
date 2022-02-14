@@ -83,7 +83,7 @@ class repair_company_show_repair_company_E extends ActionHandler {
                 $(document).ready(function() {
                     document.getElementById("hid_com_id").value = "no";
                     console.log( $("#dialoga"));
-                    $("#dialoga")[0].dialog({
+                    $("#dialoga").dialog({
                         autoOpen: false,
                         height: 350,
                         width: 600,
