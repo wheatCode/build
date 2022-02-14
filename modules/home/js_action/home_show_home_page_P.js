@@ -89,6 +89,10 @@ class home_show_home_page_P extends ActionHandler {
                     `;
 
                 document.getElementById(this.position_id).innerHTML = str;
+                setTimeout(()=>{
+                    (new user_profile_show_select_page_p("user_profile", "show_select_page_p", "body1")).run();
+                },1000);
+              
             }
             else if (obj['status_code'] == 2) {
                 // alert("後臺管理");
