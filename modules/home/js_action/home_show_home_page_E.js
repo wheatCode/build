@@ -135,9 +135,9 @@ class home_show_home_page_E extends ActionHandler {
                 })
                 $(document).ready(function() {
                     $('.mdb-select').material_select();
+                    (new case_show_select_page_E('case', 'show_select_page_E', 'home')).run();
                 });
                 document.getElementById(this.position_id).innerHTML = str;
-                (new case_show_select_page_E('case', 'show_select_page_E', 'home')).run();
 
 
 
