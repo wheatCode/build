@@ -52,7 +52,7 @@ class home_show_home_page_E extends ActionHandler {
                         <i class="fa fa-gear fa-lg p-0" aria-hidden="true"></i> 設定
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" onclick="(new login_do_logout_action('login','do_logout_action','body')).run();">登出</a>
+                        <a class="dropdown-item" onclick="(new login_do_logout_action_E('login','do_logout_action_E','body')).run();">登出</a>
                     </div>
                 </li>
             </ul>
