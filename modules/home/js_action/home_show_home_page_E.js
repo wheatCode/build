@@ -129,13 +129,13 @@ class home_show_home_page_E extends ActionHandler {
         });
     </script>
 
-`;
+`;            
+(new case_show_select_page_e("case", "show_select_page_e", "body")).run();
                 $(function() {
                     $('#myTab a:last').tab('show')
                 })
                 $(document).ready(function() {
                     $('.mdb-select').material_select();
-                    (new case_show_select_page_e("case", "show_select_page", "body")).run();
                 });
                 document.getElementById(this.position_id).innerHTML = str;
 
