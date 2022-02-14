@@ -267,7 +267,7 @@ class case_show_select_page_e extends ActionHandler {
         }
         catch (e) {
             var msg = e + "<br>";
-            msg += "JSON String: " + json_str;
+            msg += "JSON String: ddd" + json_str;
             $('#' + this.position_id).html(msg);
             console.log(msg);
         }

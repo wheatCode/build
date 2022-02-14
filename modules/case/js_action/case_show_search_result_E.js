@@ -57,7 +57,7 @@ class case_show_search_result_E extends ActionHandler {
 
                 function st_time_to_date(tt1) {
                     var tt3;
-                    // tt3 = tt1.split(" ")[0].split("-")[0] + "/" + tt1.split(" ")[0].split("-")[1] + "/" + tt1.split(" ")[0].split("-")[2];
+                    tt3 = tt1.split(" ")[0].split("-")[0] + "/" + tt1.split(" ")[0].split("-")[1] + "/" + tt1.split(" ")[0].split("-")[2];
                     return tt3;
                 };
                 $('#' + this.position_id).html(content);
