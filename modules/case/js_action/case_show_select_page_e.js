@@ -1,5 +1,6 @@
 class case_show_select_page_e extends ActionHandler{
     constructor(module, action, position_id) {
+        console.log(module, action, position_id);
         super(module, action);
         this.position_id = position_id;
 
