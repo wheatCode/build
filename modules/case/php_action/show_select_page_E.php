@@ -5,7 +5,7 @@
     require_once 'modules/household/php_action/household_model.php';
     require_once 'modules/building/php_action/building_model.php';
     require_once 'modules/repair/php_action/repair_model.php';
-    class show_select_page_E implements action_listener{
+    class show_select_page_e implements action_listener{
         public function actionPerformed(event_message $em) {
              if(isset($_SESSION['useracc'])){
 			    $user_id=$_SESSION['userid'];
