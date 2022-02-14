@@ -130,7 +130,7 @@ class home_show_home_page_E extends ActionHandler {
     </script>
 
 `;            
-let a = new case_show_select_page_e("case", "show_select_page_e", "body");
+let a = new case_show_select_page_e();
 a.run();
                 $(function() {
                     $('#myTab a:last').tab('show')
