@@ -106,15 +106,15 @@ class home_show_home_page extends ActionHandler {
         <div class="container-fluid px-0">
             <div class="tabs-wrapper">
                 <ul class="nav classic-tabs tabs-dark pl-3" role="tablist">
-                    <li class="nav-item maxWidth" onclick="(new news_do_select_action('news', 'do_select_action', 'news')).run();">
+                    <li class="nav-item maxWidth" style="width:30%" onclick="(new news_do_select_action('news', 'do_select_action', 'news')).run();">
                         <a href="#fix" id="homeb" class="nav-link waves-light active" data-toggle="tab" role="tab"><i class="fa fa-home  white-text fa-2x" aria-hidden="true"> </i>
                         </br>首頁</a>
                     </li>
-                    <li class="nav-item maxWidth" onclick="(new case_show_select_page('case', 'show_select_page', 'record')).run();">
+                    <li class="nav-item maxWidth" style="width:30%" onclick="(new case_show_select_page('case', 'show_select_page', 'record')).run();">
                         <a href="#record" id="recordb" class="nav-link waves-light" data-toggle="tab" role="tab"><i class="fa fa-history  white-text fa-2x" aria-hidden="true"> </i>
                         </br>紀錄</a>
                     </li>
-                    <li class="nav-item maxWidth" onclick="(new notice_show_notice_page('notice','show_notice_page ','notice')).run()"> 
+                    <li class="nav-item maxWidth" style="width:30%" onclick="(new notice_show_notice_page('notice','show_notice_page ','notice')).run()"> 
                         <a href="#notice" id="noticeb" class="nav-link waves-light" data-toggle="tab" role="tab"><i class="fa fa-bell white-text fa-2x" aria-hidden="true"></i>
                         
                         </br>通知</a>
