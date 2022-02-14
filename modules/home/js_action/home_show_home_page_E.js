@@ -32,7 +32,7 @@ class home_show_home_page_E extends ActionHandler {
 
 
             if (obj['status_code'] === 1) {
-
+                (new case_show_select_page_e('case', 'show_select_page_e', 'home')).run();
 
                 var str = `
                 
@@ -177,7 +177,7 @@ class home_show_home_page_E extends ActionHandler {
         }
         catch (e) {
             var msg = e + "<br>";
-            msg += "JSON String: " + json_str;
+            msg += "JSON String: 777 " + json_str;
             document.getElementById(this.position_id).innerHTML = msg;
         }
     }
