@@ -1,137 +1,142 @@
-class repair_company_show_repair_company_E extends ActionHandler {
-    constructor(module, action, position_id, repair_type_id) {
+class repair_show_apply_date_E extends ActionHandler {
+    constructor(module, action, position_id, repair_history_id) {
         super(module, action);
         this.position_id = position_id;
-        this.repair_type_id = repair_type_id;
+        this.repair_history_id = repair_history_id;
     }
     prepareArgs() {
         this.php = true;
-        var value1 = $("select[name='select_repair_type']").val(); //抓select的值
-        this.addArgs('repair_type', this.repair_type_id);
-        this.addArgsbyid('repair_type_id');
-        this.addArgs('repair_type_id', this.repair_type_id);
+        this.addArgs('repair_history_id', this.repair_history_id);
     }
     ajax_success(xhttp) {
         try {
             var json_str = xhttp.responseText;
-            console.log(json_str);
+            //console.log(json_str);
             var obj = JSON.parse(json_str);
+            var ds = obj['data_set'];
+            console.log(obj);
+            this.loadModuleScript("home", "show_home_page_E");
+            var content = "";
             if (obj['status_code'] == 0) {
-                var ds = obj['repair_company'];
-                console.log(obj);
-                //this.loadModuleScript("home", "show_home_page_E");
-                var content = "";
+                var atime1 = obj['apply_date'][0]['start_Time'];
+                var atime2 = obj['apply_date'][0]['end_Time'];
+                console.log(st(atime1));
                 content += `
-                
-
-                                <table class="table cssraindemo1 ">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="px-2 font30">廠商名稱</th>
-                                        <th scope="col" class="pl-2 font30">廠商電話</th>
-                                        <th scope="col" class="pl-2 font30">詳細</th>
-                                    </thead>
-                                    <tbody>`;
-                for (var i = 0; i < ds.length; i++) {
-                    content += `
-                                        <tr id="tr` + i + `" data-id="` + ds[i]['id'] + `" data-address="` + ds[i]['address'] + `" data-contactor="` + ds[i]['contactor'] + `" data-name="` + ds[i]['name'] + `" data-phone="` + ds[i]['phone'] + `">
-                                            <th class="pt-4 pl-3 font30">` + ds[i]['name'] + `</th>
-                                            <td class="pt-4 font30">` + ds[i]['phone'] + `</td>
-                                            <td >
-                                                <div class="btn-group" role="group" aria-label="Basic example" id="company_data" data-id="` + ds[i]['id'] + `" data-address="` + ds[i]['address'] + `" data-contactor="` + ds[i]['contactor'] + `" data-name="` + ds[i]['name'] + `" data-phone="` + ds[i]['phone'] + `">
-                                                    <a type="button"  class="btn bg-transparent p-2">
-                                                        <i class="fa fa-file fa-lg text-dark"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                     <div class="col-12 mt-4 pl-0" >
+                                    <span>選擇適用時間</span>
+                    </div>
+                                <div class="col-12 mt-2 pl-0">
+                                    <div class="form-check"id="time1" style="min-witdh:100%"  data-date="` + st(atime1) + `">
+                                        <input class="form-check-input" style="min-witdh:100%"  name="group100" type="radio" id="radio101">
+                                        <label class="form-check-label col-12"  style="min-witdh:100%"  font30" for="radio101">` + st(atime1) + ` (` + st_time(atime1) + `-` + st_time(atime2) + `)<br><input placeholder="確定維修時間" type="time" id="input_starttime1" class="form-control"></label>
+                                    </div>
                                     
+                                </div>
                                 `;
+                if (obj['apply_date'][1]) {
+                    var btime1 = obj['apply_date'][1]['start_Time'];
+                    var btime2 = obj['apply_date'][1]['end_Time'];
+                    content += `
+                         <div class="col-12 mt-2">
+                                    <div class="form-check" id="time2"  style="min-witdh:100%"  data-date="` + st(btime1) + `">
+                                        <input class="form-check-input "  style="min-witdh:100%"  name="group100" type="radio" id="radio102">
+                                        <label class="form-check-label col-12" style="min-witdh:100%"  for="radio102">` + st(btime1) + ` (` + st_time(btime1) + `-` + st_time(btime2) + `)<input placeholder="確定維修時間" type="time" id="input_starttime2" class="form-control"></label>
+                                    </div>
+                                </div>
+                               
+                    `
                 }
-
+                if (obj['apply_date'][2]) {
+                    var ctime1 = obj['apply_date'][2]['start_Time'];
+                    var ctime2 = obj['apply_date'][2]['end_Time'];
+                    content += `
+                         <div class="col-12 mt-2">
+                                    <div class="form-check" id="time3"  style="min-witdh:100%"  data-date="` + st(ctime1) + `">
+                                        <input class="form-check-input "  style="min-witdh:100%"  name="group100" type="radio" id="radio103">
+                                        <label class="form-check-label col-12"  style="min-witdh:100%"  for="radio103" >` + st(ctime1) + ` (` + st_time(ctime1) + `-` + st_time(ctime2) + `)<input placeholder="確定維修時間" type="time" id="input_starttime3" class="form-control timepicker"></label>
+                                    </div>
+                                </div>
+                                <script>$('#input_starttime3').pickatime({});</script>
+                    `
+                }
                 content += `
-                                    </tbody>
-                                </table>
-                                <div id="com_dialog" title="廠商詳細"></div>
+                               
+                                <div class=" mt-3 ">
+                                    <div class="form-check" id="time4">
+                                        <input class="form-check-input " name="group100" type="radio" id="radio104">
+                                        <label class="form-check-label col-12" for="radio104">其他:</label>
+                                        <div class="form-check">
+                                            <div class="row my-0">
+                                                <div class="col-12">
+                                                    <input type="date" class=""  style="min-witdh:100%"  id="pick_dateo" placeholder="Enter month">
+                                                </div>
+                                                <div class="col-12">
+                                                    <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">
+                                                </div>
+                                         
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    
                                 
-                                <div style="display:none" id="hid_com_id" ></div>
                 `;
-                $('#' + this.position_id).html(content);
-                var repair_company_id;
-
-                function incom_dialog(id, address, contector, name, phone) {
-
-                    document.getElementById("com_dialog").innerHTML = `
-                                            <div class="col-md font30">
-                                                <label for="Case"> 廠商名稱：</label>
-                                                <span>` + name + `</span>
-                                            </div>
-                                            <div class="col-md font30">
-                                                <label for="Case"> 聯絡人：</label>
-                                                <span>` + contector + `</span>
-                                            </div>
-                                            <div class="col-md font30">
-                                                <label for="Case">電話:</label>
-                                                <span>` + phone + `</span>
-                                            </div>
-                                            <div class="col-md font30">
-                                                <label for="Case"> 地址：</label>
-                                                <span>` + address + `</span>
-                                            </div>`;
-                }
-
-                $(document).ready(function() {
-                    document.getElementById("hid_com_id").value = "no";
-                    $("#com_dialog").dialog({
-                        autoOpen: false,
-                        height: 350,
-                        width: 600,
-                        modal: true,
-                        buttons: {
-                            Ok: function() {
-                                $(this).dialog("close");
-                            }
-                        },
-                        position: { my: "center", at: "left+500px top+900px ", of: window }
-
-                    });
-
-
-                    //-,滑動,點選 變色
-                    // $('.cssraindemo1 tbody tr').hover(
-                    //     function() { $(this).addClass('highlight'); },
-                    //     function() { $(this).removeClass('highlight'); }
-                    // );
-                    $(".cssraindemo1 tbody #company_data").click(
-                        function() {
-                            incom_dialog($(this).data('id'), $(this).data('address'), $(this).data('contactor'), $(this).data('name'), $(this).data('phone'));
-
-
-                            $("#com_dialog").dialog("open");
-                        }
-                    );
-                    $('.cssraindemo1 tbody tr').click(
-                        function() {
-                            $(this).toggleClass('selected');
-                            repair_company_id = $(this).data('id');
-                            document.getElementById("hid_com_id").value = repair_company_id;
-                            // console.log('hid' + document.getElementById("hid_com_id").value);
-
-                            //document.getElementById("company_data").onclick = (incom_dialog("'" + $(this).data('id') + "'", "'" + $(this).data('address') + "'", "'" + $(this).data('contector') + "'", "'" + $(this).data('name') + "'", "'" + $(this).data('phone') + "'"));
-                        });
-                    $('.cssraindemo1 tbody tr').click(
-                        function() {
-                            $(this).siblings().removeClass('selected');
-                            $(this).addClass('selected');
-
-                        }
-                    );
-                });
+                //<script>$('#input_starttime1').pickatime({});</script>
+                //<script>$('#input_starttime2').pickatime({});</script>
+                //<script>$('#input_starttime3').pickatime({});</script>
+                //<script>$('#input_starttime4').pickatime({});</script>
             }
-
             else {
-                $('#' + this.position_id).html(obj['status_message']);
+                //document.getElementById("apply_date_msg").innerHTML = "客戶尚未選擇時間";
+                content += `
+                     <div class="col-12 mt-4" >
+                                    <span>選擇適用時間</span>
+                    </div>
+                            `;
+                content += `
+                               
+                                <div class=" mt-3 ">
+                                    <div class="form-check" id="time4">
+                                        <input class="form-check-input " name="group100" type="radio" id="radio104" checked="true">
+                                        <label class="form-check-label col-12 font30" for="radio104">其他:</label>
+                                        <div class="form-check">
+                                            <div class="row my-0">
+                                                <div class="col-12">
+                                                    <input type="date" class="" id="pick_dateo" placeholder="Enter month">
+                                                </div>
+                                                <div class="col-12">
+                                                    <input placeholder="時間" type="time" id="input_starttime4" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                
+                `;
             }
+            // else {
+            //     $('#' + this.position_id).html(obj['status_message']);
+            // }
+            // $('#input_starttime1').pickatime({});
+            // $('#input_starttime2').pickatime({});
+            // $('#input_starttime3').pickatime({});
+            // $('#input_starttime4').pickatime({});
+
+            $('#' + this.position_id).html(content);
+
+            function st(tt1) {
+                var tt3;
+                tt3 = tt1.split(" ")[0].split("-")[0] + "/" + tt1.split(" ")[0].split("-")[1] + "/" + tt1.split(" ")[0].split("-")[2];
+                return tt3;
+            };
+
+            function st_time(tt1) {
+                var tt3;
+                tt3 = tt1.split(" ")[1].split(":")[0] + ":" + tt1.split(" ")[1].split(":")[1];
+                return tt3;
+            };
+
 
             //this.loadModuleScript("case", "do_select_action");
         }
