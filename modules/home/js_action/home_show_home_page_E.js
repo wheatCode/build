@@ -16,7 +16,6 @@ class home_show_home_page_E extends ActionHandler {
             this.loadModuleScript("notice", "show_notice_page_E");
             this.loadModuleScript("notice", "show_select_page_E");
             this.loadModuleScript("case", "show_select_page_e");
-            this.loadModuleScript("case", "show_select_page");
             this.loadModuleScript("case", "show_repair_type_E"); //temp
             // this.loadModuleScript("case", "show_case_page_E"); //temp
             this.loadModuleScript("case", "show_search_page_E");
@@ -141,7 +140,7 @@ class home_show_home_page_E extends ActionHandler {
                 document.getElementById(this.position_id).innerHTML = str;
                 setTimeout(()=>{
                     (new case_show_select_page_e('case', 'show_select_page_e', 'home')).run();
-                },0)
+                },2000)
  
 
 
