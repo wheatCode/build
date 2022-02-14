@@ -40,17 +40,17 @@ class case_show_search_page_E extends ActionHandler {
                         </div>
                         <div class="col-6">
                             戶號
-                            <input class="form-control " type="text" id="household_num" style = "font-size:30px" value="">
+                            <input class="form-control " type="text" id="household_num" value="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             維修完成日期
-                            <input type="date" class="form-control w-100" style="font-size:30px" id="end_datetime">
+                            <input type="date" class="form-control w-100"  id="end_datetime">
                         </div>
                         <div class="col-6">
                             客戶名稱
-                            <input class="form-control " type="text" id="cus_name" style = "font-size:30px">
+                            <input class="form-control " type="text" id="cus_name">
                         </div>
                     </div>
                     <button type="button" class="btn btn-indigo" id="search_btn"><h4>搜尋</h4></button>

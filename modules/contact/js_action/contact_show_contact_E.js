@@ -81,7 +81,7 @@ class contact_show_contact_E extends ActionHandler {
                                         <th class="font30">` + obj['date'] + `</th>
                                         <th>
                                             <div class="row">
-                                                <div class="col-8"><input type="text" id="new_contact" class="font30" style = "font-size:30px"/></div>
+                                                <div class="col-8"><input type="text" id="new_contact" class="font30"/></div>
                                                 <div class="col-4">
                                                     <button type="button" class="btn btn-indigo font30" id="submit_contact" data-case_id="` + this.case_id + `">送出</button>
                                                     <div id="contact_err_msg"></div>
