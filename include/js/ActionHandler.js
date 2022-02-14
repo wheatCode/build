@@ -6,7 +6,7 @@ class ActionHandler {
         this.args = null;
         this.php = true;
 
-        console.log(module, js_action);
+        // console.log(module, js_action);
 
     }
     // addArgsbyselect(){

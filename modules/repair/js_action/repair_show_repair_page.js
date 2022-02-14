@@ -341,22 +341,21 @@ class repair_show_repair_page extends ActionHandler {
                                     document.getElementById("time_err").innerHTML = `<p class="red-text">日期已經過期</p>`;
                                 }
                                 else {
+                                    console.log(time1,time2);
                                     if (time1 == null || time2 == null) {
                                         document.getElementById("time_err").innerHTML = `<p class="red-text">還沒選擇時間</p>`;
                                     }
                                     else if (time1 == time2) {
                                         document.getElementById("time_err").innerHTML = `<p class="red-text">時間選擇相同</p>`;
                                     }
+                                    else if (time1 > time2) {
+                                        document.getElementById("time_err").innerHTML = `<p class="red-text">時間選擇有誤</p>`;
+                                    } 
                                     else {
-                                        console.log(time1);
-                                        if (time1 > time2) {
-                                            document.getElementById("time_err").innerHTML = `<p class="red-text">時間選擇有誤</p>`;
-                                        }
-                                        else {
-                                            document.getElementById("time_err").innerHTML = `<p class="red-text">時間選擇正確</p>`;
-                                            //do repair action;
-                                            (new repair_do_repair_action('repair', 'do_repair_action', 'body')).run();
-                                        }
+                                        document.getElementById("time_err").innerHTML = `<p class="red-text">時間選擇正確</p>`;
+                                        //do repair action;
+                                        (new repair_do_repair_action('repair', 'do_repair_action', 'body')).run();
+                                        
                                     }
                                 }
                             }
