@@ -138,10 +138,10 @@ class repair_show_apply_date_E extends ActionHandler {
                 return tt3;
             };
 
-            $( document ).ready(function() {
-                $('#timea').html(` <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">`);
+            // $( document ).ready(function() {
+            //     $('#timea').html(` <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">`);
 
-            });
+            // });
 
             //this.loadModuleScript("case", "do_select_action");
         }
