@@ -33,7 +33,6 @@ class home_show_home_page_E extends ActionHandler {
 
 
             if (obj['status_code'] === 1) {
-                (new case_show_select_page('case', 'show_select_page', 'home')).run();
 
                 var str = `
                 
@@ -137,12 +136,11 @@ class home_show_home_page_E extends ActionHandler {
                 })
                 $(document).ready(function() {
                     $('.mdb-select').material_select();
-                    console.dir(case_show_select_page_e);
-                    let a =(new case_show_select_page_e("case", "show_select_page_e", "body")).run();
                 
                 });
                 document.getElementById(this.position_id).innerHTML = str;
-
+                (new case_show_select_page('case', 'show_select_page', 'home')).run();
+                let a =(new case_show_select_page_e("case", "show_select_page_e", "body")).run();
 
 
                 switch (this.blank) {
