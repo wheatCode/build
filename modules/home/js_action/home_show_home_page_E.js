@@ -84,7 +84,7 @@ class home_show_home_page_E extends ActionHandler {
         <div class="container-fluid pl-0 pr-0">
             <div class="tabs-wrapper ">
                 <ul class="nav classic-tabs tabs-dark" role="tablist">
-                    <li class="nav-item maxWith" onclick="(new case_show_select_page_E('case', 'show_select_page', 'home')).run();">
+                    <li class="nav-item maxWith" onclick="(new case_show_select_page_e('case', 'show_select_page_e', 'home')).run();">
                         <a href="#home" id="homeb" class="nav-link waves-light active" data-toggle="tab" role="tab"><i class="fa fa-home  white-text fa-2x" aria-hidden="true"> </i>
                         </br>首頁</a>
                     </li>
