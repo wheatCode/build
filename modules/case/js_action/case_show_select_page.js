@@ -91,7 +91,7 @@ class case_show_select_page extends ActionHandler {
         }
         catch (e) {
             var msg = e + "<br>";
-            msg += "JSON String: " + json_str;
+            msg += "JSON String: ssss" + json_str;
             $('#' + this.position_id).html(msg);
         }
 
