@@ -74,7 +74,7 @@ class repair_show_apply_date_E extends ActionHandler {
                                                 <div class="col-12">
                                                     <input placeholder="時間" type="time"  style="min-witdh:100%"  id="input_starttime4" class="">
                                                 </div>
-                                                <script>$('#input_starttime4').pickatime({});</script>
+                                         
                                             </div>
                                         </div>
                                     </div>
