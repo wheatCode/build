@@ -40,7 +40,7 @@ class notice_show_notice_page_E extends ActionHandler {
 
                     data = data + `
                                  <div class="list-group font-weight-bold h3">
-                                      <a onclick="(new case_show_case_page_E('case', 'show_case_page_E', 'body', tcase_id)).run()">`;
+                                      <a onclick="(new case_show_case_page_E('case', 'show_case_page_E', 'body', `+obj['allnotice'][allData]['case_profile_id']+`)).run()">`;
                     //data = data + `<div class="list-group-item list-group-item-success px-1"><span class="text-center" style="display:inline-block">` + ' ' + obj['allnotice'][allData]['title'] + ': ' + obj['allnotice'][allData]['namech'] + ' ' + obj['allnotice'][allData]['name'] + ' ' + obj['allnotice'][allData]['number'] + '  ' + st_time_to_date(obj['allnotice'][allData]['start_datetime']) + `</span> </div>`;
                     if (obj['allnotice'][allData]['id'] == 1) { //水電
 
