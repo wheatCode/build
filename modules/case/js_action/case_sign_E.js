@@ -31,7 +31,7 @@ class case_sign_E extends ActionHandler {
                         
                             <br>
  
-                            <button type="button" class="btn btn-danger font30"id="btn_clear">清除</button>
+                            <button type="button" class="btn btn-danger ml-4 font30"id="btn_clear">清除</button>
                         
                             <button type="button" class="btn btn-indigo font30" id="btn_submit">完成案件</button>
                             
