@@ -18,7 +18,7 @@ class home_show_home_page_E extends ActionHandler {
             this.loadModuleScript("case", "show_select_page_E");
             this.loadModuleScript("case", "show_repair_type_E"); //temp
             // this.loadModuleScript("case", "show_case_page_E"); //temp
-            this.loadModuleScript("case", "show_search_page_E");
+            this.loadModuleScript("case", "show_search_page_e");
             this.loadModuleScript("case", "do_unfinish_E");
             this.loadModuleScript("case", "sign_E");
             this.loadModuleScript("case", "show_search_result_E");
@@ -135,7 +135,7 @@ class home_show_home_page_E extends ActionHandler {
                 })
                 $(document).ready(function() {
                     $('.mdb-select').material_select();
-                    (new case_show_select_page_E('case', 'show_select_page_E', 'home')).run();
+                    (new case_show_select_page_e('case', 'show_select_page_e', 'home')).run();
                 });
                 document.getElementById(this.position_id).innerHTML = str;
 
