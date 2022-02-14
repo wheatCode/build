@@ -32,7 +32,7 @@ class contact_show_contact_E extends ActionHandler {
                                 <table class="table table-bordered">
                                     
                                     <tr>
-                                        <th class="font30">`+st_time_to_min(Date.now())+`</th>
+                                        <th class="font30">`+st_time_to_min(new Date(Date.now()))+`</th>
                                         <th>
                                             <div class="row mt-0">
                                                 <div class="col-8"><input type="text" id="new_contact" style="min-width:100%" class="font30"/></div>
@@ -100,8 +100,10 @@ class contact_show_contact_E extends ActionHandler {
 
             function st_time_to_min(tt1) {
                 var tt3;
-                // tt3 = tt1.split(" ")[0].split("-")[0] + "/" + tt1.split(" ")[0].split("-")[1] + "/" + tt1.split(" ")[0].split("-")[2] + " " + tt1.split(" ")[1].split(":")[0] + ":" + tt1.split(" ")[1].split(":")[1];
-                return tt3;
+                tt3 = tt1.getFullYear()+
+                "/"+(tt1.getMonth()+1)+
+                "/"+tt1.getDate();
+                 return tt3;
             };
 
             function check_contact() {
