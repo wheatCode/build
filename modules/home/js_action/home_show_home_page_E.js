@@ -26,6 +26,7 @@ class home_show_home_page_E extends ActionHandler {
             this.loadModuleScript("repair", "show_repair_history_E");
             this.loadModuleScript("repair_company", "show_repair_company_E"); //temp
             this.loadModuleScript("contact", "show_contact_E");
+            this.loadModuleScript("login", "do_logout_action_E");
             this.loadModuleScript("login", "show_login_page");
 
 
