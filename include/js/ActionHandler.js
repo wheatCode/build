@@ -92,8 +92,9 @@ class ActionHandler {
     }
     loadModuleScript(module, action) {
         var id = module + "_" + action;
-        var src = "modules/" + module + "/js_action/" + id + ".js";
+        var src = "/modules/" + module + "/js_action/" + id + ".js";
         this.loadScript(src, id);
+        console.log(src);
         //return this.loadScript(src, id);
     }
     show_dialog(title, body, footer){
