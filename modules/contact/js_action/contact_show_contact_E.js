@@ -32,10 +32,10 @@ class contact_show_contact_E extends ActionHandler {
                                 <table class="table table-bordered">
                                     
                                     <tr>
-                                        <th class="font30">2018/09/29</th>
+                                        <th class="font30">`+st_time_to_min(Date.now())+`</th>
                                         <th>
                                             <div class="row">
-                                                <div class="col-8"><input type="text" id="new_contact" class="font30"/></div>
+                                                <div class="col-8"><input type="text" id="new_contact" style="min-width:100%" class="font30"/></div>
                                                 <div class="col-4">
                                                     <button type="button" class="btn btn-indigo font30" id="submit_contact" data-case_id="` + this.case_id + `">送出</button>
                                                     <div id="contact_err_msg"></div>
@@ -66,7 +66,7 @@ class contact_show_contact_E extends ActionHandler {
                                     <tr>
                                         <th class="font30">` + st_time_to_min(obj['contact_data'][i]['contact_datetime']) + `</th>
                                         <th>
-                                            <div class="row font30">
+                                            <div class="row font30 pl-2">
                                                 ` + obj['contact_data'][i]['content'] + `
                                             </div>
                                         </th>
@@ -81,7 +81,7 @@ class contact_show_contact_E extends ActionHandler {
                                         <th class="font30">` + obj['date'] + `</th>
                                         <th>
                                             <div class="row">
-                                                <div class="col-8"><input type="text" id="new_contact" class="font30"/></div>
+                                                <div class="col-8"><input type="text" id="new_contact" style="min-width:100%" class="font30" /></div>
                                                 <div class="col-4">
                                                     <button type="button" class="btn btn-indigo font30" id="submit_contact" data-case_id="` + this.case_id + `">送出</button>
                                                     <div id="contact_err_msg"></div>

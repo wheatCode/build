@@ -207,7 +207,7 @@ class case_show_case_page_E extends ActionHandler {
                             <div class="col-12">
                                 <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="`;
                 content += obj['case_data'][0]['content'];
-                content += `" style = "font-size:30px" disabled></textarea>
+                content += `" disabled></textarea>
                             </div>
                         </div>
                     </div>
