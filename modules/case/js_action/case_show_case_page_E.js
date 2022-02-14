@@ -34,7 +34,7 @@ class case_show_case_page_E extends ActionHandler {
                 var content = "";
                 content += `
                 <nav class="navbar bgdark text-white py-1">
-                    <a class="navbar-brand text-right" onclick="(new case_show_select_page_p('case','show_select_page_p','body1')).run()">
+                    <a class="navbar-brand text-right" onclick=" (new home_show_home_page_E('home', 'show_home_page_E', 'body')).run()">
                     <i class="fa fa-chevron-left text-white" aria-hidden="true"></i>
                 </a>
                     <span class="h6 m-auto pr-3 font30">
@@ -204,7 +204,7 @@ class case_show_case_page_E extends ActionHandler {
                     </div>
                     <div class="col-12">
                         <div class="row mt-0">
-                            <div class="col-12">
+                            <div class="col-12 px-2">
                                 <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="`;
                 content += obj['case_data'][0]['content'];
                 content += `" disabled></textarea>
