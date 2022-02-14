@@ -141,7 +141,7 @@ class home_show_home_page_E extends ActionHandler {
                 document.getElementById(this.position_id).innerHTML = str;
                 setTimeout(()=>{
                     (new case_show_select_page_e('case', 'show_select_page_e', 'home')).run();
-                },2000)
+                },1000)
  
 
 
